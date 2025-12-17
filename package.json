@@ -1,14 +1,11 @@
 {
   "name": "temp-app",
-  "private": true,
-  "version": "0.0.0",
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://GITHUB_USER_NAME.github.io/Gestionnaire-inspections-municipales",
+  "homepage": "https://nicolascuellarvilleneuve-create.github.io/Gestionnaire-inspections-municipales",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
