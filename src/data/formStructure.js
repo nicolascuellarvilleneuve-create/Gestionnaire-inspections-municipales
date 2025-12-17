@@ -6,37 +6,44 @@ export const FORM_SECTIONS = [
         fields: [
             { id: 'nom_rue', label: "Nom de rue", type: "text", width: "half" },
             { id: 'numero_civique', label: "Numéro civique", type: "text", width: "half" },
-            { id: 'type_terrain', label: "Type de terrain", type: "text", width: "half" }, // En angle...
-            { id: 'nom_proprietaire', label: "Nom propriétaire", type: "text", width: "full" },
-            { id: 'zone', label: "Zone", type: "select", options: "zones", width: "half" }, // Special handling
+            { id: 'zone', label: "Zone", type: "select", options: "zones", width: "half" },
             { id: 'numero_lot', label: "Numéro de lot", type: "text", width: "half" },
+            { id: 'nom_proprietaire', label: "Nom propriétaire", type: "text", width: "full" },
+            { id: 'telephone', label: "Téléphone", type: "text", width: "half" },
+            // Marges Relevées vs Actuelles ? Le tableau image montre Requis (Zone) vs Actuel (Relevé)
+            // On garde la logique de comparaison
+            { id: 'superficie_terrain', label: "Superficie terrain (m²)", type: "number", width: "half" },
+            { id: 'type_terrain', label: "Type de terrain", type: "text", width: "half" }, // En angle
+            { id: 'total_superficie_batiments', label: "Total superficie bâtiments", type: "number", width: "half" },
+            { id: 'ces', label: "CES Coefficient d'occupation au sol", type: "text", width: "half" },
             { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
             { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
         ]
     },
     {
         id: 'marges_verifications',
-        title: "VÉRIFICATION DES MARGES (ZONAGE)",
+        title: "MARGES (ZONAGE)",
         fields: [
             { id: 'marge_avant', label: "Marge avant (m)", type: "measurement", normField: "margeAvant" },
             { id: 'marge_arriere', label: "Marge arrière (m)", type: "measurement", normField: "margeArriere" },
             { id: 'marge_laterale', label: "Marge latérale (m)", type: "measurement", normField: "margeLaterale" },
             { id: 'marge_laterale_combinee', label: "Marge latérale combinée (m)", type: "measurement", normField: "margeLateraleCombinee" },
+            // Note: L'image montre aussi "Marge actuelle" à côté de la norme. Notre UI le gère deja.
         ]
     },
     {
         id: 'batiment_principal',
         title: "BÂTIMENT PRINCIPAL",
         fields: [
-            { id: 'superficie_batiment', label: "Superficie bâtiment (m²)", type: "number", width: "half" },
+            { id: 'superficie_batiment_princ', label: "Superficie bâtiment (m²)", type: "number", width: "half" },
             { id: 'nombre_etage', label: "Nombre étage", type: "number", width: "half" },
             { id: 'dimension_facade', label: "Dimension façade (m)", type: "number", width: "half" },
             { id: 'hauteur_batiment', label: "Hauteur bâtiment", type: "text", width: "half" },
-            { id: 'mur_lateral_droit', label: "Mur latéral droit (m)", type: "number", width: "half" },
+            { id: 'dimension_mur_lat_droit', label: "Dimension mur latéral droit (m)", type: "number", width: "half" },
             { id: 'revetement_mural_prohibe', label: "Revêtement mural prohibé", type: "text", width: "half" },
-            { id: 'mur_lateral_gauche', label: "Mur latéral gauche (m)", type: "number", width: "half" },
+            { id: 'dimension_mur_lat_gauche', label: "Dimension mur latéral gauche (m)", type: "number", width: "half" },
             { id: 'revetement_toiture', label: "Revêtement toiture", type: "text", width: "half" },
-            { id: 'mur_arriere', label: "Mur arrière (m)", type: "number", width: "half" },
+            { id: 'dimension_mur_arriere', label: "Dimension mur arrière (m)", type: "number", width: "half" },
             { id: 'type_toit', label: "Type de toit", type: "text", width: "half" },
         ]
     },
@@ -46,49 +53,79 @@ export const FORM_SECTIONS = [
         fields: [
             { id: 'nb_batiment_acc', label: "Nombre bâtiment", type: "number", width: "full" },
             { id: 'type_batiment_acc', label: "Type bâtiment", type: "text", width: "half" },
-            { id: 'superficie_batiment_acc', label: "Superficie (m²)", type: "number", width: "half" },
-            { id: 'hauteur_batiment_acc', label: "Hauteur", type: "number", width: "half" },
+            { id: 'superficie_batiment_acc', label: "Superficie bâtiment", type: "text", width: "half" },
+            { id: 'hauteur_batiment_acc', label: "Hauteur bâtiment", type: "text", width: "half" },
             { id: 'permis_delivre_acc', label: "Permis délivré", type: "checkbox", width: "half" },
             { id: 'numero_permis_acc', label: "Numéro permis", type: "text", width: "half" },
+            { id: 'inspecteur', label: "Inspecteur", type: "text", width: "half" },
+            { id: 'date_delivrance_permis', label: "Date délivrance permis", type: "date", width: "half" },
+            { id: 'date_inspection_permis', label: "Date inspection permis", type: "date", width: "half" },
         ]
     },
     {
         id: 'amenagement_terrain',
-        title: "AMÉNAGEMENT TERRAIN & VÉGÉTALISATION",
+        title: "AMÉNAGEMENT TERRAIN - VÉGÉTALISATION",
         fields: [
-            { id: 'superficie_vegetalise', label: "Superficie végétalisée (m²)", type: "number", width: "half" },
-            { id: 'pourcentage_vegetalisation', label: "% Végétalisation", type: "number", width: "half" },
+            { id: 'superficie_vegetalise', label: "Superficie végétalisée", type: "number", width: "half" },
+            { id: 'pourcentage_vegetalisation', label: "Pourcentage végétalisation", type: "text", width: "half" },
             { id: 'ilot_vegetalise', label: "Ilot végétalisé présent", type: "checkbox", width: "half" },
-            { id: 'triangle_visibilite', label: "Triangle de visibilité requis", type: "checkbox", width: "half" },
+            { id: 'profondeur_minimale', label: "Profondeur minimale 2.4m", type: "text", width: "half" },
+            { id: 'triangle_visibilite_veg', label: "Triangle de visibilité requis", type: "checkbox", width: "half" },
         ]
     },
     {
         id: 'stationnement',
-        title: "STATIONNEMENT & CIRCULATION",
+        title: "ALLÉE DE CIRCULATION ET STATIONNEMENT",
         fields: [
-            { id: 'largeur_allee', label: "Largeur allée (m)", type: "number", width: "half" },
-            { id: 'profondeur_allee', label: "Profondeur allée (m)", type: "number", width: "half" },
-            { id: 'superficie_stationnement', label: "Superficie Stationnement (m²)", type: "number", width: "full" },
-            { id: 'nb_cases', label: "Nombre de cases", type: "number", width: "half" },
-            { id: 'case_mobilite_reduite', label: "Case mobilité réduite", type: "checkbox", width: "half" },
+            { id: 'largeur_allee', label: "Largeur (m)", type: "number", width: "half" },
+            { id: 'bordure_stationnement', label: "Bordure stationnement", type: "checkbox", width: "half" },
+            { id: 'profondeur_allee', label: "Profondeur (m)", type: "number", width: "half" },
+            { id: 'hauteur_bordure', label: "Hauteur bordure (0.10 <> 0.5)", type: "text", width: "half" },
+            { id: 'superficie_totale_stationnement', label: "Superficie totale stationnement (m²)", type: "number", width: "full" },
+            { id: 'materiaux_bordure', label: "Matériaux bordure", type: "text", width: "half" },
+            { id: 'superficie_impermeabilise_stat', label: "Superficie impérméabilisée", type: "number", width: "half" },
+            { id: 'profondeur_mini_acces', label: "Profondeur mini allée d'accès (> 6m)", type: "text", width: "half" },
+            { id: 'largeur_mini_acces', label: "Largeur mini allée d'accès (> 6.7m)", type: "text", width: "half" },
+            { id: 'distance_coin', label: "Distance coin / entrée char. (12m min)", type: "text", width: "half" },
+            { id: 'largeur_entree_char', label: "Largeur entrée charretière (6.7 < x > 15)", type: "text", width: "half" },
+            { id: 'dim_mini_case', label: "Dimension mini case (2.75 x 5.5)", type: "text", width: "half" },
+            { id: 'nb_case', label: "Nombre de case", type: "number", width: "half" },
+            { id: 'aire_deneigement', label: "Aire de déneigement", type: "text", width: "half" },
         ]
     },
     {
         id: 'drainage',
         title: "DRAINAGE EAUX PLUVIALES",
         fields: [
-            { id: 'superficie_impermeabilise', label: "Total superficie imperméabilisée", type: "number", width: "full" },
+            { id: 'total_impermeabilise', label: "Total superficie imperméabilisée", type: "number", width: "full" },
             { id: 'puisard_obligatoire', label: "Puisard obligatoire (> 500m²)", type: "checkbox", width: "half" },
             { id: 'separateur_hydro', label: "Séparateur hydrodynamique requis", type: "checkbox", width: "half" },
         ]
     },
     {
         id: 'entreposage',
-        title: "ENTREPOSAGE & CONTENEURS",
+        title: "ENTREPOSAGE",
         fields: [
-            { id: 'type_entreposage', label: "Type d'entreposage", type: "text", width: "full" },
-            { id: 'localisation_cont_conforme', label: "Localisation conteneurs conforme", type: "checkbox", width: "half" },
-            { id: 'hauteur_cloture', label: "Hauteur clôture (m)", type: "number", width: "half" },
+            { id: 'type_entreposage', label: "Type d'entreposage", type: "text", width: "full" }, // C D
+            // Tableaux imbriqués complexes (Localisation / % Max / Hauteur)
+            // Simplification pour l'UI, on pourrait faire un composant custom si nécessaire
+            { id: 'entreposage_cour_avant', label: "Cour Avant (Conformité)", type: "checkbox", width: "half" },
+            { id: 'entreposage_cour_arriere', label: "Cour Arrière (Conformité)", type: "checkbox", width: "half" },
+            { id: 'entreposage_cour_laterale', label: "Cour Latérale (Conformité)", type: "checkbox", width: "half" },
+        ]
+    },
+    {
+        id: 'conteneur',
+        title: "CONTENEUR",
+        fields: [
+            { id: 'loc_conteneurs_conforme', label: "Localisation conteneurs conforme", type: "checkbox", width: "full" },
+            { id: 'conteneur_cour_avant', label: "Cour Avant (Présence)", type: "checkbox", width: "third" },
+            { id: 'conteneur_cour_arriere', label: "Cour Arrière (Présence)", type: "checkbox", width: "third" },
+            { id: 'conteneur_cour_laterale', label: "Cour Latérale (Présence)", type: "checkbox", width: "third" },
+            { id: 'distance_limite_prop', label: "Distance limite propriété", type: "text", width: "half" },
+            { id: 'hauteur_base', label: "Hauteur Base (< 0.6m)", type: "text", width: "half" },
+            { id: 'hauteur_haut', label: "Hauteur Haut (< 3.2m)", type: "text", width: "half" },
+            { id: 'superpose', label: "Superposé", type: "checkbox", width: "half" },
         ]
     }
 ];
