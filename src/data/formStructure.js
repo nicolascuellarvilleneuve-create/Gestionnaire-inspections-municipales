@@ -15,7 +15,7 @@ export const FORM_SECTIONS = [
             { id: 'superficie_terrain', label: "Superficie terrain (m²)", type: "number", width: "half" },
             { id: 'type_terrain', label: "Type de terrain", type: "text", width: "half" }, // En angle
             { id: 'total_superficie_batiments', label: "Total superficie bâtiments", type: "number", width: "half" },
-            { id: 'ces', label: "CES Coefficient d'occupation au sol", type: "text", width: "half" },
+            { id: 'ces', label: "CES Coefficient d'emprise au sol", type: "text", width: "half" },
             { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
             { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
         ]
@@ -117,6 +117,8 @@ export const FORM_SECTIONS = [
     {
         id: 'conteneur',
         title: "CONTENEUR",
+        repeatable: true,
+        repeatLabel: "Conteneur",
         fields: [
             { id: 'loc_conteneurs_conforme', label: "Localisation conteneurs conforme", type: "checkbox", width: "full" },
             { id: 'conteneur_cour_avant', label: "Cour Avant (Présence)", type: "checkbox", width: "third" },
