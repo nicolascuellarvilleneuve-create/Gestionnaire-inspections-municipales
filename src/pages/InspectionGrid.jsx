@@ -1,34 +1,22 @@
 
 import React, { useState, useEffect } from 'react';
 import { REGLEMENTS } from '../data/mockData';
+import { FORM_SECTIONS } from '../data/formStructure';
 import { useInspections } from '../context/InspectionContext';
-import { Save, AlertTriangle, Check, AlertCircle } from 'lucide-react';
+import { Save, AlertTriangle, Check, AlertCircle, Calculator } from 'lucide-react';
 
 const InspectionGrid = ({ onSave }) => {
     const { addInspection } = useInspections();
 
-    // State for form data - mimicking Excel structure
-    const [formData, setFormData] = useState({
-        // Information Immeuble
-        adresse: '',
-        proprietaire: '',
-        zone: '',
-
-        // Marges (Relevées)
-        margeAvantRelevee: '',
-        margeArriereRelevee: '',
-        margeLateraleRelevee: '',
-        margeLateraleCombineeRelevee: '',
-
-        // Bâtiment
-        superficieTerrain: '',
-        nbEtages: '',
-        hauteurBatiment: '',
-
-        // Autres
-        commentaires: ''
+    // Dynamic initial state
+    const initialFormState = {};
+    FORM_SECTIONS.forEach(section => {
+        section.fields.forEach(field => {
+            initialFormState[field.id] = '';
+        });
     });
 
+    const [formData, setFormData] = useState(initialFormState);
     const [validation, setValidation] = useState({});
     const [selectedZoneNorms, setSelectedZoneNorms] = useState(null);
 
@@ -42,34 +30,47 @@ const InspectionGrid = ({ onSave }) => {
         }
     }, [formData.zone]);
 
-    // Real-time validation
+    // Real-time validation for measurement fields
     useEffect(() => {
         if (!selectedZoneNorms) {
             setValidation({});
             return;
         }
 
-        const validateField = (relevee, norme) => {
-            if (relevee === '' || relevee === null) return 'empty';
-            const val = parseFloat(relevee);
-            if (isNaN(val)) return 'invalid';
-            if (val < norme) return 'non-conforme';
-            return 'conforme';
-        };
+        const newValidation = {};
 
-        const newValidation = {
-            margeAvant: validateField(formData.margeAvantRelevee, selectedZoneNorms.margeAvant),
-            margeArriere: validateField(formData.margeArriereRelevee, selectedZoneNorms.margeArriere),
-            margeLaterale: validateField(formData.margeLateraleRelevee, selectedZoneNorms.margeLaterale),
-            margeLateraleCombinee: validateField(formData.margeLateraleCombineeRelevee, selectedZoneNorms.margeLateraleCombinee),
-        };
+        // Find measurement fields that have a normField
+        const measurementFields = FORM_SECTIONS.find(s => s.id === 'marges_verifications')?.fields || [];
+
+        measurementFields.forEach(field => {
+            if (field.type === 'measurement' && field.normField) {
+                const relevee = formData[field.id];
+                const norme = selectedZoneNorms[field.normField];
+
+                if (relevee === '' || relevee === null) {
+                    newValidation[field.id] = 'empty';
+                } else {
+                    const val = parseFloat(relevee);
+                    if (isNaN(val)) {
+                        newValidation[field.id] = 'invalid';
+                    } else if (val < norme) {
+                        newValidation[field.id] = 'non-conforme';
+                    } else {
+                        newValidation[field.id] = 'conforme';
+                    }
+                }
+            }
+        });
 
         setValidation(newValidation);
     }, [formData, selectedZoneNorms]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        const { name, value, type, checked } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
     };
 
     const calculateGap = (relevee, norme) => {
@@ -82,15 +83,15 @@ const InspectionGrid = ({ onSave }) => {
     const getStatusBadge = (status, gap) => {
         if (status === 'conforme') {
             return (
-                <span className="flex items-center text-green-600 text-sm font-medium">
-                    <Check size={16} className="mr-1" /> Conforme (+{gap}m)
+                <span className="flex items-center text-green-600 text-xs font-bold uppercase tracking-wider bg-green-50 px-2 py-1 rounded-md border border-green-100">
+                    <Check size={14} className="mr-1" /> Conforme (+{gap}m)
                 </span>
             );
         }
         if (status === 'non-conforme') {
             return (
-                <span className="flex items-center text-red-600 text-sm font-medium animate-pulse">
-                    <AlertCircle size={16} className="mr-1" /> Non-conforme ({gap}m)
+                <span className="flex items-center text-red-600 text-xs font-bold uppercase tracking-wider bg-red-50 px-2 py-1 rounded-md border border-red-100 animate-pulse">
+                    <AlertCircle size={14} className="mr-1" /> Non-conforme ({gap}m)
                 </span>
             );
         }
@@ -100,19 +101,16 @@ const InspectionGrid = ({ onSave }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Determine global status
         const hasNonConformity = Object.values(validation).some(v => v === 'non-conforme');
         const status = hasNonConformity ? 'Non-conforme' : 'Conforme';
 
         const inspection = {
-            adresse: formData.adresse,
-            proprietaire: formData.proprietaire,
+            adresse: formData.nom_rue ? `${formData.numero_civique || ''} ${formData.nom_rue}` : 'Adresse Inconnue',
+            proprietaire: formData.nom_proprietaire,
             zone: formData.zone,
             status: status,
-            details: {
-                margeAvant: { requis: selectedZoneNorms?.margeAvant, releve: formData.margeAvantRelevee, conforme: validation.margeAvant === 'conforme' },
-                margeArriere: { requis: selectedZoneNorms?.margeArriere, releve: formData.margeArriereRelevee, conforme: validation.margeArriere === 'conforme' }
-            }
+            formData: formData, // Save full data
+            date: new Date().toISOString()
         };
 
         addInspection(inspection);
@@ -120,186 +118,137 @@ const InspectionGrid = ({ onSave }) => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto pb-12">
-            <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-slate-800">Grille d'Inspection</h2>
-                <div className="text-sm text-slate-500">Date: {new Date().toLocaleDateString()}</div>
+        <div className="max-w-5xl mx-auto pb-20">
+            <div className="flex justify-between items-center mb-8">
+                <div>
+                    <h2 className="text-3xl font-bold text-slate-800 tracking-tight">Grille d'Inspection</h2>
+                    <p className="text-slate-500 mt-1">Saisie complète et validation normative</p>
+                </div>
+                <div className="text-sm font-medium bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 text-slate-600">
+                    {new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-
-                {/* Section 1: Informations de Base */}
-                <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <h3 className="text-lg font-semibold text-slate-700 mb-4 flex items-center">
-                        <span className="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
-                        Information Immeuble
-                    </h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Adresse</label>
-                            <input
-                                type="text"
-                                name="adresse"
-                                value={formData.adresse}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                placeholder="ex: 123 rue Principale"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Propriétaire</label>
-                            <input
-                                type="text"
-                                name="proprietaire"
-                                value={formData.proprietaire}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                                placeholder="ex: Jean Tremblay"
-                            />
-                        </div>
-
-                        <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Zone (Zonage)</label>
-                            <select
-                                name="zone"
-                                value={formData.zone}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
-                                required
-                            >
-                                <option value="">Sélectionner une zone...</option>
-                                {REGLEMENTS.map(r => (
-                                    <option key={r.zone} value={r.zone}>{r.zone}</option>
-                                ))}
-                            </select>
-                            {selectedZoneNorms && (
-                                <div className="mt-2 p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-600 grid grid-cols-2 md:grid-cols-4 gap-2">
-                                    <div><span className="font-semibold">Marge Av. Min:</span> {selectedZoneNorms.margeAvant}m</div>
-                                    <div><span className="font-semibold">Marge Arr. Min:</span> {selectedZoneNorms.margeArriere}m</div>
-                                    <div><span className="font-semibold">Marge Lat. Min:</span> {selectedZoneNorms.margeLaterale}m</div>
-                                    <div><span className="font-semibold">Marge Comb. Min:</span> {selectedZoneNorms.margeLateraleCombinee}m</div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Section 2: Marges et Validations (Le "Core" demandé) */}
-                <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <h3 className="text-lg font-semibold text-slate-700 mb-4 flex items-center">
-                        <span className="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
-                        Validation des Marges (Zonage)
-                    </h3>
-
-                    <div className="space-y-6">
-                        {/* Marge Avant */}
-                        <div className={`p-4 rounded-lg border ${validation.margeAvant === 'non-conforme' ? 'bg-red-50 border-red-200' : 'bg-slate-50 border-slate-200'}`}>
-                            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                                <div className="md:col-span-4">
-                                    <label className="block text-sm font-medium text-slate-700">Marge Avant</label>
-                                    <div className="text-xs text-slate-500">Norme: {selectedZoneNorms?.margeAvant || '-'} m</div>
-                                </div>
-                                <div className="md:col-span-4">
-                                    <input
-                                        type="number"
-                                        step="0.01"
-                                        name="margeAvantRelevee"
-                                        value={formData.margeAvantRelevee}
-                                        onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg"
-                                        placeholder="Mesure relevée (m)"
-                                        disabled={!formData.zone}
-                                    />
-                                </div>
-                                <div className="md:col-span-4">
-                                    {getStatusBadge(validation.margeAvant, calculateGap(formData.margeAvantRelevee, selectedZoneNorms?.margeAvant))}
-                                </div>
+            <form onSubmit={handleSubmit} className="space-y-8">
+                {FORM_SECTIONS.map((section, index) => (
+                    <section key={section.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition-all hover:shadow-md">
+                        <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-100 flex items-center">
+                            <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm mr-4 shadow-sm">
+                                {index + 1}
                             </div>
+                            <h3 className="text-lg font-bold text-slate-800 tracking-tight uppercase">{section.title}</h3>
                         </div>
 
-                        {/* Marge Arrière */}
-                        <div className={`p-4 rounded-lg border ${validation.margeArriere === 'non-conforme' ? 'bg-red-50 border-red-200' : 'bg-slate-50 border-slate-200'}`}>
-                            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                                <div className="md:col-span-4">
-                                    <label className="block text-sm font-medium text-slate-700">Marge Arrière</label>
-                                    <div className="text-xs text-slate-500">Norme: {selectedZoneNorms?.margeArriere || '-'} m</div>
-                                </div>
-                                <div className="md:col-span-4">
-                                    <input
-                                        type="number"
-                                        step="0.01"
-                                        name="margeArriereRelevee"
-                                        value={formData.margeArriereRelevee}
-                                        onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg"
-                                        placeholder="Mesure relevée (m)"
-                                        disabled={!formData.zone}
-                                    />
-                                </div>
-                                <div className="md:col-span-4">
-                                    {getStatusBadge(validation.margeArriere, calculateGap(formData.margeArriereRelevee, selectedZoneNorms?.margeArriere))}
-                                </div>
-                            </div>
-                        </div>
+                        <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                            {section.fields.map(field => {
+                                // Special rendering for Zones (Select)
+                                if (field.type === 'select' && field.options === 'zones') {
+                                    return (
+                                        <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                                            <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
+                                            <select
+                                                name={field.id}
+                                                value={formData[field.id]}
+                                                onChange={handleChange}
+                                                className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none font-medium"
+                                            >
+                                                <option value="">Sélectionner...</option>
+                                                {REGLEMENTS.map(r => (
+                                                    <option key={r.zone} value={r.zone}>{r.zone}</option>
+                                                ))}
+                                            </select>
+                                            {/* Quick overview of selected norms */}
+                                            {selectedZoneNorms && (
+                                                <div className="mt-3 p-3 bg-blue-50/50 border border-blue-100 rounded-lg text-xs text-blue-800 grid grid-cols-2 gap-2">
+                                                    <div><span className="font-bold">Avant:</span> {selectedZoneNorms.margeAvant}m</div>
+                                                    <div><span className="font-bold">Arrière:</span> {selectedZoneNorms.margeArriere}m</div>
+                                                    <div><span className="font-bold">Latérale:</span> {selectedZoneNorms.margeLaterale}m</div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                }
 
-                        {/* Marge Latérale */}
-                        <div className={`p-4 rounded-lg border ${validation.margeLaterale === 'non-conforme' ? 'bg-red-50 border-red-200' : 'bg-slate-50 border-slate-200'}`}>
-                            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                                <div className="md:col-span-4">
-                                    <label className="block text-sm font-medium text-slate-700">Marge Latérale</label>
-                                    <div className="text-xs text-slate-500">Norme: {selectedZoneNorms?.margeLaterale || '-'} m</div>
-                                </div>
-                                <div className="md:col-span-4">
-                                    <input
-                                        type="number"
-                                        step="0.01"
-                                        name="margeLateraleRelevee"
-                                        value={formData.margeLateraleRelevee}
-                                        onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-slate-300 rounded-lg"
-                                        placeholder="Mesure relevée (m)"
-                                        disabled={!formData.zone}
-                                    />
-                                </div>
-                                <div className="md:col-span-4">
-                                    {getStatusBadge(validation.margeLaterale, calculateGap(formData.margeLateraleRelevee, selectedZoneNorms?.margeLaterale))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                                // Special rendering for Comparisons (Measurements)
+                                if (field.type === 'measurement') {
+                                    const norm = selectedZoneNorms ? selectedZoneNorms[field.normField] : null;
+                                    const valStatus = validation[field.id];
+                                    const gap = calculateGap(formData[field.id], norm);
 
-                {/* Section 3: Autres Détails (Simplifié pour MVP mais extensible) */}
-                <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 opacity-75">
-                    <h3 className="text-lg font-semibold text-slate-700 mb-4 flex items-center">
-                        <span className="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">3</span>
-                        Autres Informations (Bâtiment & Terrain)
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Superficie Terrain (m²)</label>
-                            <input type="number" name="superficieTerrain" value={formData.superficieTerrain} onChange={handleChange} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Nombre d'étages</label>
-                            <input type="number" name="nbEtages" value={formData.nbEtages} onChange={handleChange} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-slate-600 mb-1">Hauteur Bâtiment (m)</label>
-                            <input type="number" name="hauteurBatiment" value={formData.hauteurBatiment} onChange={handleChange} className="w-full px-3 py-2 border border-slate-300 rounded-lg" />
-                        </div>
-                    </div>
-                </section>
+                                    return (
+                                        <div key={field.id} className="md:col-span-2 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                                <div className="flex-1">
+                                                    <label className="block text-sm font-semibold text-slate-700 mb-1">{field.label}</label>
+                                                    <div className="text-xs text-slate-500 font-mono">
+                                                        Norme: <span className="font-bold text-slate-700">{norm ?? '-'} m</span>
+                                                    </div>
+                                                </div>
+                                                <div className="w-full md:w-1/3">
+                                                    <div className="relative">
+                                                        <input
+                                                            type="number"
+                                                            step="0.01"
+                                                            name={field.id}
+                                                            value={formData[field.id]}
+                                                            onChange={handleChange}
+                                                            className={`w-full pl-4 pr-4 py-2 border rounded-lg focus:ring-2 outline-none transition-all ${valStatus === 'non-conforme' ? 'border-red-300 focus:ring-red-200 text-red-700' :
+                                                                    valStatus === 'conforme' ? 'border-green-300 focus:ring-green-200 text-green-700' :
+                                                                        'border-slate-300 focus:ring-blue-200'
+                                                                }`}
+                                                            placeholder="Saisir mesure..."
+                                                            disabled={!selectedZoneNorms}
+                                                        />
+                                                        <Calculator className="absolute right-3 top-2.5 text-slate-400" size={16} />
+                                                    </div>
+                                                </div>
+                                                <div className="min-w-[140px] flex justify-end">
+                                                    {getStatusBadge(valStatus, gap)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }
 
-                <div className="flex justify-end pt-4">
+                                // Default rendering
+                                return (
+                                    <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                                        <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
+                                        {field.type === 'checkbox' ? (
+                                            <label className="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
+                                                <input
+                                                    type="checkbox"
+                                                    name={field.id}
+                                                    checked={formData[field.id]}
+                                                    onChange={handleChange}
+                                                    className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
+                                                />
+                                                <span className="text-sm text-slate-600">Oui / Confirmé</span>
+                                            </label>
+                                        ) : (
+                                            <input
+                                                type={field.type}
+                                                name={field.id}
+                                                value={formData[field.id]}
+                                                onChange={handleChange}
+                                                className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none"
+                                                placeholder={field.label}
+                                            />
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </section>
+                ))}
+
+                <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-200 flex justify-end z-30 md:static md:bg-transparent md:border-0 md:p-0">
                     <button
                         type="submit"
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold flex items-center shadow-lg transition-transform transform hover:scale-105"
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-200"
                     >
-                        <Save className="mr-2" size={20} />
-                        Enregistrer l'Inspection
+                        <Save className="mr-3" size={24} />
+                        Compter et Enregistrer l'Inspection
                     </button>
                 </div>
 
