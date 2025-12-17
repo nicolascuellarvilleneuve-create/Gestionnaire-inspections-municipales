@@ -13,7 +13,13 @@ export const FORM_SECTIONS = [
             // Marges Relevées vs Actuelles ? Le tableau image montre Requis (Zone) vs Actuel (Relevé)
             // On garde la logique de comparaison
             { id: 'superficie_terrain', label: "Superficie terrain (m²)", type: "number", width: "half" },
-            { id: 'type_terrain', label: "Type de terrain", type: "text", width: "half" }, // En angle
+            {
+                id: 'type_terrain',
+                label: "Type de terrain",
+                type: "select",
+                options: ["Terrain intérieur", "Terrain d'angle", "Terrain transversal"],
+                width: "half"
+            },
             { id: 'total_superficie_batiments', label: "Total superficie bâtiments", type: "number", width: "half" },
             { id: 'ces', label: "CES Coefficient d'emprise au sol", type: "text", width: "half" },
             { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },

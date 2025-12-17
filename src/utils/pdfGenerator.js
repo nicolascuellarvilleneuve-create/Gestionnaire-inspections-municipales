@@ -1,6 +1,6 @@
 
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 
 export const generateInspectionPDF = (inspection) => {
     const doc = new jsPDF();
@@ -70,7 +70,7 @@ export const generateInspectionPDF = (inspection) => {
         marginRows.push(["Données détaillées", "Voir grille", "-", "-"]);
     }
 
-    doc.autoTable({
+    autoTable(doc, {
         startY: yPos,
         head: [['Marge', 'Requis', 'Relevé', 'Statut']],
         body: marginRows,

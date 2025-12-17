@@ -284,8 +284,15 @@ const InspectionGrid = ({ onSave }) => {
 
                             <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                                 {section.fields.map(field => {
-                                    // Special rendering for Zones (Select)
-                                    if (field.type === 'select' && field.options === 'zones') {
+                                    // Special rendering for Zones (Select via Data) or Generic Select (Array options)
+                                    if (field.type === 'select') {
+                                        let options = [];
+                                        if (field.options === 'zones') {
+                                            options = REGLEMENTS.map(r => r.zone);
+                                        } else if (Array.isArray(field.options)) {
+                                            options = field.options;
+                                        }
+
                                         return (
                                             <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
                                                 <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
@@ -296,12 +303,12 @@ const InspectionGrid = ({ onSave }) => {
                                                     className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none font-medium"
                                                 >
                                                     <option value="">Sélectionner...</option>
-                                                    {REGLEMENTS.map(r => (
-                                                        <option key={r.zone} value={r.zone}>{r.zone}</option>
+                                                    {options.map(opt => (
+                                                        <option key={opt} value={opt}>{opt}</option>
                                                     ))}
                                                 </select>
-                                                {/* Quick overview of selected norms */}
-                                                {selectedZoneNorms && (
+                                                {/* Special display for Zones norms */}
+                                                {field.options === 'zones' && selectedZoneNorms && (
                                                     <div className="mt-3 p-3 bg-blue-50/50 border border-blue-100 rounded-lg text-xs text-blue-800 grid grid-cols-2 gap-2">
                                                         <div><span className="font-bold">Avant:</span> {selectedZoneNorms.margeAvant}m</div>
                                                         <div><span className="font-bold">Arrière:</span> {selectedZoneNorms.margeArriere}m</div>
@@ -336,8 +343,8 @@ const InspectionGrid = ({ onSave }) => {
                                                                 value={formData[field.id]}
                                                                 onChange={handleChange}
                                                                 className={`w-full pl-4 pr-4 py-2 border rounded-lg focus:ring-2 outline-none transition-all ${valStatus === 'non-conforme' ? 'border-red-300 focus:ring-red-200 text-red-700' :
-                                                                        valStatus === 'conforme' ? 'border-green-300 focus:ring-green-200 text-green-700' :
-                                                                            'border-slate-300 focus:ring-blue-200'
+                                                                    valStatus === 'conforme' ? 'border-green-300 focus:ring-green-200 text-green-700' :
+                                                                        'border-slate-300 focus:ring-blue-200'
                                                                     }`}
                                                                 placeholder="Saisir mesure..."
                                                                 disabled={!selectedZoneNorms}
