@@ -31,8 +31,11 @@ export const FORM_SECTIONS = [
         id: 'calcul_ces',
         title: "CALCUL DU C.E.S (EMPRISE AU SOL)",
         fields: [
-            { id: 'superficie_batiment_principal', label: "Superficie Bâtiment Principal (m²)", type: "number", width: "half" },
-            { id: 'superficie_batiment_accessoire', label: "Sup. Bâtiments Accessoires (Garage, Cabanon...)", type: "number", width: "half" },
+            // Linked to Section 4 (Bâtiment Principal)
+            { id: 'superficie_batiment_princ', label: "Superficie Bâtiment Principal (m²) (Voir Onglet 4)", type: "number", width: "half", readonly: true },
+            // Linked to Section 5 (Bâtiment Complémentaire)
+            { id: 'superficie_batiment_acc', label: "Sup. Bâtiments Accessoires (Voir Onglet 5)", type: "number", width: "half", readonly: true },
+
             { id: 'total_superficie_batiments', label: "Total Superficie Bâtiments (Calculé)", type: "number", width: "half", readonly: true },
             { id: 'ces', label: "CES Résultant (%)", type: "text", width: "half", readonly: true },
             { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
@@ -72,7 +75,7 @@ export const FORM_SECTIONS = [
         fields: [
             { id: 'nb_batiment_acc', label: "Nombre bâtiment", type: "number", width: "full" },
             { id: 'type_batiment_acc', label: "Type bâtiment", type: "text", width: "half" },
-            { id: 'superficie_batiment_acc', label: "Superficie bâtiment", type: "text", width: "half" },
+            { id: 'superficie_batiment_acc', label: "Superficie bâtiment (m²)", type: "number", width: "half" },
             { id: 'hauteur_batiment_acc', label: "Hauteur bâtiment", type: "text", width: "half" },
             { id: 'permis_delivre_acc', label: "Permis délivré", type: "checkbox", width: "half" },
             { id: 'numero_permis_acc', label: "Numéro permis", type: "text", width: "half" },

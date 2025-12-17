@@ -84,9 +84,9 @@ const InspectionGrid = ({ onSave }) => {
     // Auto-Calculate CES
     useEffect(() => {
         const terrain = parseFloat(formData.superficie_terrain) || 0;
-        const batPrincipal = parseFloat(formData.superficie_batiment_principal) || 0;
-        const batAccessoire = parseFloat(formData.superficie_batiment_accessoire) || 0;
-        // Add potentially other fields if we had them or loop through accessoire keys if dynamic
+        // Updated IDs to match Section 4 and 5
+        const batPrincipal = parseFloat(formData.superficie_batiment_princ) || 0;
+        const batAccessoire = parseFloat(formData.superficie_batiment_acc) || 0;
 
         const totalBatiments = batPrincipal + batAccessoire;
 
@@ -96,15 +96,19 @@ const InspectionGrid = ({ onSave }) => {
             ces = (totalBatiments / terrain) * 100;
         }
 
-        // Only update if values changed to avoid loop, but React state setter is smart enough
-        // We write back to the readonly fields so they are saved
-        setFormData(prev => ({
-            ...prev,
-            total_superficie_batiments: totalBatiments > 0 ? totalBatiments.toFixed(2) : '',
-            ces: ces > 0 ? ces.toFixed(2) + '%' : '',
-        }));
+        // Only update if values changed to avoid loop
+        const newTotal = totalBatiments > 0 ? totalBatiments.toFixed(2) : '';
+        const newCes = ces > 0 ? ces.toFixed(2) + '%' : '';
 
-    }, [formData.superficie_terrain, formData.superficie_batiment_principal, formData.superficie_batiment_accessoire]);
+        if (formData.total_superficie_batiments !== newTotal || formData.ces !== newCes) {
+            setFormData(prev => ({
+                ...prev,
+                total_superficie_batiments: newTotal,
+                ces: newCes,
+            }));
+        }
+
+    }, [formData.superficie_terrain, formData.superficie_batiment_princ, formData.superficie_batiment_acc, formData.total_superficie_batiments, formData.ces]);
 
     // Standard Field Change
     const handleChange = (e) => {
