@@ -81,6 +81,31 @@ const InspectionGrid = ({ onSave }) => {
         setValidation(newValidation);
     }, [formData, selectedZoneNorms]);
 
+    // Auto-Calculate CES
+    useEffect(() => {
+        const terrain = parseFloat(formData.superficie_terrain) || 0;
+        const batPrincipal = parseFloat(formData.superficie_batiment_principal) || 0;
+        const batAccessoire = parseFloat(formData.superficie_batiment_accessoire) || 0;
+        // Add potentially other fields if we had them or loop through accessoire keys if dynamic
+
+        const totalBatiments = batPrincipal + batAccessoire;
+
+        // Calculate CES % = (Total Bats / Terrain) * 100
+        let ces = 0;
+        if (terrain > 0) {
+            ces = (totalBatiments / terrain) * 100;
+        }
+
+        // Only update if values changed to avoid loop, but React state setter is smart enough
+        // We write back to the readonly fields so they are saved
+        setFormData(prev => ({
+            ...prev,
+            total_superficie_batiments: totalBatiments > 0 ? totalBatiments.toFixed(2) : '',
+            ces: ces > 0 ? ces.toFixed(2) + '%' : '',
+        }));
+
+    }, [formData.superficie_terrain, formData.superficie_batiment_principal, formData.superficie_batiment_accessoire]);
+
     // Standard Field Change
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;

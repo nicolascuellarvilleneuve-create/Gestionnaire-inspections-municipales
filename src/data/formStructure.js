@@ -20,8 +20,21 @@ export const FORM_SECTIONS = [
                 options: ["Terrain intérieur", "Terrain d'angle", "Terrain transversal"],
                 width: "half"
             },
-            { id: 'total_superficie_batiments', label: "Total superficie bâtiments", type: "number", width: "half" },
-            { id: 'ces', label: "CES Coefficient d'emprise au sol", type: "text", width: "half" },
+            // The following fields are moved to the new 'calcul_ces' section or removed as per instruction
+            // { id: 'total_superficie_batiments', label: "Total superficie bâtiments", type: "number", width: "half" },
+            // { id: 'ces', label: "CES Coefficient d'emprise au sol", type: "text", width: "half" },
+            // { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
+            // { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
+        ]
+    },
+    {
+        id: 'calcul_ces',
+        title: "CALCUL DU C.E.S (EMPRISE AU SOL)",
+        fields: [
+            { id: 'superficie_batiment_principal', label: "Superficie Bâtiment Principal (m²)", type: "number", width: "half" },
+            { id: 'superficie_batiment_accessoire', label: "Sup. Bâtiments Accessoires (Garage, Cabanon...)", type: "number", width: "half" },
+            { id: 'total_superficie_batiments', label: "Total Superficie Bâtiments (Calculé)", type: "number", width: "half", readonly: true },
+            { id: 'ces', label: "CES Résultant (%)", type: "text", width: "half", readonly: true },
             { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
             { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
         ]
