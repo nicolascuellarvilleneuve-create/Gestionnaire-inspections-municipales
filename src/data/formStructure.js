@@ -136,7 +136,8 @@ export const FORM_SECTIONS = [
         title: "RÉSUMÉ DRAINAGE EAUX PLUVIALES",
         fields: [
             { id: 'total_impermeabilise_calc', label: "Total superficie imperméabilisée (Calculé)", type: "number", width: "full", readonly: true },
-            { id: 'puisard_obligatoire', label: "Puisard obligatoire (> 500m²)", type: "checkbox", width: "half", readonly: true },
+            { id: 'puisard_obligatoire_statut', label: "Puisard obligatoire (> 500m²)", type: "text", width: "half", readonly: true },
+            { id: 'puisard_present', label: "Puisard présent sur le site", type: "checkbox", width: "half" },
             { id: 'separateur_hydro', label: "Séparateur hydrodynamique requis", type: "checkbox", width: "half" },
         ]
     },

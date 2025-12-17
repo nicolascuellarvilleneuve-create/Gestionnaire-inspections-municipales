@@ -154,17 +154,17 @@ const InspectionGrid = ({ onSave }) => {
         }
 
         const newTotalStr = total > 0 ? total.toFixed(2) : '';
-        const puisardReq = total > 500;
+        const puisardStatus = total > 500 ? 'REQUIS' : 'NON REQUIS';
 
-        if (formData.total_impermeabilise_calc !== newTotalStr || formData.puisard_obligatoire !== puisardReq) {
+        if (formData.total_impermeabilise_calc !== newTotalStr || formData.puisard_obligatoire_statut !== puisardStatus) {
             setFormData(prev => ({
                 ...prev,
                 total_impermeabilise_calc: newTotalStr,
-                puisard_obligatoire: puisardReq
+                puisard_obligatoire_statut: puisardStatus
             }));
         }
 
-    }, [formData.surfaces_impermeabilisees, formData.total_impermeabilise_calc, formData.puisard_obligatoire]);
+    }, [formData.surfaces_impermeabilisees, formData.total_impermeabilise_calc, formData.puisard_obligatoire_statut]);
 
     const removeRepeatableItem = (sectionId, index) => {
         setFormData(prev => ({
