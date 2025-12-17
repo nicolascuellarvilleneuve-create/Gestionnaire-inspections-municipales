@@ -116,11 +116,27 @@ export const FORM_SECTIONS = [
         ]
     },
     {
-        id: 'drainage',
-        title: "DRAINAGE EAUX PLUVIALES",
+        id: 'surfaces_impermeabilisees',
+        title: "DÉTAIL SURFACES IMPERMÉABILISÉES",
+        repeatable: true,
+        repeatLabel: "Surface",
         fields: [
-            { id: 'total_impermeabilise', label: "Total superficie imperméabilisée", type: "number", width: "full" },
-            { id: 'puisard_obligatoire', label: "Puisard obligatoire (> 500m²)", type: "checkbox", width: "half" },
+            {
+                id: 'type_surface',
+                label: "Type de surface",
+                type: "select",
+                options: ["Toiture", "Stationnement", "Surface vague"],
+                width: "half"
+            },
+            { id: 'superficie_surface', label: "Superficie (m²)", type: "number", width: "half" }
+        ]
+    },
+    {
+        id: 'drainage_resume',
+        title: "RÉSUMÉ DRAINAGE EAUX PLUVIALES",
+        fields: [
+            { id: 'total_impermeabilise_calc', label: "Total superficie imperméabilisée (Calculé)", type: "number", width: "full", readonly: true },
+            { id: 'puisard_obligatoire', label: "Puisard obligatoire (> 500m²)", type: "checkbox", width: "half", readonly: true },
             { id: 'separateur_hydro', label: "Séparateur hydrodynamique requis", type: "checkbox", width: "half" },
         ]
     },

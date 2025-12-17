@@ -141,6 +141,31 @@ const InspectionGrid = ({ onSave }) => {
         }));
     };
 
+    // Auto-Calculate Drainage
+    useEffect(() => {
+        const surfaces = formData.surfaces_impermeabilisees || [];
+
+        let total = 0;
+        if (Array.isArray(surfaces)) {
+            total = surfaces.reduce((acc, item) => {
+                const val = parseFloat(item.superficie_surface) || 0;
+                return acc + val;
+            }, 0);
+        }
+
+        const newTotalStr = total > 0 ? total.toFixed(2) : '';
+        const puisardReq = total > 500;
+
+        if (formData.total_impermeabilise_calc !== newTotalStr || formData.puisard_obligatoire !== puisardReq) {
+            setFormData(prev => ({
+                ...prev,
+                total_impermeabilise_calc: newTotalStr,
+                puisard_obligatoire: puisardReq
+            }));
+        }
+
+    }, [formData.surfaces_impermeabilisees, formData.total_impermeabilise_calc, formData.puisard_obligatoire]);
+
     const removeRepeatableItem = (sectionId, index) => {
         setFormData(prev => ({
             ...prev,
