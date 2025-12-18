@@ -21,7 +21,7 @@ export const FORM_SECTIONS = [
                 width: "half"
             },
             { id: 'presence_locataire', label: "Présence de locataire", type: "checkbox", width: "half" },
-            { id: 'dob', label: "DOB (densité occupation bâtiment)", type: "text", width: "half" },
+            { id: 'dob', label: "DOB (densité occupation bâtiment)", type: "text", width: "half", readonly: true },
             // The following fields are moved to the new 'calcul_ces' section or removed as per instruction
             // { id: 'total_superficie_batiments', label: "Total superficie bâtiments", type: "number", width: "half" },
             // { id: 'ces', label: "CES Coefficient d'emprise au sol", type: "text", width: "half" },

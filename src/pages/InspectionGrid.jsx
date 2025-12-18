@@ -166,6 +166,34 @@ const InspectionGrid = ({ onSave }) => {
 
     }, [formData.surfaces_impermeabilisees, formData.total_impermeabilise_calc, formData.puisard_obligatoire_statut]);
 
+    // Auto-Calculate DOB (Density of Occupation)
+    useEffect(() => {
+        const tenants = formData.locataires || [];
+        const batimentPrincipal = parseFloat(formData.superficie_batiment_princ) || 0;
+
+        let totalTenantArea = 0;
+        if (Array.isArray(tenants)) {
+            totalTenantArea = tenants.reduce((acc, item) => {
+                const val = parseFloat(item.superficie_occupe) || 0;
+                return acc + val;
+            }, 0);
+        }
+
+        let dob = 0;
+        if (batimentPrincipal > 0) {
+            dob = (totalTenantArea / batimentPrincipal) * 100;
+        }
+
+        const newDob = dob > 0 ? dob.toFixed(2) + '%' : '';
+
+        if (formData.dob !== newDob) {
+            setFormData(prev => ({
+                ...prev,
+                dob: newDob
+            }));
+        }
+    }, [formData.locataires, formData.superficie_batiment_princ, formData.dob]);
+
     const removeRepeatableItem = (sectionId, index) => {
         setFormData(prev => ({
             ...prev,
