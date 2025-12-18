@@ -125,7 +125,7 @@ export const FORM_SECTIONS = [
                 id: 'type_surface',
                 label: "Type de surface",
                 type: "select",
-                options: ["Toiture", "Stationnement", "Surface vague"],
+                options: ["Surface de stationnement", "Surface minéralisée", "Non applicable"],
                 width: "half"
             },
             { id: 'superficie_surface', label: "Superficie (m²)", type: "number", width: "half" }

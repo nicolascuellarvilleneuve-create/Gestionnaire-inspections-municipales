@@ -296,7 +296,19 @@ const InspectionGrid = ({ onSave }) => {
                                             {section.fields.map(field => (
                                                 <div key={`${field.id}_${itemIndex}`} className={field.width === 'full' ? 'md:col-span-2' : ''}>
                                                     <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
-                                                    {field.type === 'checkbox' ? (
+                                                    {field.type === 'select' ? (
+                                                        <select
+                                                            name={field.id}
+                                                            value={item[field.id]}
+                                                            onChange={(e) => handleRepeatableChange(section.id, itemIndex, e)}
+                                                            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none font-medium"
+                                                        >
+                                                            <option value="">Sélectionner...</option>
+                                                            {Array.isArray(field.options) && field.options.map(opt => (
+                                                                <option key={opt} value={opt}>{opt}</option>
+                                                            ))}
+                                                        </select>
+                                                    ) : field.type === 'checkbox' ? (
                                                         <label className="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
                                                             <input
                                                                 type="checkbox"
