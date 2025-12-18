@@ -194,6 +194,16 @@ const InspectionGrid = ({ onSave }) => {
         }
     }, [formData.locataires, formData.superficie_batiment_princ, formData.dob]);
 
+    // Auto-Set Storage Type based on Zone
+    useEffect(() => {
+        if (selectedZoneNorms) {
+            const type = selectedZoneNorms.typeEntreposage || '';
+            if (formData.type_entreposage !== type) {
+                setFormData(prev => ({ ...prev, type_entreposage: type }));
+            }
+        }
+    }, [selectedZoneNorms, formData.type_entreposage]);
+
     const removeRepeatableItem = (sectionId, index) => {
         setFormData(prev => ({
             ...prev,
@@ -417,6 +427,7 @@ const InspectionGrid = ({ onSave }) => {
                                                         <div><span className="font-bold">Avant:</span> {selectedZoneNorms.margeAvant}m</div>
                                                         <div><span className="font-bold">Arrière:</span> {selectedZoneNorms.margeArriere}m</div>
                                                         <div><span className="font-bold">Latérale:</span> {selectedZoneNorms.margeLaterale}m</div>
+                                                        <div><span className="font-bold">Entreposage:</span> {selectedZoneNorms.typeEntreposage}</div>
                                                     </div>
                                                 )}
                                             </div>
