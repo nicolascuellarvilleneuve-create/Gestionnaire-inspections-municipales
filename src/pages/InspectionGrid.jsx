@@ -256,6 +256,11 @@ const InspectionGrid = ({ onSave }) => {
             <form onSubmit={handleSubmit} className="space-y-8">
                 {FORM_SECTIONS.map((section, index) => {
 
+                    // Conditional rendering: LOCATAIRES needs presence_locataire checked
+                    if (section.id === 'locataires' && !formData.presence_locataire) {
+                        return null;
+                    }
+
                     // -------------- REPEATABLE SECTION RENDERING --------------
                     if (section.repeatable) {
                         return (

@@ -20,11 +20,25 @@ export const FORM_SECTIONS = [
                 options: ["Terrain intérieur", "Terrain d'angle", "Terrain transversal"],
                 width: "half"
             },
+            { id: 'presence_locataire', label: "Présence de locataire", type: "checkbox", width: "half" },
             // The following fields are moved to the new 'calcul_ces' section or removed as per instruction
             // { id: 'total_superficie_batiments', label: "Total superficie bâtiments", type: "number", width: "half" },
             // { id: 'ces', label: "CES Coefficient d'emprise au sol", type: "text", width: "half" },
             // { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
             // { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
+        ]
+    },
+    {
+        id: 'locataires',
+        title: "LOCATAIRES",
+        repeatable: true,
+        repeatLabel: "Locataire",
+        fields: [
+            { id: 'nom_locataire', label: "Nom du locataire", type: "text", width: "full" },
+            { id: 'telephone_locataire', label: "Numéro de téléphone", type: "text", width: "half" },
+            { id: 'activite_exercee', label: "Activité exercée", type: "text", width: "half" },
+            { id: 'numero_cubf', label: "Numéro CUBF", type: "text", width: "half" },
+            { id: 'superficie_occupe', label: "Superficie occupée (m²)", type: "number", width: "half" },
         ]
     },
     {
