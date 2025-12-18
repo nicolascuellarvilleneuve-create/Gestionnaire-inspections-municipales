@@ -350,6 +350,11 @@ const InspectionGrid = ({ onSave }) => {
 
                             <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                                 {section.fields.map(field => {
+                                    // Conditional rendering for distance_coin
+                                    if (field.id === 'distance_coin' && formData.type_terrain !== "Terrain d'angle") {
+                                        return null;
+                                    }
+
                                     // Special rendering for Zones (Select via Data) or Generic Select (Array options)
                                     if (field.type === 'select') {
                                         let options = [];

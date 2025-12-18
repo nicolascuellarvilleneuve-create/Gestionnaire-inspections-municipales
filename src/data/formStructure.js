@@ -108,7 +108,7 @@ export const FORM_SECTIONS = [
             { id: 'superficie_impermeabilise_stat', label: "Superficie impérméabilisée", type: "number", width: "half" },
             { id: 'profondeur_mini_acces', label: "Profondeur mini allée d'accès (> 6m)", type: "text", width: "half" },
             { id: 'largeur_mini_acces', label: "Largeur mini allée d'accès (> 6.7m)", type: "text", width: "half" },
-            { id: 'distance_coin', label: "Distance coin / entrée char. (12m min)", type: "text", width: "half" },
+            { id: 'distance_coin', label: "Distance coin terrain/ entrée charretière. (12m min)", type: "text", width: "half" },
             { id: 'largeur_entree_char', label: "Largeur entrée charretière (6.7 < x > 15)", type: "text", width: "half" },
             { id: 'dim_mini_case', label: "Dimension mini case (2.75 x 5.5)", type: "text", width: "half" },
             { id: 'nb_case', label: "Nombre de case", type: "number", width: "half" },
