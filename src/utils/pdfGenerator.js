@@ -1,6 +1,7 @@
 
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { FORM_SECTIONS } from '../data/formStructure';
 
 export const generateInspectionPDF = (inspection) => {
     const doc = new jsPDF();
@@ -29,65 +30,101 @@ export const generateInspectionPDF = (inspection) => {
     doc.setFont('helvetica', 'bold');
     doc.text(`STATUT GLOBAL : ${inspection.status.toUpperCase()}`, pageWidth / 2, 55, { align: 'center' });
 
-    // --- Info ---
-    doc.setTextColor(60, 60, 60);
-    doc.setFontSize(11);
-    doc.text(`Adresse: ${inspection.adresse}`, 20, 75);
-    doc.text(`Propriétaire: ${inspection.proprietaire}`, 20, 82);
-    doc.text(`Zone: ${inspection.zone}`, 20, 89);
+    let yPos = 75;
 
-    let yPos = 100;
+    // --- Dynamic Sections ---
+    FORM_SECTIONS.forEach(section => {
 
-    // --- Tables by Section ---
-    // We need to reconstruct the sections from the saved formData
-    // This is a simplified view since formData is flat (mostly)
+        // Skip hidden sections if necessary, but request was "show all fields"
+        // For repeatable sections (e.g. Locataires), we check if there are items.
+        // If empty, we might skip or show "None". 
 
-    const addSectionTitle = (title) => {
-        doc.setFontSize(14);
-        doc.setFont('helvetica', 'bold');
-        doc.setTextColor(30, 41, 59);
-        doc.text(title, 20, yPos);
-        yPos += 8;
-    };
+        if (section.repeatable) {
+            const items = inspection.formData[section.id] || [];
 
-    // 1. Marges (Critical)
-    addSectionTitle("Vérification des Marges");
-
-    const marginRows = [];
-    if (inspection.details) {
-        Object.entries(inspection.details).forEach(([key, val]) => {
-            marginRows.push([
-                key,
-                `${val.requis} m`,
-                `${val.releve} m`,
-                val.conforme ? 'Conforme' : 'NON-CONFORME'
-            ]);
-        });
-    } else if (inspection.formData) {
-        // Fallback if details structure isn't perfect, try to read raw norms
-        // This part depends on how we stored the validation calculation in history
-        // Ideally we should have stored the 'details' object computed during save
-        marginRows.push(["Données détaillées", "Voir grille", "-", "-"]);
-    }
-
-    autoTable(doc, {
-        startY: yPos,
-        head: [['Marge', 'Requis', 'Relevé', 'Statut']],
-        body: marginRows,
-        theme: 'grid',
-        headStyles: { fillColor: [59, 130, 246] },
-        styles: { fontSize: 10 },
-        didParseCell: function (data) {
-            if (data.section === 'body' && data.column.index === 3) {
-                if (data.cell.raw === 'NON-CONFORME') {
-                    data.cell.styles.textColor = [220, 38, 38];
-                    data.cell.styles.fontStyle = 'bold';
-                }
+            if (items.length === 0) {
+                // Option: Show section title and "Aucun élément"
+                return;
             }
+
+            items.forEach((item, index) => {
+                // Check if page break needed
+                if (yPos > 250) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+
+                // Section Header
+                doc.setFontSize(14);
+                doc.setFont('helvetica', 'bold');
+                doc.setTextColor(30, 41, 59);
+                doc.text(`${section.title} #${index + 1}`, 20, yPos);
+                yPos += 8;
+
+                const rows = section.fields.map(field => {
+                    let val = item[field.id];
+                    if (val === true) val = "Oui / Confirmé";
+                    if (val === false) val = "Non";
+                    if (val === undefined || val === null || val === '') val = "-";
+                    return [field.label, val];
+                });
+
+                autoTable(doc, {
+                    startY: yPos,
+                    head: [['Champ', 'Valeur']],
+                    body: rows,
+                    theme: 'grid',
+                    headStyles: { fillColor: [59, 130, 246] },
+                    styles: { fontSize: 10, cellPadding: 3 },
+                    columnStyles: { 0: { fontStyle: 'bold', width: 80 } }
+                });
+
+                yPos = doc.lastAutoTable.finalY + 10;
+            });
+
+        } else {
+            // Standard Section
+            // Check if page break needed
+            if (yPos > 250) {
+                doc.addPage();
+                yPos = 20;
+            }
+
+            doc.setFontSize(14);
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(30, 41, 59);
+            doc.text(section.title, 20, yPos);
+            yPos += 8;
+
+            const rows = section.fields.map(field => {
+                // Special handling to show Conformance logic if available?
+                // For now, just show the value as requested "all fields"
+                let val = inspection.formData[field.id];
+
+                if (field.type === 'checkbox') {
+                    val = val ? "Oui / Confirmé" : "Non";
+                }
+
+                if (val === undefined || val === null || val === '') {
+                    val = "-";
+                }
+
+                return [field.label, val];
+            });
+
+            autoTable(doc, {
+                startY: yPos,
+                head: [['Champ', 'Valeur']],
+                body: rows,
+                theme: 'grid',
+                headStyles: { fillColor: [71, 85, 105] }, // Slate 600 for standard headers
+                styles: { fontSize: 10, cellPadding: 3 },
+                columnStyles: { 0: { fontStyle: 'bold', width: 80 } } // Fixed width for labels
+            });
+
+            yPos = doc.lastAutoTable.finalY + 10;
         }
     });
-
-    yPos = doc.lastAutoTable.finalY + 15;
 
     // Footer
     const pageCount = doc.internal.getNumberOfPages();
@@ -96,6 +133,7 @@ export const generateInspectionPDF = (inspection) => {
         doc.setFontSize(10);
         doc.setTextColor(150);
         doc.text('Généré par GIM Urbanisme', pageWidth / 2, doc.internal.pageSize.height - 10, { align: 'center' });
+        doc.text(`Page ${i} sur ${pageCount}`, pageWidth - 20, doc.internal.pageSize.height - 10);
     }
 
     doc.save(`Rapport_Inspection_${inspection.id}_${inspection.date}.pdf`);
