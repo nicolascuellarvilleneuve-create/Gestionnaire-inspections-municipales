@@ -1,5 +1,12 @@
 
 // Données réelles basées sur les images fournies par l'utilisateur
+export const STORAGE_DEFINITIONS = {
+    'A': "biens de consommation mis en démonstration pour fins de vente",
+    'B': "véhicules automobiles neufs ou usagés et, de façon non limitative, bateaux, motoneiges, motocyclettes et autres véhicules récréatifs mis en démonstration pour fins de vente ou de location",
+    'C': "machinerie, équipements mobiles lourds, biens de consommation liés à l'automobile, maisons mobiles et roulottes de chantier mis en démonstration pour fins de vente ou de location",
+    'D': "marchandises en vrac et tout type de produit ou autre ne répondant pas aux autres types d'entreposage"
+};
+
 export const REGLEMENTS = [
     { zone: "604-Ia", margeAvant: 15, margeArriere: 7.5, margeLaterale: 6, margeLateraleCombinee: 12, typeEntreposage: "C D" },
     { zone: "632-Ib", margeAvant: 20, margeArriere: 15, margeLaterale: 15, margeLateraleCombinee: 30, typeEntreposage: "C D" },

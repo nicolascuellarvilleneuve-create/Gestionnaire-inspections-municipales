@@ -161,6 +161,7 @@ export const FORM_SECTIONS = [
         title: "ENTREPOSAGE",
         fields: [
             { id: 'type_entreposage', label: "Type d'entreposage", type: "text", width: "full", readonly: true }, // C D
+            { id: 'nature_entreposage', label: "Nature d'entreposage", type: "textarea", width: "full", readonly: true },
             // Tableaux imbriqués complexes (Localisation / % Max / Hauteur)
             // Simplification pour l'UI, on pourrait faire un composant custom si nécessaire
             { id: 'entreposage_cour_avant', label: "Cour Avant (Conformité)", type: "checkbox", width: "half" },

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { REGLEMENTS } from '../data/mockData';
+import { REGLEMENTS, STORAGE_DEFINITIONS } from '../data/mockData';
 import { FORM_SECTIONS } from '../data/formStructure';
 import { useInspections } from '../context/InspectionContext';
 import { Save, AlertTriangle, Check, AlertCircle, Calculator, Plus, Trash2, FileDown } from 'lucide-react';
@@ -198,11 +198,26 @@ const InspectionGrid = ({ onSave }) => {
     useEffect(() => {
         if (selectedZoneNorms) {
             const type = selectedZoneNorms.typeEntreposage || '';
-            if (formData.type_entreposage !== type) {
-                setFormData(prev => ({ ...prev, type_entreposage: type }));
+
+            // Calculate Nature description
+            let nature = '';
+            if (type && type !== 'N/A') {
+                const codes = type.split(' '); // Split "C D" -> ['C', 'D']
+                nature = codes.map(code => {
+                    const def = STORAGE_DEFINITIONS[code];
+                    return def ? `${code}: ${def}` : '';
+                }).filter(Boolean).join('\n\n');
+            }
+
+            if (formData.type_entreposage !== type || formData.nature_entreposage !== nature) {
+                setFormData(prev => ({
+                    ...prev,
+                    type_entreposage: type,
+                    nature_entreposage: nature
+                }));
             }
         }
-    }, [selectedZoneNorms, formData.type_entreposage]);
+    }, [selectedZoneNorms, formData.type_entreposage, formData.nature_entreposage]);
 
     const removeRepeatableItem = (sectionId, index) => {
         setFormData(prev => ({
