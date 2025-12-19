@@ -684,6 +684,43 @@ const InspectionGrid = ({ onSave }) => {
                                             );
                                         }
 
+                                        // Measurement Fields with Zone Validation
+                                        if (field.type === 'measurement') {
+                                            const valStatus = validation[field.id];
+                                            const normValue = selectedZoneNorms ? selectedZoneNorms[field.normField] : null;
+                                            const gap = calculateGap(formData[field.id], normValue);
+
+                                            return (
+                                                <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                                                    <div className="flex justify-between items-center mb-2">
+                                                        <label className="block text-sm font-semibold text-slate-700">{field.label}</label>
+                                                        {normValue && (
+                                                            <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-1 rounded">
+                                                                Requis: {normValue}m
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <div className="relative">
+                                                        <input
+                                                            type="number"
+                                                            step="0.01"
+                                                            name={field.id}
+                                                            value={formData[field.id] || ''}
+                                                            onChange={handleChange}
+                                                            className={`w-full px-4 py-2.5 border rounded-xl focus:ring-2 transition-all outline-none ${valStatus === 'non-conforme' ? 'border-red-300 focus:ring-red-200 text-red-700' :
+                                                                    valStatus === 'conforme' ? 'border-green-300 focus:ring-green-200 text-green-700' :
+                                                                        'border-slate-300 focus:ring-blue-500 focus:border-blue-500'
+                                                                }`}
+                                                            placeholder={normValue ? `Norme: ${normValue}m` : field.label}
+                                                        />
+                                                        <div className="absolute right-3 top-2.5">
+                                                            {getStatusBadge(valStatus, gap)}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
                                         // Special rendering for Zones (Select via Data) or Generic Select (Array options)
                                         if (field.type === 'select') {
                                             if (field.id === 'zone') {
