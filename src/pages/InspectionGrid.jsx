@@ -34,22 +34,10 @@ const InspectionGrid = ({ onSave }) => {
     });
 
     const [formData, setFormData] = useState(initialFormState);
-    const [validation, setValidation] = useState({});
-    const [selectedZoneNorms, setSelectedZoneNorms] = useState(null);
+    // DERIVED STATE (No Effects needed for display logic)
+    const selectedZoneNorms = formData.zone ? (REGLEMENTS.find(r => r.zone === formData.zone) || null) : null;
 
-    // Update zone norms when zone changes
-    useEffect(() => {
-        if (formData.zone) {
-            const norms = REGLEMENTS.find(r => r.zone === formData.zone);
-             
-            setSelectedZoneNorms(norms || null);
-        } else {
-            setSelectedZoneNorms(null);
-        }
-    }, [formData.zone]);
-
-    // Real-time validation for measurement fields
-    useEffect(() => {
+    const validation = (() => {
         const newValidation = {};
 
         // 1. Validate Zone-based Norms (if zone selected)
@@ -91,10 +79,8 @@ const InspectionGrid = ({ onSave }) => {
             }
         }
 
-
-         
-        setValidation(newValidation);
-    }, [formData, selectedZoneNorms]);
+        return newValidation;
+    })();
 
     // Auto-Calculate CES and Complementary Buildings Summary
     useEffect(() => {
@@ -116,7 +102,7 @@ const InspectionGrid = ({ onSave }) => {
         const countAcc = Array.isArray(formData.batiment_complementaire) ? formData.batiment_complementaire.length : 0;
 
         // Update computed fields if changed
-         
+
         setFormData(prev => {
             if (
                 prev.total_superficie_batiments !== totalBat.toFixed(2) ||
@@ -178,7 +164,7 @@ const InspectionGrid = ({ onSave }) => {
         const newDob = dob > 0 ? dob.toFixed(2) + '%' : '';
 
         if (formData.dob !== newDob) {
-             
+
             setFormData(prev => ({
                 ...prev,
                 dob: newDob
@@ -203,7 +189,7 @@ const InspectionGrid = ({ onSave }) => {
 
         const casesStr = casesRequises > 0 ? casesRequises.toString() : '';
         if (formData.nb_cases_requises !== casesStr) {
-             
+
             setFormData(prev => ({ ...prev, nb_cases_requises: casesStr }));
         }
 
@@ -340,7 +326,7 @@ const InspectionGrid = ({ onSave }) => {
             }).join('\n\n'); // Double newline for readable separation
 
             if (formData.nature_entreposage !== definitions) {
-                 
+
                 setFormData(prev => ({
                     ...prev,
                     nature_entreposage: definitions
@@ -377,7 +363,7 @@ const InspectionGrid = ({ onSave }) => {
         const newLoad = load !== '' ? load.toString() : '';
 
         if (currentFactor !== newFactor || currentRefArea !== newRefArea || currentLoad !== newLoad) {
-             
+
             setFormData(prev => ({
                 ...prev,
                 facteur_charge: newFactor,
@@ -747,6 +733,15 @@ const InspectionGrid = ({ onSave }) => {
                                                                 <option key={zone.zone} value={zone.zone}>{zone.zone}</option>
                                                             ))}
                                                         </select>
+
+                                                        {selectedZoneNorms && (
+                                                            <div className="mt-3 bg-blue-50 border border-blue-100 rounded-lg p-3 text-sm text-blue-800 grid grid-cols-2 gap-2">
+                                                                <div><span className="font-semibold">Avant:</span> {selectedZoneNorms.margeAvant}m</div>
+                                                                <div><span className="font-semibold">Arrière:</span> {selectedZoneNorms.margeArriere}m</div>
+                                                                <div><span className="font-semibold">Latérale:</span> {selectedZoneNorms.margeLaterale}m</div>
+                                                                <div><span className="font-semibold">Lat. Comb:</span> {selectedZoneNorms.margeLateraleCombinee}m</div>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 );
                                             }
