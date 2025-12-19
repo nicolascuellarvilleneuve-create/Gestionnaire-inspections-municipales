@@ -2,6 +2,8 @@
   "name": "temp-app",
   "version": "0.0.0",
   "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
   "homepage": "https://nicolascuellarvilleneuve-create.github.io/Gestionnaire-inspections-municipales",
   "scripts": {
     "dev": "vite",
