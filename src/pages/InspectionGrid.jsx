@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { REGLEMENTS, STORAGE_DEFINITIONS } from '../data/mockData';
 import { FORM_SECTIONS } from '../data/formStructure';
+import { CNB_OCCUPANT_LOAD_TABLE } from '../data/fireSafetyData';
 import { useInspections } from '../context/InspectionContext';
 import { Save, AlertTriangle, Check, AlertCircle, Calculator, Plus, Trash2, FileDown } from 'lucide-react';
 import { generateInspectionPDF } from '../utils/pdfGenerator';
@@ -219,6 +220,44 @@ const InspectionGrid = ({ onSave }) => {
         }
     }, [selectedZoneNorms, formData.type_entreposage, formData.nature_entreposage]);
 
+    // Fire Safety: Auto-Calculate Occupant Load
+    useEffect(() => {
+        const usageLabel = formData.usage_cnb;
+        const netArea = parseFloat(formData.superficie_plancher) || 0;
+
+        let factor = '';
+        let load = '';
+
+        if (usageLabel) {
+            const usageData = CNB_OCCUPANT_LOAD_TABLE.find(item => item.label === usageLabel);
+            if (usageData && usageData.factor !== null) {
+                factor = usageData.factor;
+            }
+        }
+
+        if (netArea > 0 && factor) {
+            load = Math.round(netArea / factor); // Round to nearest person
+        }
+
+        const currentFactor = formData.facteur_charge;
+        const currentRefArea = formData.superficie_plancher_ref;
+        const currentLoad = formData.charge_occupation;
+
+        const newFactor = factor ? factor.toString() : '';
+        const newRefArea = netArea > 0 ? netArea.toString() : '';
+        const newLoad = load !== '' ? load.toString() : '';
+
+        if (currentFactor !== newFactor || currentRefArea !== newRefArea || currentLoad !== newLoad) {
+            setFormData(prev => ({
+                ...prev,
+                facteur_charge: newFactor,
+                superficie_plancher_ref: newRefArea,
+                charge_occupation: newLoad
+            }));
+        }
+
+    }, [formData.usage_cnb, formData.superficie_plancher, formData.facteur_charge, formData.superficie_plancher_ref, formData.charge_occupation]);
+
     const removeRepeatableItem = (sectionId, index) => {
         setFormData(prev => ({
             ...prev,
@@ -418,6 +457,8 @@ const InspectionGrid = ({ onSave }) => {
                                         let options = [];
                                         if (field.options === 'zones') {
                                             options = REGLEMENTS.map(r => r.zone);
+                                        } else if (field.options === 'usage_cnb') {
+                                            options = CNB_OCCUPANT_LOAD_TABLE.map(i => i.label);
                                         } else if (Array.isArray(field.options)) {
                                             options = field.options;
                                         }

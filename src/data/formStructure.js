@@ -81,6 +81,7 @@ export const FORM_SECTIONS = [
             { id: 'dimension_mur_lat_gauche', label: "Dimension mur latéral gauche (m)", type: "number", width: "half" },
             { id: 'revetement_toiture', label: "Revêtement toiture", type: "text", width: "half" },
             { id: 'dimension_mur_arriere', label: "Dimension mur arrière (m)", type: "number", width: "half" },
+            { id: 'superficie_plancher', label: "Superficie de plancher nette (m²)", type: "number", width: "half" },
             { id: 'type_toit', label: "Type de toit", type: "text", width: "half" },
         ]
     },
@@ -183,6 +184,22 @@ export const FORM_SECTIONS = [
             { id: 'hauteur_base', label: "Hauteur Base (< 0.6m)", type: "text", width: "half" },
             { id: 'hauteur_haut', label: "Hauteur Haut (< 3.2m)", type: "text", width: "half" },
             { id: 'superpose', label: "Superposé", type: "checkbox", width: "half" },
+        ]
+    },
+    {
+        id: 'securite_incendie',
+        title: "SÉCURITÉ INCENDIE",
+        fields: [
+            {
+                id: 'usage_cnb',
+                label: "Usage selon CNB 2015 art 3.1.17.1",
+                type: "select",
+                options: "usage_cnb", // Special identifier to load from data
+                width: "full"
+            },
+            { id: 'facteur_charge', label: "Facteur de charge (m²/pers)", type: "text", width: "half", readonly: true },
+            { id: 'superficie_plancher_ref', label: "Superficie de plancher nette (m²) (Réf)", type: "text", width: "half", readonly: true },
+            { id: 'charge_occupation', label: "Charge d'occupation (Personnes)", type: "text", width: "full", readonly: true },
         ]
     }
 ];
