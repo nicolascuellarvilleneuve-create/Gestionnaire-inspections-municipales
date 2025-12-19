@@ -52,6 +52,7 @@ export const FORM_SECTIONS = [
             { id: 'superficie_batiment_acc', label: "Sup. Bâtiments Accessoires (Voir Onglet 5)", type: "number", width: "half", readonly: true },
 
             { id: 'total_superficie_batiments', label: "Total Superficie Bâtiments (Calculé)", type: "number", width: "half", readonly: true },
+            { id: 'nb_batiment_acc', label: "Nombre de Bâtiments Complémentaires", type: "number", width: "half", readonly: true },
             { id: 'ces', label: "CES Résultant (%)", type: "text", width: "half", readonly: true },
             { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
             { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
@@ -88,8 +89,10 @@ export const FORM_SECTIONS = [
     {
         id: 'batiment_complementaire',
         title: "BÂTIMENT COMPLÉMENTAIRE",
+        repeatable: true,
+        repeatLabel: "Bâtiment",
         fields: [
-            { id: 'nb_batiment_acc', label: "Nombre bâtiment", type: "number", width: "full" },
+            // nb_batiment_acc moved to calcul_ces as it is a summary field
             { id: 'type_batiment_acc', label: "Type bâtiment", type: "text", width: "half" },
             { id: 'superficie_batiment_acc', label: "Superficie bâtiment (m²)", type: "number", width: "half" },
             { id: 'hauteur_batiment_acc', label: "Hauteur bâtiment", type: "text", width: "half" },

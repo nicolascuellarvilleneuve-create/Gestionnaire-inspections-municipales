@@ -82,14 +82,25 @@ const InspectionGrid = ({ onSave }) => {
         setValidation(newValidation);
     }, [formData, selectedZoneNorms]);
 
-    // Auto-Calculate CES
+    // Auto-Calculate CES and Complementary Buildings Summary
     useEffect(() => {
         const terrain = parseFloat(formData.superficie_terrain) || 0;
-        // Updated IDs to match Section 4 and 5
         const batPrincipal = parseFloat(formData.superficie_batiment_princ) || 0;
-        const batAccessoire = parseFloat(formData.superficie_batiment_acc) || 0;
 
-        const totalBatiments = batPrincipal + batAccessoire;
+        // Sum areas from repeatable Complementary Buildings
+        const secondaryBuildings = formData.batiment_complementaire || [];
+        let batAccessoireTotal = 0;
+        let nbBatiments = 0;
+
+        if (Array.isArray(secondaryBuildings)) {
+            nbBatiments = secondaryBuildings.length;
+            batAccessoireTotal = secondaryBuildings.reduce((acc, item) => {
+                const val = parseFloat(item.superficie_batiment_acc) || 0;
+                return acc + val;
+            }, 0);
+        }
+
+        const totalBatiments = batPrincipal + batAccessoireTotal;
 
         // Calculate CES % = (Total Bats / Terrain) * 100
         let ces = 0;
@@ -98,18 +109,35 @@ const InspectionGrid = ({ onSave }) => {
         }
 
         // Only update if values changed to avoid loop
-        const newTotal = totalBatiments > 0 ? totalBatiments.toFixed(2) : '';
+        const newTotalStr = totalBatiments > 0 ? totalBatiments.toFixed(2) : '';
         const newCes = ces > 0 ? ces.toFixed(2) + '%' : '';
+        const newBatAccessoireStr = batAccessoireTotal > 0 ? batAccessoireTotal.toFixed(2) : '';
+        const newCountStr = nbBatiments.toString();
 
-        if (formData.total_superficie_batiments !== newTotal || formData.ces !== newCes) {
+        if (
+            formData.total_superficie_batiments !== newTotalStr ||
+            formData.ces !== newCes ||
+            formData.superficie_batiment_acc !== newBatAccessoireStr ||
+            formData.nb_batiment_acc !== newCountStr
+        ) {
             setFormData(prev => ({
                 ...prev,
-                total_superficie_batiments: newTotal,
+                total_superficie_batiments: newTotalStr,
                 ces: newCes,
+                superficie_batiment_acc: newBatAccessoireStr,
+                nb_batiment_acc: newCountStr
             }));
         }
 
-    }, [formData.superficie_terrain, formData.superficie_batiment_princ, formData.superficie_batiment_acc, formData.total_superficie_batiments, formData.ces]);
+    }, [
+        formData.superficie_terrain,
+        formData.superficie_batiment_princ,
+        formData.batiment_complementaire,
+        formData.total_superficie_batiments,
+        formData.ces,
+        formData.superficie_batiment_acc,
+        formData.nb_batiment_acc
+    ]);
 
     // Standard Field Change
     const handleChange = (e) => {
