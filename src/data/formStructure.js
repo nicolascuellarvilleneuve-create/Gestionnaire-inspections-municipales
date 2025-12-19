@@ -1,4 +1,3 @@
-
 export const FORM_SECTIONS = [
     {
         id: 'info_immeuble',
@@ -22,11 +21,6 @@ export const FORM_SECTIONS = [
             },
             { id: 'presence_locataire', label: "Présence de locataire", type: "checkbox", width: "half" },
             { id: 'dob', label: "DOB (densité occupation bâtiment)", type: "text", width: "half", readonly: true },
-            // The following fields are moved to the new 'calcul_ces' section or removed as per instruction
-            // { id: 'total_superficie_batiments', label: "Total superficie bâtiments", type: "number", width: "half" },
-            // { id: 'ces', label: "CES Coefficient d'emprise au sol", type: "text", width: "half" },
-            // { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
-            // { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
         ]
     },
     {
@@ -40,33 +34,6 @@ export const FORM_SECTIONS = [
             { id: 'activite_exercee', label: "Activité exercée", type: "text", width: "half" },
             { id: 'numero_cubf', label: "Numéro CUBF", type: "text", width: "half" },
             { id: 'superficie_occupe', label: "Superficie occupée (m²)", type: "number", width: "half" },
-        ]
-    },
-    {
-        id: 'calcul_ces',
-        title: "CALCUL DU C.E.S (EMPRISE AU SOL)",
-        fields: [
-            // Linked to Section 4 (Bâtiment Principal)
-            { id: 'superficie_batiment_princ', label: "Superficie Bâtiment Principal (m²) (Voir Onglet 4)", type: "number", width: "half", readonly: true },
-            // Linked to Section 5 (Bâtiment Complémentaire)
-            { id: 'superficie_batiment_acc', label: "Sup. Bâtiments Accessoires (Voir Onglet 5)", type: "number", width: "half", readonly: true },
-
-            { id: 'total_superficie_batiments', label: "Total Superficie Bâtiments (Calculé)", type: "number", width: "half", readonly: true },
-            { id: 'nb_batiment_acc', label: "Nombre de Bâtiments Complémentaires", type: "number", width: "half", readonly: true },
-            { id: 'ces', label: "CES Résultant (%)", type: "text", width: "half", readonly: true },
-            { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
-            { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
-        ]
-    },
-    {
-        id: 'marges_verifications',
-        title: "MARGES (ZONAGE)",
-        fields: [
-            { id: 'marge_avant', label: "Marge avant (m)", type: "measurement", normField: "margeAvant" },
-            { id: 'marge_arriere', label: "Marge arrière (m)", type: "measurement", normField: "margeArriere" },
-            { id: 'marge_laterale', label: "Marge latérale (m)", type: "measurement", normField: "margeLaterale" },
-            { id: 'marge_laterale_combinee', label: "Marge latérale combinée (m)", type: "measurement", normField: "margeLateraleCombinee" },
-            // Note: L'image montre aussi "Marge actuelle" à côté de la norme. Notre UI le gère deja.
         ]
     },
     {
@@ -87,6 +54,16 @@ export const FORM_SECTIONS = [
         ]
     },
     {
+        id: 'marges_verifications',
+        title: "MARGES (ZONAGE)",
+        fields: [
+            { id: 'marge_avant', label: "Marge avant (m)", type: "measurement", normField: "margeAvant" },
+            { id: 'marge_arriere', label: "Marge arrière (m)", type: "measurement", normField: "margeArriere" },
+            { id: 'marge_laterale', label: "Marge latérale (m)", type: "measurement", normField: "margeLaterale" },
+            { id: 'marge_laterale_combinee', label: "Marge latérale combinée (m)", type: "measurement", normField: "margeLateraleCombinee" },
+        ]
+    },
+    {
         id: 'batiment_complementaire',
         title: "BÂTIMENT COMPLÉMENTAIRE",
         repeatable: true,
@@ -104,19 +81,40 @@ export const FORM_SECTIONS = [
         ]
     },
     {
-        id: 'amenagement_terrain',
-        title: "AMÉNAGEMENT TERRAIN - VÉGÉTALISATION",
+        id: 'calcul_ces',
+        title: "CALCUL DU C.E.S (EMPRISE AU SOL)",
         fields: [
-            { id: 'superficie_vegetalise', label: "Superficie végétalisée", type: "number", width: "half" },
-            { id: 'pourcentage_vegetalisation', label: "Pourcentage végétalisation", type: "text", width: "half" },
-            { id: 'ilot_vegetalise', label: "Ilot végétalisé présent", type: "checkbox", width: "half" },
-            { id: 'profondeur_minimale', label: "Profondeur minimale 2.4m", type: "text", width: "half" },
-            { id: 'triangle_visibilite_veg', label: "Triangle de visibilité requis", type: "checkbox", width: "half" },
+            // Linked to Section 4 (Bâtiment Principal)
+            { id: 'superficie_batiment_princ', label: "Superficie Bâtiment Principal (m²) (Voir Onglet 4)", type: "number", width: "half", readonly: true },
+            // Linked to Section 5 (Bâtiment Complémentaire)
+            { id: 'superficie_batiment_acc', label: "Sup. Bâtiments Accessoires (Voir Onglet 5)", type: "number", width: "half", readonly: true },
+
+            { id: 'total_superficie_batiments', label: "Total Superficie Bâtiments (Calculé)", type: "number", width: "half", readonly: true },
+            { id: 'nb_batiment_acc', label: "Nombre de Bâtiments Complémentaires", type: "number", width: "half", readonly: true },
+            { id: 'ces', label: "CES Résultant (%)", type: "text", width: "half", readonly: true },
+            { id: 'usage_batiment', label: "Usage bâtiment (CUBF)", type: "text", width: "full" },
+            { id: 'adjacent_residentiel', label: "Adjacent terrain résidentiel", type: "checkbox", width: "half" },
+        ]
+    },
+    {
+        id: 'securite_incendie',
+        title: "SÉCURITÉ INCENDIE",
+        fields: [
+            {
+                id: 'usage_cnb',
+                label: "Usage selon CNB 2015 art 3.1.17.1",
+                type: "select",
+                options: "usage_cnb", // Special identifier to load from data
+                width: "full"
+            },
+            { id: 'facteur_charge', label: "Facteur de charge (m²/pers)", type: "text", width: "half", readonly: true },
+            { id: 'superficie_plancher_ref', label: "Superficie de plancher nette (m²) (Réf)", type: "text", width: "half", readonly: true },
+            { id: 'charge_occupation', label: "Charge d'occupation (Personnes)", type: "text", width: "full", readonly: true },
         ]
     },
     {
         id: 'stationnement',
-        title: "ALLÉE DE CIRCULATION ET STATIONNEMENT",
+        title: "AIRE DE STATIONNEMENT",
         fields: [
             { id: 'largeur_allee', label: "Largeur (m)", type: "number", width: "half" },
             { id: 'bordure_stationnement', label: "Bordure stationnement", type: "checkbox", width: "half" },
@@ -132,6 +130,17 @@ export const FORM_SECTIONS = [
             { id: 'dim_mini_case', label: "Dimension mini case (2.75 x 5.5)", type: "text", width: "half" },
             { id: 'nb_case', label: "Nombre de case", type: "number", width: "half" },
             { id: 'aire_deneigement', label: "Aire de déneigement", type: "text", width: "half" },
+        ]
+    },
+    {
+        id: 'amenagement_terrain',
+        title: "AMÉNAGEMENT TERRAIN - VÉGÉTALISATION",
+        fields: [
+            { id: 'superficie_vegetalise', label: "Superficie végétalisée", type: "number", width: "half" },
+            { id: 'pourcentage_vegetalisation', label: "Pourcentage végétalisation", type: "text", width: "half" },
+            { id: 'ilot_vegetalise', label: "Ilot végétalisé présent", type: "checkbox", width: "half" },
+            { id: 'profondeur_minimale', label: "Profondeur minimale 2.4m", type: "text", width: "half" },
+            { id: 'triangle_visibilite_veg', label: "Triangle de visibilité requis", type: "checkbox", width: "half" },
         ]
     },
     {
@@ -187,22 +196,6 @@ export const FORM_SECTIONS = [
             { id: 'hauteur_base', label: "Hauteur Base (< 0.6m)", type: "text", width: "half" },
             { id: 'hauteur_haut', label: "Hauteur Haut (< 3.2m)", type: "text", width: "half" },
             { id: 'superpose', label: "Superposé", type: "checkbox", width: "half" },
-        ]
-    },
-    {
-        id: 'securite_incendie',
-        title: "SÉCURITÉ INCENDIE",
-        fields: [
-            {
-                id: 'usage_cnb',
-                label: "Usage selon CNB 2015 art 3.1.17.1",
-                type: "select",
-                options: "usage_cnb", // Special identifier to load from data
-                width: "full"
-            },
-            { id: 'facteur_charge', label: "Facteur de charge (m²/pers)", type: "text", width: "half", readonly: true },
-            { id: 'superficie_plancher_ref', label: "Superficie de plancher nette (m²) (Réf)", type: "text", width: "half", readonly: true },
-            { id: 'charge_occupation', label: "Charge d'occupation (Personnes)", type: "text", width: "full", readonly: true },
         ]
     }
 ];
