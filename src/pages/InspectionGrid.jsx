@@ -213,6 +213,18 @@ const InspectionGrid = ({ onSave }) => {
         formData.nb_cases_requises
     ]);
 
+    // Auto-check presence_locataire for Industrie
+    useEffect(() => {
+        if (formData.type_activite === 'industrie') {
+            setFormData(prev => {
+                if (!prev.presence_locataire) {
+                    return { ...prev, presence_locataire: true };
+                }
+                return prev;
+            });
+        }
+    }, [formData.type_activite]);
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         // console.log("Change", name, value); // Debug
@@ -725,6 +737,13 @@ const InspectionGrid = ({ onSave }) => {
                                                     </div>
                                                 </div>
                                             );
+                                        }
+
+                                        // Conditional Rendering for 'presence_locataire'
+                                        if (field.id === 'presence_locataire') {
+                                            if (formData.type_activite !== 'industrie') {
+                                                return null;
+                                            }
                                         }
 
                                         // Special rendering for Zones (Select via Data) or Generic Select (Array options)
