@@ -43,8 +43,15 @@ export const FORM_SECTIONS = [
         ]
     },
     {
+        id: 'logements',
+        title: "LOGEMENTS",
+        fields: [
+            { id: 'nb_logement', label: "Nombre de logements", type: "number", width: "half" },
+        ]
+    },
+    {
         id: 'locataires',
-        title: "LOCATAIRES",
+        title: "LOCATAIRES (NON RÉSIDENTIEL)",
         repeatable: true,
         repeatLabel: "Locataire",
         fields: [

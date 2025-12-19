@@ -546,9 +546,20 @@ const InspectionGrid = ({ onSave }) => {
                 <form onSubmit={handleSubmit} className="flex-1 space-y-8 pb-24 ml-16 md:ml-32 w-full">
                     {FORM_SECTIONS.map((section, index) => {
 
-                        // Conditional rendering: LOCATAIRES needs presence_locataire checked
-                        if (section.id === 'locataires' && !formData.presence_locataire) {
-                            return null;
+                        // Conditional logic for Residential vs Commercial sections
+                        if (section.id === 'locataires') {
+                            // Hide "LOCATAIRES" if activity is "Habitation" or presence_locataire is false
+                            const isResidential = formData.type_activite === 'habitation';
+                            if (isResidential || !formData.presence_locataire) {
+                                return null;
+                            }
+                        }
+
+                        if (section.id === 'logements') {
+                            // Show "LOGEMENTS" ONLY if activity is "Habitation"
+                            if (formData.type_activite !== 'habitation') {
+                                return null;
+                            }
                         }
 
                         // -------------- REPEATABLE SECTION RENDERING --------------
