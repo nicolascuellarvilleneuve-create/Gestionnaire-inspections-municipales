@@ -21,6 +21,25 @@ export const FORM_SECTIONS = [
             },
             { id: 'presence_locataire', label: "Présence de locataire", type: "checkbox", width: "half" },
             { id: 'dob', label: "DOB (densité occupation bâtiment)", type: "text", width: "half", readonly: true },
+
+            // New Activity Fields for Parking Calculation
+            {
+                id: 'type_activite',
+                label: "Type Activité (Zonage 11.1.8)",
+                type: "select",
+                options: "type_activite_options", // We'll load this from PARKING_RULES keys
+                width: "half"
+            },
+            {
+                id: 'sous_type_activite',
+                label: "Sous-catégorie",
+                type: "select",
+                options: "sous_type_activite_options", // Dynamic
+                width: "half"
+            },
+            // Dynamic inputs will be rendered by Grid but we can define the result field here
+            { id: 'nb_cases_requises', label: "Nombre de cases requises (Calculé)", type: "number", width: "half", readonly: true },
+
         ]
     },
     {
