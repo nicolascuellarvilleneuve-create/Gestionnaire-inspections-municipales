@@ -5,7 +5,7 @@ import { PlusCircle, FileText, CheckCircle, AlertCircle, TrendingUp, Download, U
 import { exportFullDatabase, exportToExcel, importDatabase } from '../utils/dataManager';
 import { generateInspectionPDF } from '../utils/pdfGenerator';
 
-const Dashboard = ({ setActiveTab }) => {
+const Dashboard = ({ onNewInspection }) => {
     const { inspections, setInspections } = useInspections(); // We need access to SET for import
     const fileInputRef = useRef(null);
 
@@ -56,7 +56,7 @@ const Dashboard = ({ setActiveTab }) => {
                     </button>
 
                     <button
-                        onClick={() => activeTab !== 'new-inspection' && setActiveTab('new-inspection')}
+                        onClick={onNewInspection}
                         className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl font-bold flex items-center shadow-lg shadow-blue-900/20 transition-all hover:-translate-y-0.5"
                     >
                         <PlusCircle className="mr-2" size={20} />
@@ -139,8 +139,8 @@ const Dashboard = ({ setActiveTab }) => {
                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">{inspection.proprietaire}</td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <span className={`px-3 py-1 inline-flex text-xs leading-5 font-bold rounded-full border ${inspection.status === 'Conforme'
-                                                    ? 'bg-green-50 text-green-700 border-green-100'
-                                                    : 'bg-red-50 text-red-700 border-red-100'
+                                                ? 'bg-green-50 text-green-700 border-green-100'
+                                                : 'bg-red-50 text-red-700 border-red-100'
                                                 }`}>
                                                 {inspection.status}
                                             </span>
