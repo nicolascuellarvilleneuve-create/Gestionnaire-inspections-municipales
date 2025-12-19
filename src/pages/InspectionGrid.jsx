@@ -34,17 +34,22 @@ const InspectionGrid = ({ onSave }) => {
     });
 
     const [formData, setFormData] = useState(initialFormState);
+    const [validation, setValidation] = useState({});
+    const [selectedZoneNorms, setSelectedZoneNorms] = useState(null);
 
     // Update zone norms when zone changes
-    const selectedZoneNorms = React.useMemo(() => {
+    useEffect(() => {
         if (formData.zone) {
-            return REGLEMENTS.find(r => r.zone === formData.zone) || null;
+            const norms = REGLEMENTS.find(r => r.zone === formData.zone);
+             
+            setSelectedZoneNorms(norms || null);
+        } else {
+            setSelectedZoneNorms(null);
         }
-        return null;
     }, [formData.zone]);
 
     // Real-time validation for measurement fields
-    const validation = React.useMemo(() => {
+    useEffect(() => {
         const newValidation = {};
 
         // 1. Validate Zone-based Norms (if zone selected)
@@ -86,7 +91,9 @@ const InspectionGrid = ({ onSave }) => {
             }
         }
 
-        return newValidation;
+
+         
+        setValidation(newValidation);
     }, [formData, selectedZoneNorms]);
 
     // Auto-Calculate CES and Complementary Buildings Summary
@@ -109,7 +116,7 @@ const InspectionGrid = ({ onSave }) => {
         const countAcc = Array.isArray(formData.batiment_complementaire) ? formData.batiment_complementaire.length : 0;
 
         // Update computed fields if changed
-        // eslint-disable-next-line
+         
         setFormData(prev => {
             if (
                 prev.total_superficie_batiments !== totalBat.toFixed(2) ||
@@ -171,7 +178,7 @@ const InspectionGrid = ({ onSave }) => {
         const newDob = dob > 0 ? dob.toFixed(2) + '%' : '';
 
         if (formData.dob !== newDob) {
-            // eslint-disable-next-line
+             
             setFormData(prev => ({
                 ...prev,
                 dob: newDob
@@ -196,10 +203,11 @@ const InspectionGrid = ({ onSave }) => {
 
         const casesStr = casesRequises > 0 ? casesRequises.toString() : '';
         if (formData.nb_cases_requises !== casesStr) {
-            // eslint-disable-next-line
+             
             setFormData(prev => ({ ...prev, nb_cases_requises: casesStr }));
         }
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
         formData.type_activite,
         formData.sous_type_activite,
@@ -332,7 +340,7 @@ const InspectionGrid = ({ onSave }) => {
             }).join('\n\n'); // Double newline for readable separation
 
             if (formData.nature_entreposage !== definitions) {
-                // eslint-disable-next-line
+                 
                 setFormData(prev => ({
                     ...prev,
                     nature_entreposage: definitions
@@ -369,7 +377,7 @@ const InspectionGrid = ({ onSave }) => {
         const newLoad = load !== '' ? load.toString() : '';
 
         if (currentFactor !== newFactor || currentRefArea !== newRefArea || currentLoad !== newLoad) {
-            // eslint-disable-next-line
+             
             setFormData(prev => ({
                 ...prev,
                 facteur_charge: newFactor,
