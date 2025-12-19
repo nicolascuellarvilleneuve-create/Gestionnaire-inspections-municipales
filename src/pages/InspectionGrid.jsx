@@ -25,8 +25,8 @@ const InspectionGrid = ({ onSave }) => {
     const initialFormState = {};
     FORM_SECTIONS.forEach(section => {
         if (section.repeatable) {
-            // For repeatable sections, we start with one empty item
-            initialFormState[section.id] = [createSectionState(section.fields)];
+            // For repeatable sections, we start with an empty array to allow 0 items (Optional)
+            initialFormState[section.id] = [];
         } else {
             section.fields.forEach(field => {
                 initialFormState[field.id] = '';
@@ -50,35 +50,46 @@ const InspectionGrid = ({ onSave }) => {
 
     // Real-time validation for measurement fields
     useEffect(() => {
-        if (!selectedZoneNorms) {
-            setValidation({});
-            return;
-        }
-
         const newValidation = {};
 
-        // Find measurement fields that have a normField
-        const measurementFields = FORM_SECTIONS.find(s => s.id === 'marges_verifications')?.fields || [];
+        // 1. Validate Zone-based Norms (if zone selected)
+        if (selectedZoneNorms) {
+            const measurementFields = FORM_SECTIONS.find(s => s.id === 'marges_verifications')?.fields || [];
+            measurementFields.forEach(field => {
+                if (field.type === 'measurement' && field.normField) {
+                    const relevee = formData[field.id];
+                    const norme = selectedZoneNorms[field.normField];
 
-        measurementFields.forEach(field => {
-            if (field.type === 'measurement' && field.normField) {
-                const relevee = formData[field.id];
-                const norme = selectedZoneNorms[field.normField];
-
-                if (relevee === '' || relevee === null) {
-                    newValidation[field.id] = 'empty';
-                } else {
-                    const val = parseFloat(relevee);
-                    if (isNaN(val)) {
-                        newValidation[field.id] = 'invalid';
-                    } else if (val < norme) {
-                        newValidation[field.id] = 'non-conforme';
+                    if (relevee === '' || relevee === null) {
+                        newValidation[field.id] = 'empty';
                     } else {
-                        newValidation[field.id] = 'conforme';
+                        const val = parseFloat(relevee);
+                        if (isNaN(val)) {
+                            newValidation[field.id] = 'invalid';
+                        } else if (val < norme) {
+                            newValidation[field.id] = 'non-conforme';
+                        } else {
+                            newValidation[field.id] = 'conforme';
+                        }
+                    }
+                }
+            });
+        }
+
+        // 2. Specific validation for Distance Coin Terrain
+        if (formData.type_terrain === "Terrain d'angle") {
+            const distCoin = formData.distance_coin;
+            if (distCoin !== '' && distCoin !== null && distCoin !== undefined) {
+                const val = parseFloat(distCoin);
+                if (!isNaN(val)) {
+                    if (val < 12) {
+                        newValidation['distance_coin'] = 'non-conforme';
+                    } else {
+                        newValidation['distance_coin'] = 'conforme';
                     }
                 }
             }
-        });
+        }
 
         setValidation(newValidation);
     }, [formData, selectedZoneNorms]);
@@ -88,59 +99,90 @@ const InspectionGrid = ({ onSave }) => {
         const terrain = parseFloat(formData.superficie_terrain) || 0;
         const batPrincipal = parseFloat(formData.superficie_batiment_princ) || 0;
 
-        // Sum areas from repeatable Complementary Buildings
-        const secondaryBuildings = formData.batiment_complementaire || [];
-        let batAccessoireTotal = 0;
-        let nbBatiments = 0;
+        // Sum of all complementary buildings
+        const batAccessoires = Array.isArray(formData.batiment_complementaire)
+            ? formData.batiment_complementaire.reduce((sum, b) => sum + (parseFloat(b.superficie_batiment_acc) || 0), 0)
+            : 0;
 
-        if (Array.isArray(secondaryBuildings)) {
-            nbBatiments = secondaryBuildings.length;
-            batAccessoireTotal = secondaryBuildings.reduce((acc, item) => {
-                const val = parseFloat(item.superficie_batiment_acc) || 0;
-                return acc + val;
-            }, 0);
-        }
-
-        const totalBatiments = batPrincipal + batAccessoireTotal;
-
-        // Calculate CES % = (Total Bats / Terrain) * 100
+        const totalBat = batPrincipal + batAccessoires;
         let ces = 0;
         if (terrain > 0) {
-            ces = (totalBatiments / terrain) * 100;
+            ces = (totalBat / terrain) * 100;
         }
 
-        // Only update if values changed to avoid loop
-        const newTotalStr = totalBatiments > 0 ? totalBatiments.toFixed(2) : '';
-        const newCes = ces > 0 ? ces.toFixed(2) + '%' : '';
-        const newBatAccessoireStr = batAccessoireTotal > 0 ? batAccessoireTotal.toFixed(2) : '';
-        const newCountStr = nbBatiments.toString();
+        // Count of Acc Buildings
+        const countAcc = Array.isArray(formData.batiment_complementaire) ? formData.batiment_complementaire.length : 0;
 
-        if (
-            formData.total_superficie_batiments !== newTotalStr ||
-            formData.ces !== newCes ||
-            formData.superficie_batiment_acc !== newBatAccessoireStr ||
-            formData.nb_batiment_acc !== newCountStr
-        ) {
-            setFormData(prev => ({
-                ...prev,
-                total_superficie_batiments: newTotalStr,
-                ces: newCes,
-                superficie_batiment_acc: newBatAccessoireStr,
-                nb_batiment_acc: newCountStr
-            }));
-        }
+        // Update computed fields if changed
+        setFormData(prev => {
+            if (
+                prev.total_superficie_batiments !== totalBat.toFixed(2) ||
+                prev.ces !== ces.toFixed(2) + '%' ||
+                prev.nb_batiment_acc !== countAcc
+            ) {
+                return {
+                    ...prev,
+                    total_superficie_batiments: totalBat.toFixed(2),
+                    ces: ces.toFixed(2) + '%',
+                    nb_batiment_acc: countAcc,
+                    // Also update the read-only reflection fields
+                    superficie_batiment_princ_ces: batPrincipal, // We need to sync this if we want it shown there? 
+                    // Actually the form structure links them by ID, but we have separate read-only fields for display in CES tab?
+                    // formStructure says: id: 'superficie_batiment_princ' (Same ID as in Section 4!)
+                    // Since IDs are unique in formData state, they share the value. 
+                    // Ah, Section 6 fields use SAME IDs as Section 4? 
+                    // Let's check formStructure.js. 
+                    // Section 4: { id: 'superficie_batiment_princ', ... }
+                    // Section 6: { id: 'superficie_batiment_princ', ..., readonly: true }
+                    // Yes, they share the exact same key in formData. So updating one updates the other. 
+                    // EXCEPT 'superficie_batiment_acc' in Section 6 is supposed to be the SUM.
+                    // But Section 5 is repeatable 'superficie_batiment_acc'. 
+                    // Repeatable sections use Arrays. Standard fields use Strings/Numbers.
+                    // Wait. In Section 5 (Repeatable), the field ID is 'superficie_batiment_acc'. 
+                    // So inside the array items, we have { superficie_batiment_acc: ... }.
+                    // In Section 6 (CES), we have a field { id: 'superficie_batiment_acc' }.
+                    // This conflicts! formData['superficie_batiment_acc'] can't be both a top-level summary AND an array item property?
+                    // Actually, the repeatable section data is stored in formData['batiment_complementaire'] (the section ID).
+                    // So formData['superficie_batiment_acc'] (top level) is FREE to be used as a summary field.
+                    // So we must explicitly calculate the sum and put it into formData['superficie_batiment_acc'].
+                    superficie_batiment_acc: batAccessoires.toFixed(2)
+                };
+            }
+            return prev;
+        });
 
     }, [
         formData.superficie_terrain,
         formData.superficie_batiment_princ,
-        formData.batiment_complementaire,
-        formData.total_superficie_batiments,
-        formData.ces,
-        formData.superficie_batiment_acc,
-        formData.nb_batiment_acc
+        formData.batiment_complementaire // dependency on the array
     ]);
 
-    // Auto-Calculate Parking Requirements
+    // Format DOB Display
+    // Calculate and format DOB when relevant fields change
+    useEffect(() => {
+        const totalTenantArea = formData.locataires
+            ? formData.locataires.reduce((sum, l) => sum + (parseFloat(l.superficie_occupe) || 0), 0)
+            : 0;
+
+        const batimentPrincipal = parseFloat(formData.superficie_batiment_princ) || 0;
+
+        let dob = 0;
+        if (batimentPrincipal > 0) {
+            dob = (totalTenantArea / batimentPrincipal) * 100;
+        }
+
+        // Format: "50.00%"
+        const newDob = dob > 0 ? dob.toFixed(2) + '%' : '';
+
+        if (formData.dob !== newDob) {
+            setFormData(prev => ({
+                ...prev,
+                dob: newDob
+            }));
+        }
+    }, [formData.locataires, formData.superficie_batiment_princ]);
+
+    // Parking Calculation Logic
     useEffect(() => {
         const typeCtx = formData.type_activite;
         const subCtx = formData.sous_type_activite;
@@ -178,13 +220,34 @@ const InspectionGrid = ({ onSave }) => {
         formData.superficie_plancher_admin
     ]);
 
-
-    // Standard Field Change
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+        // console.log("Change", name, value); // Debug
         setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
+        }));
+    };
+
+    const handleRepeatableChange = (sectionId, index, e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData(prev => {
+            const sectionArray = [...prev[sectionId]];
+            sectionArray[index] = {
+                ...sectionArray[index],
+                [name]: type === 'checkbox' ? checked : value
+            };
+            return {
+                ...prev,
+                [sectionId]: sectionArray
+            };
+        });
+    };
+
+    const handleInputChange = (sectionId, fieldId, value) => {
+        setFormData(prev => ({
+            ...prev,
+            [fieldId]: value
         }));
     };
 
@@ -228,232 +291,264 @@ const InspectionGrid = ({ onSave }) => {
             );
         }
 
-        // Repeatable Section Change
-        const handleRepeatableChange = (sectionId, index, e) => {
-            const { name, value, type, checked } = e.target;
-            const actualName = name.split(`_${index}_`)[1] || name; // Handle if we prefixed, or just use raw name matching field id
+        return null;
+    };
 
-            setFormData(prev => {
-                const newArray = [...prev[sectionId]];
-                newArray[index] = {
-                    ...newArray[index],
-                    [actualName]: type === 'checkbox' ? checked : value
-                };
-                return { ...prev, [sectionId]: newArray };
-            });
+    const addRepeatableItem = (section) => {
+        setFormData(prev => ({
+            ...prev,
+            [section.id]: [...prev[section.id], createSectionState(section.fields)]
+        }));
+    };
+
+    const handleGeneratePDF = () => {
+        const inspection = {
+            id: Date.now(),
+            adresse: formData.nom_rue ? `${formData.numero_civique || ''} ${formData.nom_rue}` : 'Adresse Inconnue',
+            proprietaire: formData.nom_proprietaire,
+            zone: formData.zone,
+            status: Object.values(validation).some(v => v === 'non-conforme') ? 'Non-conforme' : 'Conforme',
+            formData: formData,
+            details: {},
+            date: new Date().toLocaleDateString()
         };
+        generateInspectionPDF(inspection);
+    };
 
-        const addRepeatableItem = (section) => {
+    const handleSave = () => {
+        // Just trigger submit for now, or save to context
+        // We'll trust the form submit handler
+        document.querySelector('form').dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+    };
+
+    // New useEffect for Nature d'entreposage mapping
+    useEffect(() => {
+        const z = selectedZoneNorms;
+        if (z && z.nature_entreposage) {
+            // Map the codes (A, B, C, D) to full text from STORAGE_DEFINITIONS
+            const codes = z.nature_entreposage.split(',').map(c => c.trim());
+            const definitions = codes.map(code => {
+                const def = STORAGE_DEFINITIONS[code];
+                return def ? `${code} : ${def}` : code;
+            }).join('\n\n'); // Double newline for readable separation
+
+            if (formData.nature_entreposage !== definitions) {
+                setFormData(prev => ({
+                    ...prev,
+                    nature_entreposage: definitions
+                }));
+            }
+        }
+    }, [selectedZoneNorms, formData.type_entreposage, formData.nature_entreposage]);
+
+    // Fire Safety: Auto-Calculate Occupant Load
+    useEffect(() => {
+        const usageLabel = formData.usage_cnb;
+        const netArea = parseFloat(formData.superficie_plancher) || 0;
+
+        let factor = '';
+        let load = '';
+
+        if (usageLabel) {
+            const usageData = CNB_OCCUPANT_LOAD_TABLE.find(item => item.label === usageLabel);
+            if (usageData && usageData.factor !== null) {
+                factor = usageData.factor;
+            }
+        }
+
+        if (netArea > 0 && factor) {
+            load = Math.round(netArea / factor); // Round to nearest person
+        }
+
+        const currentFactor = formData.facteur_charge;
+        const currentRefArea = formData.superficie_plancher_ref;
+        const currentLoad = formData.charge_occupation;
+
+        const newFactor = factor ? factor.toString() : '';
+        const newRefArea = netArea > 0 ? netArea.toString() : '';
+        const newLoad = load !== '' ? load.toString() : '';
+
+        if (currentFactor !== newFactor || currentRefArea !== newRefArea || currentLoad !== newLoad) {
             setFormData(prev => ({
                 ...prev,
-                [section.id]: [...prev[section.id], createSectionState(section.fields)]
+                facteur_charge: newFactor,
+                superficie_plancher_ref: newRefArea,
+                charge_occupation: newLoad
             }));
+        }
+
+    }, [formData.usage_cnb, formData.superficie_plancher, formData.facteur_charge, formData.superficie_plancher_ref, formData.charge_occupation]);
+
+    const removeRepeatableItem = (sectionId, index) => {
+        setFormData(prev => ({
+            ...prev,
+            [sectionId]: prev[sectionId].filter((_, i) => i !== index)
+        }));
+    };
+
+    const calculateGap = (relevee, norme) => {
+        if (!relevee || !norme) return null;
+        const val = parseFloat(relevee);
+        if (isNaN(val)) return null;
+        return (val - norme).toFixed(2);
+    };
+
+    const getStatusBadge = (status, gap) => {
+        if (status === 'conforme') {
+            return (
+                <span className="flex items-center text-green-600 text-xs font-bold uppercase tracking-wider bg-green-50 px-2 py-1 rounded-md border border-green-100">
+                    <Check size={14} className="mr-1" /> Conforme (+{gap}m)
+                </span>
+            );
+        }
+        if (status === 'non-conforme') {
+            return (
+                <span className="flex items-center text-red-600 text-xs font-bold uppercase tracking-wider bg-red-50 px-2 py-1 rounded-md border border-red-100 animate-pulse">
+                    <AlertCircle size={14} className="mr-1" /> Non-conforme ({gap}m)
+                </span>
+            );
+        }
+        return null;
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const hasNonConformity = Object.values(validation).some(v => v === 'non-conforme');
+        const status = hasNonConformity ? 'Non-conforme' : 'Conforme';
+
+        const inspection = {
+            id: Date.now(), // Simple ID
+            adresse: formData.nom_rue ? `${formData.numero_civique || ''} ${formData.nom_rue}` : 'Adresse Inconnue',
+            proprietaire: formData.nom_proprietaire,
+            zone: formData.zone,
+            status: status,
+            formData: formData, // Save full data containing arrays
+            details: {}, // Can optionally populate with specific verified margins for quick access
+            date: new Date().toLocaleDateString()
         };
 
-        // Auto-Calculate Drainage
-        useEffect(() => {
-            const surfaces = formData.surfaces_impermeabilisees || [];
-
-            let total = 0;
-            if (Array.isArray(surfaces)) {
-                total = surfaces.reduce((acc, item) => {
-                    const val = parseFloat(item.superficie_surface) || 0;
-                    return acc + val;
-                }, 0);
-            }
-
-            const newTotalStr = total > 0 ? total.toFixed(2) : '';
-            const puisardStatus = total > 500 ? 'REQUIS' : 'NON REQUIS';
-
-            if (formData.total_impermeabilise_calc !== newTotalStr || formData.puisard_obligatoire_statut !== puisardStatus) {
-                setFormData(prev => ({
-                    ...prev,
-                    total_impermeabilise_calc: newTotalStr,
-                    puisard_obligatoire_statut: puisardStatus
-                }));
-            }
-
-        }, [formData.surfaces_impermeabilisees, formData.total_impermeabilise_calc, formData.puisard_obligatoire_statut]);
-
-        // Auto-Calculate DOB (Density of Occupation)
-        useEffect(() => {
-            const tenants = formData.locataires || [];
-            const batimentPrincipal = parseFloat(formData.superficie_batiment_princ) || 0;
-
-            let totalTenantArea = 0;
-            if (Array.isArray(tenants)) {
-                totalTenantArea = tenants.reduce((acc, item) => {
-                    const val = parseFloat(item.superficie_occupe) || 0;
-                    return acc + val;
-                }, 0);
-            }
-
-            let dob = 0;
-            if (batimentPrincipal > 0) {
-                dob = (totalTenantArea / batimentPrincipal) * 100;
-            }
-
-            const newDob = dob > 0 ? dob.toFixed(2) + '%' : '';
-
-            if (formData.dob !== newDob) {
-                setFormData(prev => ({
-                    ...prev,
-                    dob: newDob
-                }));
-            }
-        }, [formData.locataires, formData.superficie_batiment_princ, formData.dob]);
-
-        // Auto-Set Storage Type based on Zone
-        useEffect(() => {
-            if (selectedZoneNorms) {
-                const type = selectedZoneNorms.typeEntreposage || '';
-
-                // Calculate Nature description
-                let nature = '';
-                if (type && type !== 'N/A') {
-                    const codes = type.split(' '); // Split "C D" -> ['C', 'D']
-                    nature = codes.map(code => {
-                        const def = STORAGE_DEFINITIONS[code];
-                        return def ? `${code}: ${def}` : '';
-                    }).filter(Boolean).join('\n\n');
-                }
-
-                if (formData.type_entreposage !== type || formData.nature_entreposage !== nature) {
-                    setFormData(prev => ({
-                        ...prev,
-                        type_entreposage: type,
-                        nature_entreposage: nature
-                    }));
+        // Add margin details for history/pdf validity
+        Object.keys(validation).forEach(key => {
+            if (formData[key]) {
+                // Try to find norm value
+                const field = FORM_SECTIONS.find(s => s.id === 'marges_verifications')?.fields.find(f => f.id === key);
+                if (field && selectedZoneNorms) {
+                    if (!inspection.details) inspection.details = {};
+                    inspection.details[key] = {
+                        requis: selectedZoneNorms[field.normField],
+                        releve: formData[key],
+                        conforme: validation[key] === 'conforme'
+                    };
                 }
             }
-        }, [selectedZoneNorms, formData.type_entreposage, formData.nature_entreposage]);
+        });
 
-        // Fire Safety: Auto-Calculate Occupant Load
-        useEffect(() => {
-            const usageLabel = formData.usage_cnb;
-            const netArea = parseFloat(formData.superficie_plancher) || 0;
+        addInspection(inspection);
 
-            let factor = '';
-            let load = '';
+        // Ask if user wants PDF immediately
+        if (window.confirm("Inspection enregistrée ! Voulez-vous télécharger le PDF maintenant ?")) {
+            generateInspectionPDF(inspection);
+        }
 
-            if (usageLabel) {
-                const usageData = CNB_OCCUPANT_LOAD_TABLE.find(item => item.label === usageLabel);
-                if (usageData && usageData.factor !== null) {
-                    factor = usageData.factor;
-                }
-            }
+        if (onSave) onSave();
+    };
 
-            if (netArea > 0 && factor) {
-                load = Math.round(netArea / factor); // Round to nearest person
-            }
-
-            const currentFactor = formData.facteur_charge;
-            const currentRefArea = formData.superficie_plancher_ref;
-            const currentLoad = formData.charge_occupation;
-
-            const newFactor = factor ? factor.toString() : '';
-            const newRefArea = netArea > 0 ? netArea.toString() : '';
-            const newLoad = load !== '' ? load.toString() : '';
-
-            if (currentFactor !== newFactor || currentRefArea !== newRefArea || currentLoad !== newLoad) {
-                setFormData(prev => ({
-                    ...prev,
-                    facteur_charge: newFactor,
-                    superficie_plancher_ref: newRefArea,
-                    charge_occupation: newLoad
-                }));
-            }
-
-        }, [formData.usage_cnb, formData.superficie_plancher, formData.facteur_charge, formData.superficie_plancher_ref, formData.charge_occupation]);
-
-        const removeRepeatableItem = (sectionId, index) => {
-            setFormData(prev => ({
-                ...prev,
-                [sectionId]: prev[sectionId].filter((_, i) => i !== index)
-            }));
-        };
-
-        const calculateGap = (relevee, norme) => {
-            if (!relevee || !norme) return null;
-            const val = parseFloat(relevee);
-            if (isNaN(val)) return null;
-            return (val - norme).toFixed(2);
-        };
-
-        const getStatusBadge = (status, gap) => {
-            if (status === 'conforme') {
-                return (
-                    <span className="flex items-center text-green-600 text-xs font-bold uppercase tracking-wider bg-green-50 px-2 py-1 rounded-md border border-green-100">
-                        <Check size={14} className="mr-1" /> Conforme (+{gap}m)
-                    </span>
-                );
-            }
-            if (status === 'non-conforme') {
-                return (
-                    <span className="flex items-center text-red-600 text-xs font-bold uppercase tracking-wider bg-red-50 px-2 py-1 rounded-md border border-red-100 animate-pulse">
-                        <AlertCircle size={14} className="mr-1" /> Non-conforme ({gap}m)
-                    </span>
-                );
-            }
-            return null;
-        };
-
-        const handleSubmit = (e) => {
-            e.preventDefault();
-
-            const hasNonConformity = Object.values(validation).some(v => v === 'non-conforme');
-            const status = hasNonConformity ? 'Non-conforme' : 'Conforme';
-
-            const inspection = {
-                id: Date.now(), // Simple ID
-                adresse: formData.nom_rue ? `${formData.numero_civique || ''} ${formData.nom_rue}` : 'Adresse Inconnue',
-                proprietaire: formData.nom_proprietaire,
-                zone: formData.zone,
-                status: status,
-                formData: formData, // Save full data containing arrays
-                details: {}, // Can optionally populate with specific verified margins for quick access
-                date: new Date().toLocaleDateString()
-            };
-
-            // Add margin details for history/pdf validity
-            Object.keys(validation).forEach(key => {
-                if (formData[key]) {
-                    // Try to find norm value
-                    const field = FORM_SECTIONS.find(s => s.id === 'marges_verifications')?.fields.find(f => f.id === key);
-                    if (field && selectedZoneNorms) {
-                        if (!inspection.details) inspection.details = {};
-                        inspection.details[key] = {
-                            requis: selectedZoneNorms[field.normField],
-                            releve: formData[key],
-                            conforme: validation[key] === 'conforme'
-                        };
-                    }
-                }
-            });
-
-            addInspection(inspection);
-
-            // Ask if user wants PDF immediately
-            if (window.confirm("Inspection enregistrée ! Voulez-vous télécharger le PDF maintenant ?")) {
-                generateInspectionPDF(inspection);
-            }
-
-            if (onSave) onSave();
-        };
-
-        return (
-            <div className="max-w-5xl mx-auto pb-20">
-                <div className="flex justify-between items-center mb-8">
+    return (
+        <div className="min-h-screen bg-slate-50">
+            {/* Header Global - NOT STICKY anymore */}
+            <div className="bg-white border-b border-slate-200 px-8 py-4 shadow-sm mb-8">
+                <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div>
-                        <h2 className="text-3xl font-bold text-slate-800 tracking-tight">Grille d'Inspection</h2>
-                        <p className="text-slate-500 mt-1">Saisie complète et validation normative</p>
+                        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Inspection Municipale</h1>
+                        <p className="text-slate-500 mt-1">Formulaire de saisie et de calcul</p>
                     </div>
-                    <div className="text-sm font-medium bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 text-slate-600">
-                        {new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                    <div className="flex gap-4">
+                        <button
+                            type="button"
+                            onClick={handleGeneratePDF}
+                            className="bg-slate-800 text-white px-5 py-2.5 rounded-xl font-bold shadow-lg shadow-slate-200 hover:bg-slate-700 hover:shadow-xl transition-all flex items-center"
+                        >
+                            <FileDown size={20} className="mr-2" />
+                            PDF
+                        </button>
+                        <button
+                            onClick={handleSave}
+                            className="bg-blue-600 text-white px-5 py-2.5 rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-500 hover:shadow-blue-300 transition-all flex items-center"
+                        >
+                            <Save size={20} className="mr-2" />
+                            Enregistrer
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="max-w-[1800px] mx-auto p-8 flex items-start gap-8">
+                {/* STICKY SIDEBAR NAVIGATION - Collapsible */}
+                {/* Fixed positioning or Sticky? Sticky is better for alignment with form top. */}
+                {/* We increase z-index to ensure it expands over content if needed, though pushing content is safer for "not reducing width" interpreted as "use void space". 
+                   The user said "doit etre plus a gauche pour ne pas réduire la largeur". 
+                   If it expands, it might push content. 
+                   If we make it 'absolute' or 'fixed' it won't push content but might overlap.
+                   "plus a gauche" implies using the margin.
+                   Let's keep it sticky but compact (w-20) so the form gets more space (flex-1).
+                   When hovered, we can make it absolute/fixed-like visual expansion OR just expand width.
+                   Expanding width SHIFTS the content, which feels jerky.
+                   Better: The container has a fixed width of 5rem (20), but the NAV itself expands absolute-ly or has an inner container that expands?
+                   
+                   Let's try a cleaner approach: stick sidebar is purely icons (width 20). 
+                   When hovered, it expands into a floating drawer? 
+                   OR, we just output the icon and the text is hidden.
+                   
+                   Let's use `w-20 hover:w-80` with `transition-width`.
+                   To prevent layout shift of the form, the `nav` container should perhaps stay `w-20`, and the content inside expands absolutely?
+                   Let's try that. The parent is a placeholder `w-20`. The child `div` is `fixed` or `absolute` relative to something?
+                   Sticky + Absolute expansion is tricky.
+                   
+                   Easier: The nav is `sticky top-8`. It has base width `w-20`.
+                   On hover, it becomes `w-80`. 
+                   Issue: The form next to it will shrink/resize. User specifically said "ne pas réduire la largeur du formulaire".
+                   This implies the sidebar shouldn't take up space from the form.
+                   
+                   Solution: Position Fixed Left.
+                   "l'onglet navigation doit etre plus a gauche".
+                   Let's move it OUT of the flex container and make it `fixed left-4 top-32 z-50`.
+                   Then the form can take full width (max-w-7xl centered).
+                 */}
+
+                <nav className="fixed left-0 md:left-64 top-32 z-50 group">
+                    <div
+                        className="bg-[#1a1b26] rounded-r-2xl shadow-md border border-[#414868] overflow-hidden w-16 hover:w-72 transition-all duration-300 ease-in-out h-[calc(100vh-10rem)] overflow-y-auto [&::-webkit-scrollbar]:hidden"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        <div className="p-4 border-b border-[#414868] bg-[#1a1b26] flex items-center overflow-hidden whitespace-nowrap">
+                            <h3 className="font-bold text-[#c0caf5] uppercase text-xs tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 pl-2">Navigation</h3>
+                        </div>
+                        <ul className="py-2">
+                            {FORM_SECTIONS.map((section, idx) => (
+                                <li key={section.id}>
+                                    <button
+                                        onClick={() => {
+                                            document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                        }}
+                                        className="w-full text-left px-4 py-3 text-sm font-medium text-[#7aa2f7] hover:bg-[#24283b] hover:text-[#bb9af7] transition-colors flex items-center border-l-4 border-transparent hover:border-[#7aa2f7] overflow-hidden whitespace-nowrap"
+                                        title={section.title} // Tooltip for collapsed state
+                                    >
+                                        <span className="w-8 h-8 rounded bg-[#24283b] text-[#565f89] flex items-center justify-center text-sm font-bold shrink-0 shadow-sm group-hover:bg-[#414868] group-hover:text-[#c0caf5] transition-colors">
+                                            {idx + 1}
+                                        </span>
+                                        <span className="ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-75 truncate block text-[#c0caf5]">
+                                            {section.title}
+                                        </span>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </nav>
+
+                {/* MAIN FORM - Add margin-left to avoid overlap with collapsed sidebar */}
+                <form onSubmit={handleSubmit} className="flex-1 space-y-8 pb-24 ml-16 md:ml-32 w-full">
                     {FORM_SECTIONS.map((section, index) => {
 
                         // Conditional rendering: LOCATAIRES needs presence_locataire checked
@@ -464,7 +559,7 @@ const InspectionGrid = ({ onSave }) => {
                         // -------------- REPEATABLE SECTION RENDERING --------------
                         if (section.repeatable) {
                             return (
-                                <section key={section.id} className="space-y-4">
+                                <section id={section.id} key={section.id} className="space-y-4 scroll-mt-32">
                                     <div className="flex items-center justify-between">
                                         <h3 className="text-lg font-bold text-slate-800 tracking-tight uppercase flex items-center">
                                             <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm mr-4 shadow-sm">
@@ -486,15 +581,13 @@ const InspectionGrid = ({ onSave }) => {
                                             {/* Header for Item */}
                                             <div className="bg-slate-50/50 px-6 py-3 border-b border-slate-100 flex justify-between items-center">
                                                 <span className="font-bold text-slate-700 text-sm">{section.repeatLabel} #{itemIndex + 1}</span>
-                                                {formData[section.id].length > 1 && (
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => removeRepeatableItem(section.id, itemIndex)}
-                                                        className="text-slate-400 hover:text-red-500 transition-colors"
-                                                    >
-                                                        <Trash2 size={18} />
-                                                    </button>
-                                                )}
+                                                <button
+                                                    type="button"
+                                                    onClick={() => removeRepeatableItem(section.id, itemIndex)}
+                                                    className="text-slate-400 hover:text-red-500 transition-colors"
+                                                >
+                                                    <Trash2 size={18} />
+                                                </button>
                                             </div>
 
                                             <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -545,7 +638,7 @@ const InspectionGrid = ({ onSave }) => {
 
                         // -------------- STANDARD SECTION RENDERING --------------
                         return (
-                            <section key={section.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition-all hover:shadow-md">
+                            <section id={section.id} key={section.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition-all hover:shadow-md scroll-mt-32">
                                 <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-100 flex items-center">
                                     <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm mr-4 shadow-sm">
                                         {index + 1}
@@ -560,30 +653,58 @@ const InspectionGrid = ({ onSave }) => {
                                             return null;
                                         }
 
+                                        // Special rendering for distance_coin with validation badge
+                                        if (field.id === 'distance_coin') {
+                                            if (formData.type_terrain !== "Terrain d'angle") return null;
+
+                                            const valStatus = validation[field.id];
+                                            const gap = calculateGap(formData[field.id], 12); // Hardcoded 12m norm
+
+                                            return (
+                                                <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                                                    <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
+                                                    <div className="relative">
+                                                        <input
+                                                            type="number"
+                                                            step="0.01"
+                                                            name={field.id}
+                                                            value={formData[field.id] || ''}
+                                                            onChange={handleChange}
+                                                            className={`w-full px-4 py-2.5 border rounded-xl focus:ring-2 transition-all outline-none ${valStatus === 'non-conforme' ? 'border-red-300 focus:ring-red-200 text-red-700' :
+                                                                valStatus === 'conforme' ? 'border-green-300 focus:ring-green-200 text-green-700' :
+                                                                    'border-slate-300 focus:ring-blue-500 focus:border-blue-500'
+                                                                }`}
+                                                            placeholder={field.label}
+                                                        />
+                                                        <div className="absolute right-3 top-2.5">
+                                                            {getStatusBadge(valStatus, gap)}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
                                         // Special rendering for Zones (Select via Data) or Generic Select (Array options)
                                         if (field.type === 'select') {
-                                            let options = [];
-                                            if (field.options === 'zones') {
-                                                options = REGLEMENTS.map(r => r.zone);
-                                            } else if (field.options === 'usage_cnb') {
-                                                options = CNB_OCCUPANT_LOAD_TABLE.map(i => i.label);
-                                            } else if (field.options === 'type_activite_options' || field.options === 'sous_type_activite_options') {
-                                                // Rendered by custom renderField logic above, 
-                                                // but we need to ensure this block doesn't override it if we didn't call renderField here?
-                                                // Actually, the map below calls 'renderField' indirectly?
-                                                // Wait, the original code maps fields and renders distinct blocks.
-                                                // We need to inject the dynamic inputs rendering.
-                                            } else if (Array.isArray(field.options)) {
-                                                options = field.options;
+                                            if (field.id === 'zone') {
+                                                return (
+                                                    <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                                                        <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
+                                                        <select
+                                                            name={field.id}
+                                                            value={formData[field.id] || ''}
+                                                            onChange={handleChange}
+                                                            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none font-medium"
+                                                        >
+                                                            <option value="">Sélectionner...</option>
+                                                            {REGLEMENTS.map(zone => (
+                                                                <option key={zone.zone} value={zone.zone}>{zone.zone}</option>
+                                                            ))}
+                                                        </select>
+                                                    </div>
+                                                );
                                             }
-
-                                            // If we handled it in renderField (custom), we should allow it to pass through or use this?
-                                            // The current structure renders specific blocks for 'select', 'measurement', etc. inside the map.
-                                            // Our custom 'renderField' function was intended to REPLACE this logic or be called BY it.
-                                            // But the existing code doesn't call a 'renderField' function, it acts inline.
-                                            // I defined `renderField` but didn't hook it up!
-
-                                            // Let's hook it up for the new fields OR special casing.
+                                            // Dynamic fields (activity) - Handled via renderField
                                             if (field.id === 'type_activite' || field.id === 'sous_type_activite') {
                                                 return (
                                                     <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
@@ -592,114 +713,87 @@ const InspectionGrid = ({ onSave }) => {
                                                     </div>
                                                 );
                                             }
+                                            // General Select (simple array)
+                                            if (field.options && Array.isArray(field.options)) {
+                                                return (
+                                                    <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                                                        <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
+                                                        <select
+                                                            name={field.id}
+                                                            value={formData[field.id] || ''}
+                                                            onChange={handleChange}
+                                                            className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none font-medium"
+                                                        >
+                                                            <option value="">Sélectionner...</option>
+                                                            {field.options.map(opt => (
+                                                                <option key={opt} value={opt}>{opt}</option>
+                                                            ))}
+                                                        </select>
+                                                    </div>
+                                                );
+                                            }
+                                            // Skip specialized selects that are handled by renderField or other logic if here
+                                            return renderField(field, section.id, index);
+                                        }
 
+                                        // Checkbox/Radio
+                                        if (field.type === 'checkbox') {
                                             return (
                                                 <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
                                                     <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
-                                                    <select
-                                                        name={field.id}
-                                                        value={formData[field.id]}
-                                                        onChange={handleChange}
-                                                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none font-medium"
-                                                    >
-                                                        <option value="">Sélectionner...</option>
-                                                        {options.map(opt => (
-                                                            <option key={opt} value={opt}>{opt}</option>
-                                                        ))}
-                                                    </select>
-                                                    {/* Special display for Zones norms */}
-                                                    {field.options === 'zones' && selectedZoneNorms && (
-                                                        <div className="mt-3 p-3 bg-blue-50/50 border border-blue-100 rounded-lg text-xs text-blue-800 grid grid-cols-2 gap-2">
-                                                            <div><span className="font-bold">Avant:</span> {selectedZoneNorms.margeAvant}m</div>
-                                                            <div><span className="font-bold">Arrière:</span> {selectedZoneNorms.margeArriere}m</div>
-                                                            <div><span className="font-bold">Latérale:</span> {selectedZoneNorms.margeLaterale}m</div>
-                                                            <div><span className="font-bold">Entreposage:</span> {selectedZoneNorms.typeEntreposage}</div>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            );
-                                        }
-
-                                        // Special rendering for Comparisons (Measurements)
-                                        if (field.type === 'measurement') {
-                                            const norm = selectedZoneNorms ? selectedZoneNorms[field.normField] : null;
-                                            const valStatus = validation[field.id];
-                                            const gap = calculateGap(formData[field.id], norm);
-
-                                            return (
-                                                <div key={field.id} className="md:col-span-2 bg-slate-50 p-4 rounded-xl border border-slate-200">
-                                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                                        <div className="flex-1">
-                                                            <label className="block text-sm font-semibold text-slate-700 mb-1">{field.label}</label>
-                                                            <div className="text-xs text-slate-500 font-mono">
-                                                                Norme: <span className="font-bold text-slate-700">{norm ?? '-'} m</span>
-                                                            </div>
-                                                        </div>
-                                                        <div className="w-full md:w-1/3">
-                                                            <div className="relative">
-                                                                <input
-                                                                    type="number"
-                                                                    step="0.01"
-                                                                    name={field.id}
-                                                                    value={formData[field.id]}
-                                                                    onChange={handleChange}
-                                                                    className={`w-full pl-4 pr-4 py-2 border rounded-lg focus:ring-2 outline-none transition-all ${valStatus === 'non-conforme' ? 'border-red-300 focus:ring-red-200 text-red-700' :
-                                                                        valStatus === 'conforme' ? 'border-green-300 focus:ring-green-200 text-green-700' :
-                                                                            'border-slate-300 focus:ring-blue-200'
-                                                                        }`}
-                                                                    placeholder="Saisir mesure..."
-                                                                    disabled={!selectedZoneNorms}
-                                                                />
-                                                                <Calculator className="absolute right-3 top-2.5 text-slate-400" size={16} />
-                                                            </div>
-                                                        </div>
-                                                        <div className="min-w-[140px] flex justify-end">
-                                                            {getStatusBadge(valStatus, gap)}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            );
-                                        }
-
-                                        // Default rendering
-                                        return (
-                                            <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
-                                                <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
-                                                {field.type === 'checkbox' ? (
                                                     <label className="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
                                                         <input
                                                             type="checkbox"
                                                             name={field.id}
-                                                            checked={formData[field.id]}
+                                                            checked={formData[field.id] || false}
                                                             onChange={handleChange}
                                                             className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
                                                         />
                                                         <span className="text-sm text-slate-600">Oui / Confirmé</span>
                                                     </label>
-                                                ) : field.type === 'textarea' ? (
+                                                </div>
+                                            );
+                                        }
+
+                                        // TextArea
+                                        if (field.type === 'textarea') {
+                                            return (
+                                                <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                                                    <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
                                                     <textarea
                                                         name={field.id}
-                                                        value={formData[field.id]}
-                                                        readOnly={field.readonly}
-                                                        className={`w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none min-h-[100px] resize-y ${field.readonly ? 'bg-slate-100 text-slate-600' : ''}`}
-                                                        placeholder={field.label}
-                                                    />
-                                                ) : (
-                                                    <input
-                                                        type={field.type}
-                                                        name={field.id}
-                                                        value={formData[field.id]}
-                                                        readOnly={field.readonly}
+                                                        value={formData[field.id] || ''}
                                                         onChange={handleChange}
-                                                        className={`w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none ${field.readonly ? 'bg-slate-100 text-slate-600' : ''}`}
+                                                        readOnly={field.readonly}
+                                                        rows={field.rows || 3}
+                                                        className={`w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none ${field.readonly ? 'bg-slate-100/50 text-slate-500' : ''}`}
                                                         placeholder={field.label}
                                                     />
-                                                )}
+                                                </div>
+                                            );
+                                        }
+
+                                        // Default Input (Text, Number, Date, etc.) - or Custom renderField fallback
+                                        const customRender = renderField(field, section.id, index);
+                                        if (customRender) return customRender;
+
+                                        return (
+                                            <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                                                <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
+                                                <input
+                                                    type={field.type}
+                                                    name={field.id}
+                                                    value={formData[field.id] || ''}
+                                                    onChange={handleChange}
+                                                    readOnly={field.readonly}
+                                                    className={`w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none ${field.readonly ? 'bg-slate-100/50 text-slate-500' : ''}`}
+                                                    placeholder={field.label}
+                                                />
                                             </div>
                                         );
                                     })}
 
-                                    {/* Dynamic Input Fields for Parking (rendered only in info_immeuble if relevant) */}
+                                    {/* DYNAMIC PARKING INPUTS */}
                                     {section.id === 'info_immeuble' && formData.type_activite && formData.sous_type_activite && (
                                         (() => {
                                             const rule = PARKING_RULES[formData.type_activite]?.subtypes[formData.sous_type_activite];
@@ -759,7 +853,8 @@ const InspectionGrid = ({ onSave }) => {
 
                 </form>
             </div>
-        );
-    };
+        </div>
+    );
+};
 
-    export default InspectionGrid;
+export default InspectionGrid;
