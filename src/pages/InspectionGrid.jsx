@@ -5,9 +5,8 @@ import { FORM_SECTIONS } from '../data/formStructure';
 import { CNB_OCCUPANT_LOAD_TABLE } from '../data/fireSafetyData';
 import { PARKING_RULES } from '../data/parkingData';
 import { useInspections } from '../context/InspectionContext';
-import { Save, AlertTriangle, Check, AlertCircle, Calculator, Plus, Trash2, FileDown } from 'lucide-react';
+import { Save, Check, AlertCircle, Plus, Trash2, FileDown } from 'lucide-react';
 import { generateInspectionPDF } from '../utils/pdfGenerator';
-import * as XLSX from 'xlsx';
 
 const InspectionGrid = ({ onSave }) => {
     const { addInspection } = useInspections();
@@ -35,21 +34,17 @@ const InspectionGrid = ({ onSave }) => {
     });
 
     const [formData, setFormData] = useState(initialFormState);
-    const [validation, setValidation] = useState({});
-    const [selectedZoneNorms, setSelectedZoneNorms] = useState(null);
 
     // Update zone norms when zone changes
-    useEffect(() => {
+    const selectedZoneNorms = React.useMemo(() => {
         if (formData.zone) {
-            const norms = REGLEMENTS.find(r => r.zone === formData.zone);
-            setSelectedZoneNorms(norms || null);
-        } else {
-            setSelectedZoneNorms(null);
+            return REGLEMENTS.find(r => r.zone === formData.zone) || null;
         }
+        return null;
     }, [formData.zone]);
 
     // Real-time validation for measurement fields
-    useEffect(() => {
+    const validation = React.useMemo(() => {
         const newValidation = {};
 
         // 1. Validate Zone-based Norms (if zone selected)
@@ -91,7 +86,7 @@ const InspectionGrid = ({ onSave }) => {
             }
         }
 
-        setValidation(newValidation);
+        return newValidation;
     }, [formData, selectedZoneNorms]);
 
     // Auto-Calculate CES and Complementary Buildings Summary
@@ -114,6 +109,7 @@ const InspectionGrid = ({ onSave }) => {
         const countAcc = Array.isArray(formData.batiment_complementaire) ? formData.batiment_complementaire.length : 0;
 
         // Update computed fields if changed
+        // eslint-disable-next-line
         setFormData(prev => {
             if (
                 prev.total_superficie_batiments !== totalBat.toFixed(2) ||
@@ -175,12 +171,13 @@ const InspectionGrid = ({ onSave }) => {
         const newDob = dob > 0 ? dob.toFixed(2) + '%' : '';
 
         if (formData.dob !== newDob) {
+            // eslint-disable-next-line
             setFormData(prev => ({
                 ...prev,
                 dob: newDob
             }));
         }
-    }, [formData.locataires, formData.superficie_batiment_princ]);
+    }, [formData.locataires, formData.superficie_batiment_princ, formData.dob]);
 
     // Parking Calculation Logic
     useEffect(() => {
@@ -199,6 +196,7 @@ const InspectionGrid = ({ onSave }) => {
 
         const casesStr = casesRequises > 0 ? casesRequises.toString() : '';
         if (formData.nb_cases_requises !== casesStr) {
+            // eslint-disable-next-line
             setFormData(prev => ({ ...prev, nb_cases_requises: casesStr }));
         }
 
@@ -217,7 +215,8 @@ const InspectionGrid = ({ onSave }) => {
         formData.nb_salle_expo,
         formData.nb_unite_jeux,
         formData.superficie_plancher_bureau,
-        formData.superficie_plancher_admin
+        formData.superficie_plancher_admin,
+        formData.nb_cases_requises
     ]);
 
     const handleChange = (e) => {
@@ -251,7 +250,7 @@ const InspectionGrid = ({ onSave }) => {
         }));
     };
 
-    const renderField = (field, sectionId, index = null) => {
+    const renderField = (field, sectionId) => {
         // Handle Dynamic Options for Parking Activity
         if (field.id === 'type_activite') {
             const options = Object.keys(PARKING_RULES).map(k => ({ value: k, label: PARKING_RULES[k].label }));
@@ -333,6 +332,7 @@ const InspectionGrid = ({ onSave }) => {
             }).join('\n\n'); // Double newline for readable separation
 
             if (formData.nature_entreposage !== definitions) {
+                // eslint-disable-next-line
                 setFormData(prev => ({
                     ...prev,
                     nature_entreposage: definitions
@@ -369,6 +369,7 @@ const InspectionGrid = ({ onSave }) => {
         const newLoad = load !== '' ? load.toString() : '';
 
         if (currentFactor !== newFactor || currentRefArea !== newRefArea || currentLoad !== newLoad) {
+            // eslint-disable-next-line
             setFormData(prev => ({
                 ...prev,
                 facteur_charge: newFactor,
@@ -708,8 +709,8 @@ const InspectionGrid = ({ onSave }) => {
                                                             value={formData[field.id] || ''}
                                                             onChange={handleChange}
                                                             className={`w-full px-4 py-2.5 border rounded-xl focus:ring-2 transition-all outline-none ${valStatus === 'non-conforme' ? 'border-red-300 focus:ring-red-200 text-red-700' :
-                                                                    valStatus === 'conforme' ? 'border-green-300 focus:ring-green-200 text-green-700' :
-                                                                        'border-slate-300 focus:ring-blue-500 focus:border-blue-500'
+                                                                valStatus === 'conforme' ? 'border-green-300 focus:ring-green-200 text-green-700' :
+                                                                    'border-slate-300 focus:ring-blue-500 focus:border-blue-500'
                                                                 }`}
                                                             placeholder={normValue ? `Norme: ${normValue}m` : field.label}
                                                         />
@@ -811,7 +812,7 @@ const InspectionGrid = ({ onSave }) => {
                                         }
 
                                         // Default Input (Text, Number, Date, etc.) - or Custom renderField fallback
-                                        const customRender = renderField(field, section.id, index);
+                                        const customRender = renderField(field, section.id);
                                         if (customRender) return customRender;
 
                                         return (

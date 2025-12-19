@@ -4,6 +4,7 @@ import { MOCK_INSPECTIONS } from '../data/mockData';
 
 const InspectionContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useInspections = () => useContext(InspectionContext);
 
 export const InspectionProvider = ({ children }) => {

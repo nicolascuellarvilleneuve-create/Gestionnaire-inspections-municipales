@@ -1,13 +1,12 @@
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { useInspections } from '../context/InspectionContext';
 import { PlusCircle, FileText, CheckCircle, AlertCircle, TrendingUp, Download, Upload, Database, FileSpreadsheet } from 'lucide-react';
 import { exportFullDatabase, exportToExcel, importDatabase } from '../utils/dataManager';
 import { generateInspectionPDF } from '../utils/pdfGenerator';
 
 const Dashboard = ({ onNewInspection }) => {
-    const { inspections, setInspections } = useInspections(); // We need access to SET for import
-    const fileInputRef = useRef(null);
+    const { inspections } = useInspections(); // We need access to SET for import
 
     const stats = {
         total: inspections.length,

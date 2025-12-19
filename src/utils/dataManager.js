@@ -42,7 +42,7 @@ export const importDatabase = (file, callback) => {
             } else {
                 callback(false, "Format invalide (doit être un tableau)");
             }
-        } catch (err) {
+        } catch {
             callback(false, "Erreur de lecture JSON");
         }
     };
