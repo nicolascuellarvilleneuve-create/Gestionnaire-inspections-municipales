@@ -1,0 +1,74 @@
+name: Federation Health Check (CI)
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      # SPIN UP THE DATABASE ENGINE
+      postgres:
+        image: postgis/postgis:15-3.3
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password123
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        # Health check to ensure DB is ready before we start
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: './server/package-lock.json'
+
+    - name: Install Dependencies
+      working-directory: ./server
+      run: npm install
+
+    - name: 🚧 Build Federation (The Heptagon)
+      working-directory: ./server
+      env:
+        DB_HOST: localhost
+        DB_USER: postgres
+        DB_PASSWORD: password123
+        DB_PORT: 5432
+      run: node setup_federation.js
+
+    - name: 🩺 Run Diagnostic Scan
+      working-directory: ./server
+      env:
+        DB_HOST: localhost
+        DB_USER: postgres
+        DB_PASSWORD: password123
+        DB_PORT: 5432
+      run: node diagnostic_scan.js
+
+    - name: 🧪 Run End-to-End Test (Save Inspection)
+      working-directory: ./server
+      env:
+        DB_HOST: localhost
+        DB_USER: postgres
+        DB_PASSWORD: password123
+        DB_PORT: 5432
+      # We need to start the server in the background, then run the test script
+      run: |
+        node index.js &
+        sleep 5
+        node test_e2e.js

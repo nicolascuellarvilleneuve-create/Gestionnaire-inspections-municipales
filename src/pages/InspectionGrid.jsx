@@ -418,7 +418,7 @@ const InspectionGrid = ({ onSave }) => {
         return null;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const hasNonConformity = Object.values(validation).some(v => v === 'non-conforme');
@@ -431,14 +431,13 @@ const InspectionGrid = ({ onSave }) => {
             zone: formData.zone,
             status: status,
             formData: formData, // Save full data containing arrays
-            details: {}, // Can optionally populate with specific verified margins for quick access
+            details: {},
             date: new Date().toLocaleDateString()
         };
 
         // Add margin details for history/pdf validity
         Object.keys(validation).forEach(key => {
             if (formData[key]) {
-                // Try to find norm value
                 const field = FORM_SECTIONS.find(s => s.id === 'marges_verifications')?.fields.find(f => f.id === key);
                 if (field && selectedZoneNorms) {
                     if (!inspection.details) inspection.details = {};
@@ -451,10 +450,32 @@ const InspectionGrid = ({ onSave }) => {
             }
         });
 
+        // 1. SAVE TO FLOPPY DISK (Federated Database)
+        try {
+            console.log("Saving to Federation...", inspection);
+            const response = await fetch('http://localhost:3001/api/inspections', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData) // Send raw form data to Router
+            });
+
+            if (!response.ok) {
+                throw new Error("Erreur serveur: " + response.statusText);
+            }
+            const result = await response.json();
+            console.log("Saved to Vault ID:", result.id);
+            alert("✅ Inspection sauvegardée dans la voute sécurisée!");
+
+        } catch (err) {
+            console.error("Federation Error:", err);
+            alert("⚠️ AVERTISSEMENT: Le serveur est hors ligne. Données sauvegardées localement seulement.");
+        }
+
+        // 2. SAVE LOCAL (Context/React)
         addInspection(inspection);
 
         // Ask if user wants PDF immediately
-        if (window.confirm("Inspection enregistrée ! Voulez-vous télécharger le PDF maintenant ?")) {
+        if (window.confirm("Voulez-vous télécharger le PDF maintenant ?")) {
             generateInspectionPDF(inspection);
         }
 
