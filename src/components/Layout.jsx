@@ -1,8 +1,7 @@
-
 import React from 'react';
-import { LayoutDashboard, FileText, Menu, User } from 'lucide-react';
+import { LayoutDashboard, FileText, Menu, User, Lock } from 'lucide-react';
 
-const Layout = ({ children, activeTab, setActiveTab }) => {
+const Layout = ({ children, activeTab, setActiveTab, user, onLogout }) => {
     return (
         <div className="min-h-screen bg-gray-50 font-sans antialiased flex text-slate-900">
             {/* Sidebar */}
@@ -24,8 +23,8 @@ const Layout = ({ children, activeTab, setActiveTab }) => {
                         <button
                             onClick={() => setActiveTab('dashboard')}
                             className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 group ${activeTab === 'dashboard'
-                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50 translate-x-1'
-                                    : 'text-slate-400 hover:bg-slate-800 hover:text-white hover:translate-x-1'
+                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50 translate-x-1'
+                                : 'text-slate-400 hover:bg-slate-800 hover:text-white hover:translate-x-1'
                                 }`}
                         >
                             <LayoutDashboard size={20} className={activeTab === 'dashboard' ? 'text-white' : 'text-slate-400 group-hover:text-white transition-colors'} />
@@ -34,31 +33,50 @@ const Layout = ({ children, activeTab, setActiveTab }) => {
                         <button
                             onClick={() => setActiveTab('new-inspection')}
                             className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 group ${activeTab === 'new-inspection'
-                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50 translate-x-1'
-                                    : 'text-slate-400 hover:bg-slate-800 hover:text-white hover:translate-x-1'
+                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50 translate-x-1'
+                                : 'text-slate-400 hover:bg-slate-800 hover:text-white hover:translate-x-1'
                                 }`}
                         >
                             <FileText size={20} className={activeTab === 'new-inspection' ? 'text-white' : 'text-slate-400 group-hover:text-white transition-colors'} />
                             <span className="font-medium">Nouvelle Inspection</span>
                         </button>
+
+                        {user?.role === 'admin' && (
+                            <button
+                                onClick={() => setActiveTab('admin')}
+                                className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 group ${activeTab === 'admin'
+                                    ? 'bg-purple-600 text-white shadow-lg shadow-purple-900/50 translate-x-1'
+                                    : 'text-slate-400 hover:bg-slate-800 hover:text-white hover:translate-x-1'
+                                    }`}
+                            >
+                                <Lock size={20} className={activeTab === 'admin' ? 'text-white' : 'text-slate-400 group-hover:text-white transition-colors'} />
+                                <span className="font-medium">Administration</span>
+                            </button>
+                        )}
                     </nav>
                 </div>
 
                 <div className="mt-auto p-6">
-                    <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 backdrop-blur-sm flex items-center space-x-3">
+                    <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 backdrop-blur-sm flex items-center space-x-3 mb-3">
                         <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-400 to-cyan-500 p-0.5">
                             <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
                                 <User size={20} className="text-emerald-400" />
                             </div>
                         </div>
-                        <div>
-                            <p className="text-sm font-semibold text-white">Inspecteur</p>
-                            <p className="text-xs text-emerald-400 flex items-center">
+                        <div className="overflow-hidden">
+                            <p className="text-sm font-semibold text-white truncate">{user?.username || 'Utilisateur'}</p>
+                            <p className="text-xs text-emerald-400 flex items-center uppercase tracking-wider">
                                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
-                                Connecté
+                                {user?.role || 'Connecté'}
                             </p>
                         </div>
                     </div>
+                    <button
+                        onClick={onLogout}
+                        className="w-full text-xs text-slate-400 hover:text-white text-center py-2 hover:bg-slate-800 rounded-lg transition"
+                    >
+                        Déconnexion
+                    </button>
                 </div>
             </aside>
 

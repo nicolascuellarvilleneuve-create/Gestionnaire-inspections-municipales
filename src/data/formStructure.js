@@ -3,8 +3,10 @@ export const FORM_SECTIONS = [
         id: 'info_immeuble',
         title: "INFORMATION IMMEUBLE",
         fields: [
-            { id: 'nom_rue', label: "Nom de rue", type: "text", width: "half" },
+            { id: 'nom_rue', label: "Nom de rue", type: "autocomplete", options: "VAL_DOR_STREETS", width: "half" },
             { id: 'numero_civique', label: "Numéro civique", type: "text", width: "half" },
+            { id: 'appartement', label: "Appartement / Bureau", type: "text", width: "half" },
+            { id: 'quartier', label: "Quartier", type: "text", width: "half" },
             { id: 'zone', label: "Zone", type: "select", options: "zones", width: "half" },
             { id: 'numero_lot', label: "Numéro de lot", type: "text", width: "half" },
             { id: 'nom_proprietaire', label: "Nom propriétaire", type: "text", width: "full" },
@@ -40,6 +42,12 @@ export const FORM_SECTIONS = [
             // Dynamic inputs will be rendered by Grid but we can define the result field here
             { id: 'nb_cases_requises', label: "Nombre de cases requises (Calculé)", type: "number", width: "half", readonly: true },
 
+            // Phase 4: Advanced Georeferencing
+            { id: 'numero_lot', label: "Numéro de Lot (Infolot)", type: "text", width: "half" },
+            { id: 'matricule_foncier', label: "Matricule Foncier", type: "text", width: "half" },
+            { id: 'latitude', label: "Latitude", type: "number", width: "half", readonly: true },
+            { id: 'longitude', label: "Longitude", type: "number", width: "half", readonly: true },
+            { id: 'source_localisation', label: "Source Localisation", type: "text", width: "full", readonly: true }, // e.g., 'GPS Automatique'
         ]
     },
     {
@@ -222,6 +230,35 @@ export const FORM_SECTIONS = [
             { id: 'hauteur_base', label: "Hauteur Base (< 0.6m)", type: "text", width: "half" },
             { id: 'hauteur_haut', label: "Hauteur Haut (< 3.2m)", type: "text", width: "half" },
             { id: 'superpose', label: "Superposé", type: "checkbox", width: "half" },
+        ]
+    },
+    {
+        id: 'documents_plans',
+        title: "DOCUMENTS & PLANS",
+        fields: [
+            { id: 'scan_certificat_implantation', label: "Certificat d'implantation (Scan)", type: "file", width: "full" },
+            { id: 'plan_architecture', label: "Plan d'Architecture", type: "file", width: "full" },
+            { id: 'plan_ingenieur', label: "Plan d'Ingénieur", type: "file", width: "full" },
+        ]
+    },
+    {
+        id: 'validation_professionnelle',
+        title: "VALIDATION PROFESSIONNELLE",
+        repeatable: true,
+        repeatLabel: "Sceau",
+        fields: [
+            {
+                id: 'type_professionnel',
+                label: "Ordre Professionnel",
+                type: "select",
+                options: ["OAGQ (Arpenteurs-Géomètres)", "OAQ (Architectes)", "OIQ (Ingénieurs)", "OTPQ (Technologues)"],
+                width: "half"
+            },
+            { id: 'nom_professionnel', label: "Nom du professionnel", type: "text", width: "half" },
+            { id: 'numero_membre', label: "Numéro de membre", type: "text", width: "half" },
+            { id: 'numero_minute', label: "Numéro de minute / Plan", type: "text", width: "half" },
+            { id: 'date_plan', label: "Date du plan", type: "date", width: "half" },
+            { id: 'lien_verification', label: "Lien registre public", type: "link", width: "half", readonly: true }, // Computed field
         ]
     }
 ];

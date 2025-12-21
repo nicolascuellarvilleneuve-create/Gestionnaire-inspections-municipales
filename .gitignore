@@ -5,3 +5,8 @@ dist/
 build/
 coverage/
 npm-debug.log
+backups/
+lint_report.txt
+lint_failures.txt
+last_pdf_debug.txt
+*.log

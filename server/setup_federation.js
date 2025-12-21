@@ -2,7 +2,7 @@
 const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 // CONFIG
 const DB_HOST = process.env.DB_HOST || 'localhost';
@@ -20,7 +20,9 @@ const DATABASES = [
     { name: 'city_commerce_service', schemaFile: '01_industrie.sql' },
     { name: 'city_commerce_gros_industrie', schemaFile: '01_industrie.sql' }, // Alias for clarity
     { name: 'city_public_institutionnel', schemaFile: '01_industrie.sql' },
-    { name: 'city_recreation', schemaFile: '01_industrie.sql' }
+    { name: 'city_recreation', schemaFile: '01_industrie.sql' },
+    // Phase 4: Document Vault
+    { name: 'city_plans', schemaFile: '08_plans.sql' }
 ];
 
 async function createDatabase(dbName) {

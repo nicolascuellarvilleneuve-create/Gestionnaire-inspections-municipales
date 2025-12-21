@@ -5,11 +5,14 @@ import { FORM_SECTIONS } from '../data/formStructure';
 import { CNB_OCCUPANT_LOAD_TABLE } from '../data/fireSafetyData';
 import { PARKING_RULES } from '../data/parkingData';
 import { useInspections } from '../context/InspectionContext';
+import { useAuth } from '../context/AuthContext';
 import { Save, Check, AlertCircle, Plus, Trash2, FileDown } from 'lucide-react';
 import { generateInspectionPDF } from '../utils/pdfGenerator';
+import { VAL_DOR_STREETS } from '../data/valdorStreets';
 
-const InspectionGrid = ({ onSave }) => {
+const InspectionGrid = ({ onSave, initialData }) => {
     const { addInspection } = useInspections();
+    const { getToken } = useAuth();
 
     // Helper to create initial state for a section's fields
     const createSectionState = (fields) => {
@@ -24,7 +27,6 @@ const InspectionGrid = ({ onSave }) => {
     const initialFormState = {};
     FORM_SECTIONS.forEach(section => {
         if (section.repeatable) {
-            // For repeatable sections, we start with an empty array to allow 0 items (Optional)
             initialFormState[section.id] = [];
         } else {
             section.fields.forEach(field => {
@@ -34,6 +36,36 @@ const InspectionGrid = ({ onSave }) => {
     });
 
     const [formData, setFormData] = useState(initialFormState);
+
+    // Initial Data Pre-fill (From Map Selection OR Edit Mode)
+    useEffect(() => {
+        if (initialData) {
+            // Case A: Full Restore (Edit Mode) - Check for internal field names
+            if (initialData.numero_civique || initialData.type_activite) {
+                console.log("Restoring Full Inspection Data...", initialData);
+                setFormData(prev => ({
+                    ...prev,
+                    ...initialData,
+                    // Ensure arrays are preserved
+                    locataires: initialData.locataires || [],
+                    batiment_complementaire: initialData.batiment_complementaire || [],
+                    validation_professionnelle: initialData.validation_professionnelle || [],
+                    conteneur: initialData.conteneur || [],
+                    surfaces_impermeabilisees: initialData.surfaces_impermeabilisees || []
+                }));
+            }
+            // Case B: Map Selection (New Inspection from Map)
+            else if (initialData.number) {
+                setFormData(prev => ({
+                    ...prev,
+                    numero_civique: initialData.number || prev.numero_civique,
+                    nom_rue: initialData.street || prev.nom_rue,
+                    cadastre: initialData.matricule || prev.cadastre,
+                    source_localisation: 'Carte Interactive (Infolot)'
+                }));
+            }
+        }
+    }, [initialData]);
     // DERIVED STATE (No Effects needed for display logic)
     const selectedZoneNorms = formData.zone ? (REGLEMENTS.find(r => r.zone === formData.zone) || null) : null;
 
@@ -225,6 +257,83 @@ const InspectionGrid = ({ onSave }) => {
         }
     }, [formData.type_activite]);
 
+    // ---------------------------------------------------------
+    // PHASE 4: AUTO-GEOCODING & PROFESSIONAL LINK LOGIC
+    // ---------------------------------------------------------
+
+    // Auto-Geocoding using Nominatim (OpenStreetMap)
+    useEffect(() => {
+        const fetchCoordinates = async () => {
+            if (!formData.numero_civique || !formData.nom_rue) return;
+
+            // Use configured City or default
+            const city = 'Val-d\'Or'; // Should ideally come from CITY_CONFIG
+            const query = `${formData.numero_civique} ${formData.nom_rue}, ${city}, Quebec`;
+
+            try {
+                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+
+                if (data && data.length > 0) {
+                    const { lat, lon } = data[0];
+                    if (formData.latitude !== lat || formData.longitude !== lon) {
+                        setFormData(prev => ({
+                            ...prev,
+                            latitude: lat,
+                            longitude: lon,
+                            source_localisation: 'GPS Automatique (Nominatim)'
+                        }));
+                    }
+                }
+            } catch (err) {
+                console.error("Geocoding Error:", err);
+            }
+        };
+
+        const timer = setTimeout(() => {
+            fetchCoordinates();
+        }, 1000); // 1s debounce
+
+        return () => clearTimeout(timer);
+    }, [formData.numero_civique, formData.nom_rue, formData.latitude, formData.longitude]);
+
+
+    // Auto-Generate Professional Validation Links
+    // This listens to changes in the REPEATABLE section 'validation_professionnelle'
+    useEffect(() => {
+        if (!formData.validation_professionnelle || formData.validation_professionnelle.length === 0) return;
+
+        const updatedArray = formData.validation_professionnelle.map(item => {
+            let link = '';
+            if (item.type_professionnel && item.numero_membre) {
+                if (item.type_professionnel.includes("OIQ")) {
+                    link = `https://www.oiq.qc.ca/fr/trouver-un-ingenieur?num=${item.numero_membre}`;
+                } else if (item.type_professionnel.includes("OAQ")) {
+                    link = `https://www.oaq.com/tableau-des-membres/?q=${item.numero_membre}`;
+                } else if (item.type_professionnel.includes("OAGQ")) {
+                    link = `https://www.oagq.qc.ca/tableau-des-membres?q=${item.numero_membre}`;
+                } else if (item.type_professionnel.includes("OTPQ")) {
+                    link = `https://www.otpq.qc.ca/bottin?q=${item.numero_membre}`;
+                }
+            }
+
+            if (item.lien_verification !== link) {
+                return { ...item, lien_verification: link };
+            }
+            return item;
+        });
+
+        // Deep comparison to avoid infinite loop
+        const isDifferent = JSON.stringify(updatedArray) !== JSON.stringify(formData.validation_professionnelle);
+        if (isDifferent) {
+            setFormData(prev => ({
+                ...prev,
+                validation_professionnelle: updatedArray
+            }));
+        }
+
+    }, [formData.validation_professionnelle]);
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         // console.log("Change", name, value); // Debug
@@ -293,6 +402,28 @@ const InspectionGrid = ({ onSave }) => {
                         <option key={opt.value} value={opt.value}>{opt.label}</option>
                     ))}
                 </select>
+            );
+        }
+
+        if (field.type === 'autocomplete') {
+            return (
+                <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
+                    <input
+                        type="text"
+                        name={field.id}
+                        value={formData[field.id] || ''}
+                        onChange={handleChange}
+                        list={`list-${field.id}`}
+                        className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none"
+                        placeholder="Commencez à écrire..."
+                    />
+                    <datalist id={`list-${field.id}`}>
+                        {VAL_DOR_STREETS.map((street, i) => (
+                            <option key={i} value={street} />
+                        ))}
+                    </datalist>
+                </div>
             );
         }
 
@@ -451,15 +582,23 @@ const InspectionGrid = ({ onSave }) => {
         });
 
         // 1. SAVE TO FLOPPY DISK (Federated Database)
+        // 1. SAVE TO FLOPPY DISK (Federated Database)
         try {
             console.log("Saving to Federation...", inspection);
+            const token = getToken(); // Get the JWT
             const response = await fetch('http://localhost:3001/api/inspections', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify(formData) // Send raw form data to Router
             });
 
             if (!response.ok) {
+                if (response.status === 403 || response.status === 401) {
+                    throw new Error("Session expirée. Veuillez vous reconnecter.");
+                }
                 throw new Error("Erreur serveur: " + response.statusText);
             }
             const result = await response.json();
@@ -468,7 +607,7 @@ const InspectionGrid = ({ onSave }) => {
 
         } catch (err) {
             console.error("Federation Error:", err);
-            alert("⚠️ AVERTISSEMENT: Le serveur est hors ligne. Données sauvegardées localement seulement.");
+            alert(`⚠️ ERREUR DE SAUVEGARDE: ${err.message}`);
         }
 
         // 2. SAVE LOCAL (Context/React)
@@ -656,14 +795,43 @@ const InspectionGrid = ({ onSave }) => {
                                                                 />
                                                                 <span className="text-sm text-slate-600">Oui / Confirmé</span>
                                                             </label>
+                                                        ) : field.type === 'file' ? (
+                                                            <input
+                                                                type="file"
+                                                                name={`${field.id}`}
+                                                                onChange={(e) => handleRepeatableChange(section.id, itemIndex, e)} // NOTE: File handling needs improvement in real app
+                                                                className="block w-full text-sm text-slate-500
+                                                                      file:mr-4 file:py-2 file:px-4
+                                                                      file:rounded-full file:border-0
+                                                                      file:text-sm file:font-semibold
+                                                                      file:bg-blue-50 file:text-blue-700
+                                                                      hover:file:bg-blue-100"
+                                                            />
+                                                        ) : field.type === 'link' ? (
+                                                            <div className="flex items-center">
+                                                                {item[field.id] ? (
+                                                                    <a
+                                                                        href={item[field.id]}
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        className="flex items-center text-blue-600 hover:text-blue-800 underline font-semibold"
+                                                                    >
+                                                                        <Check size={16} className="mr-1" /> Vérifier au Registre
+                                                                    </a>
+                                                                ) : (
+                                                                    <span className="text-slate-400 text-sm italic">Entrez les infos membre pour générer le lien...</span>
+                                                                )}
+                                                                <input type="hidden" name={field.id} value={item[field.id] || ''} />
+                                                            </div>
                                                         ) : (
                                                             <input
                                                                 type={field.type}
                                                                 name={`${field.id}`}
                                                                 value={item[field.id]}
                                                                 onChange={(e) => handleRepeatableChange(section.id, itemIndex, e)}
-                                                                className="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none"
+                                                                className={`w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none ${field.readonly ? 'bg-slate-100 text-slate-500' : ''}`}
                                                                 placeholder={field.label}
+                                                                readOnly={field.readonly}
                                                             />
                                                         )}
                                                     </div>

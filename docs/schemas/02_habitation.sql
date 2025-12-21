@@ -2,7 +2,7 @@
 -- DATABASE: city_habitation
 -- =============================================
 
-CREATE TABLE inspection_details (
+CREATE TABLE inspection_details_habitation (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     hub_ref_id UUID,
     
@@ -14,11 +14,4 @@ CREATE TABLE inspection_details (
     raw_form_data JSONB
 );
 
--- AUDIT LOG
-CREATE TABLE security_audit_log (
-    id SERIAL PRIMARY KEY,
-    user_name TEXT,
-    action_type TEXT,
-    target_record TEXT,
-    timestamp TIMESTAMP DEFAULT NOW()
-);
+-- AUDIT LOG (Managed centrally by Hub)

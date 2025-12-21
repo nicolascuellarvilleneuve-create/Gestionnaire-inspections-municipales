@@ -15,11 +15,4 @@ CREATE TABLE avis_permis (
     raw_form_data JSONB
 );
 
--- AUDIT LOG
-CREATE TABLE security_audit_log (
-    id SERIAL PRIMARY KEY,
-    user_name TEXT,
-    action_type TEXT,
-    target_record TEXT,
-    timestamp TIMESTAMP DEFAULT NOW()
-);
+-- AUDIT LOG (Managed centrally by Hub)
