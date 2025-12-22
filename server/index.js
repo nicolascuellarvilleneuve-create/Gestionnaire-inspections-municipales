@@ -14,6 +14,29 @@ const PORT = 3001;
 app.use(cors()); // Allow frontend to talk to us
 app.use(express.json()); // Understand JSON data
 
+// === KILLSWITCH / HEARTBEAT ===
+let lastHeartbeat = Date.now();
+// Check every 5 seconds
+const KILL_TIMEOUT = 10000; // 10 seconds without heartbeat = DEATH
+
+setInterval(() => {
+    const timeSinceLast = Date.now() - lastHeartbeat;
+    if (timeSinceLast > KILL_TIMEOUT) {
+        console.log(`[KILLSWITCH] No heartbeat for ${timeSinceLast}ms. Shutting down...`);
+        // Kill all node processes (Frontend + Backend)
+        try {
+            require('child_process').exec('taskkill /F /IM node.exe');
+        } catch (e) {
+            process.exit(0);
+        }
+    }
+}, 5000);
+
+app.post('/api/heartbeat', (req, res) => {
+    lastHeartbeat = Date.now();
+    res.sendStatus(200);
+});
+
 // AUTH ROUTES
 app.post('/api/auth/login', AuthController.login);
 app.post('/api/auth/register', verifyToken, requireAdmin, AuthController.register);

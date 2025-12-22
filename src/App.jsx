@@ -31,6 +31,16 @@ const AppContent = () => {
     return <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">Chargement...</div>;
   }
 
+  // === KILLSWITCH HEARTBEAT ===
+  React.useEffect(() => {
+    // Ping backend every 2 seconds to keep it alive
+    const interval = setInterval(() => {
+      fetch('http://localhost:3001/api/heartbeat', { method: 'POST' })
+        .catch(() => { /* Ignore errors, e.g. if running in prod without local server */ });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   // Unauthenticated -> Show Login
   if (!user) {
     return (

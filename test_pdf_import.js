@@ -14,7 +14,7 @@ if (typeof pdf === 'object') {
 }
 
 try {
-    const fs = require('fs');
+    // const fs = require('fs');
     // Create dummy buffer
     const buff = Buffer.from('dummy pdf content');
     pdf(buff).then(() => console.log('Called as function success'))

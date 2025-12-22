@@ -13,11 +13,13 @@ if (-not $remote) {
     if ($repoUrl) {
         git remote add origin $repoUrl
         Write-Host "Remote 'origin' ajouté." -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "URL invalide. Annulation." -ForegroundColor Red
         exit
     }
-} else {
+}
+else {
     Write-Host "Dépôt distant détecté : $remote" -ForegroundColor Green
 }
 
@@ -27,7 +29,8 @@ git push -u origin main
 
 if ($?) {
     Write-Host "Code source poussé avec succès." -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "Erreur lors du push. Vérifiez vos permissions." -ForegroundColor Red
     exit
 }
@@ -39,8 +42,12 @@ npm run deploy
 if ($?) {
     Write-Host "Déploiement terminé ! Votre site sera bientôt accessible." -ForegroundColor Green
     Write-Host "N'oubliez pas d'activer GitHub Pages sur la branche 'gh-pages' dans les paramètres du dépôt." -ForegroundColor Yellow
-} else {
+}
+else {
     Write-Host "Erreur lors du déploiement." -ForegroundColor Red
 }
+
+Write-Host "Lancement de la version en ligne..." -ForegroundColor Cyan
+Start-Process "https://nicolascuellarvilleneuve-create.github.io/Gestionnaire-inspections-municipales/"
 
 Pause
