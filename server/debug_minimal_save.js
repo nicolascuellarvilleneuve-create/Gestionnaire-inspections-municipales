@@ -23,8 +23,8 @@ async function testSave() {
         console.log(`Status: ${response.status}`);
         console.log(`Response: ${text}`);
 
-    } catch (e) {
-        console.error("Fetch Error:", e.message);
+    } catch {
+        console.error("Fetch Error");
     }
 
     // 2. Partial Address 
@@ -42,7 +42,7 @@ async function testSave() {
         const text = await response.text();
         console.log(`Status: ${response.status}`);
         console.log(`Response: ${text}`);
-    } catch (e) { }
+    } catch { }
 
 }
 

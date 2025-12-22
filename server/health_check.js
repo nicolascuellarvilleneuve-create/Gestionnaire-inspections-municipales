@@ -67,7 +67,7 @@ async function checkAPI() {
                     } else {
                         console.warn("⚠️ API Status: UNKNOWN RESPONSE", json);
                     }
-                } catch (e) {
+                } catch {
                     console.error("❌ API Response: INVALID JSON");
                 }
                 resolve();

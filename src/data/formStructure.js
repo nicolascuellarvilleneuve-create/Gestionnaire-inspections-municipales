@@ -91,10 +91,10 @@ export const FORM_SECTIONS = [
         id: 'marges_verifications',
         title: "MARGES (ZONAGE)",
         fields: [
-            { id: 'marge_avant', label: "Marge avant (m)", type: "measurement", normField: "margeAvant" },
-            { id: 'marge_arriere', label: "Marge arrière (m)", type: "measurement", normField: "margeArriere" },
-            { id: 'marge_laterale', label: "Marge latérale (m)", type: "measurement", normField: "margeLaterale" },
-            { id: 'marge_laterale_combinee', label: "Marge latérale combinée (m)", type: "measurement", normField: "margeLateraleCombinee" },
+            { id: 'marge_avant', label: "Marge avant (m)", type: "measurement", normField: "marge_avant" },
+            { id: 'marge_arriere', label: "Marge arrière (m)", type: "measurement", normField: "marge_arriere" },
+            { id: 'marge_laterale', label: "Marge latérale (m)", type: "measurement", normField: "marge_laterale" },
+            { id: 'marge_laterale_combinee', label: "Marge latérale combinée (m)", type: "measurement", normField: "marge_laterale_combinee" },
         ]
     },
     {

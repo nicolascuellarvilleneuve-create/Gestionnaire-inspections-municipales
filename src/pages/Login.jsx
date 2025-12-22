@@ -8,6 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [showLegal, setShowLegal] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,7 +41,7 @@ const Login = () => {
                         <ShieldCheck size={32} className="text-white" />
                     </div>
                     <h1 className="text-3xl font-extrabold text-white tracking-tight mb-1">
-                        URBOPS
+                        Urbk
                     </h1>
                     <p className="text-slate-400 font-medium text-sm">
                         Système de Gestion Municipale Sécurisé
@@ -109,10 +110,58 @@ const Login = () => {
 
                 </form>
 
-                <div className="mt-8 text-center text-xs text-slate-600">
-                    &copy; 2025 Urbops Inc. Tous droits réservés.
+                <div className="mt-8 text-center space-y-2">
+                    <button
+                        onClick={() => setShowLegal(true)}
+                        className="text-xs text-slate-500 hover:text-blue-400 underline transition-colors"
+                    >
+                        Conditions d'utilisation / Avis de non responsabilité
+                    </button>
+                    <div className="text-xs text-slate-600">
+                        &copy; 2025 Urbk Inc. Tous droits réservés.
+                    </div>
                 </div>
             </div>
+
+            {/* Legal Modal */}
+            {showLegal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                    <div className="bg-white text-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative animate-in fade-in zoom-in duration-300">
+                        <h2 className="text-xl font-bold mb-4 text-slate-900">Avis de non responsabilité et Conditions d'utilisation</h2>
+
+                        <div className="space-y-4 text-sm leading-relaxed text-slate-600">
+                            <div>
+                                <h3 className="font-bold text-slate-800 mb-1">1. Nature de l'outil</h3>
+                                <p>L'application <strong>Urbk</strong> est un outil technologique conçu pour faciliter la gestion des données urbaines et le traitement des règlements de zonage (tels que le RPT, le COS et le CES). Il s'agit d'un système de soutien à la décision destiné à optimiser l'efficience réglementaire et ne constitue en aucun cas un avis professionnel.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-slate-800 mb-1">2. Absence de prestation de services professionnels</h3>
+                                <p>L'utilisation de cet outil, y compris ses fonctions de checklist d'inspection basées sur les règlements municipaux, ne remplace pas le jugement, l'analyse ou la signature d'un urbaniste certifié membre de l'O.U.Q. L'initiateur du projet ne détient pas le titre d'urbaniste au sens du Code des professions du Québec et n'émet aucune recommandation officielle au nom de la profession.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-slate-800 mb-1">3. Exactitude des données et vérification</h3>
+                                <p>Bien que l'outil soit conçu pour refléter les exigences de la Loi sur l'aménagement et l'urbanisme (LAU), l'utilisateur a la responsabilité finale de valider l'exactitude des calculs et des informations générées par l'application auprès des instances municipales officielles.</p>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold text-slate-800 mb-1">4. Limitation de responsabilité</h3>
+                                <p>Le développeur ne pourra être tenu responsable de toute erreur matérielle, omission ou conséquence financière découlant d'une interprétation erronée des règlements par l'outil ou d'une mauvaise utilisation des données par l'utilisateur final.</p>
+                            </div>
+                        </div>
+
+                        <div className="mt-8 flex justify-end">
+                            <button
+                                onClick={() => setShowLegal(false)}
+                                className="px-6 py-2 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-colors"
+                            >
+                                J'ai compris
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

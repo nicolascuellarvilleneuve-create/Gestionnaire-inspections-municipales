@@ -3,7 +3,7 @@
 const FormData = require('form-data');
 const fs = require('fs');
 const path = require('path');
-const { Client } = require('pg');
+const { } = require('pg');
 require('dotenv').config();
 
 // Create a dummy PDF for testing if needed
@@ -43,8 +43,8 @@ async function runTest() {
             console.log("[FAIL] Login failed (" + loginRes.status + ")");
             // Proceeding might fail if protected
         }
-    } catch (e) {
-        console.log("[FAIL] Login error:", e.message);
+    } catch {
+        console.log("[FAIL] Login error");
     }
 
     // 2. Upload PDF (Session Start)

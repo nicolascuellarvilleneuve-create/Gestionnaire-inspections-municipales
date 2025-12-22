@@ -70,7 +70,7 @@ const AdminPanel = () => {
     return (
         <div className="max-w-6xl mx-auto p-8">
             <h1 className="text-3xl font-bold text-slate-800 mb-8 flex items-center">
-                <Shield className="mr-3 text-blue-600" /> Administration Urbops
+                <Shield className="mr-3 text-blue-600" /> Administration Urbk
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -1,0 +1,8806 @@
+{
+  "100": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "101": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "102": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "103": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "104": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "105": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "106": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "107": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-f",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "9.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "108": {
+    "dominante": "REC",
+    "margeAvant": "9.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "109": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "110": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "111": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-f",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "9.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "112": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "114": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "115": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "116": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "117": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "118": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "119": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "120": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "7.6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "121": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "122": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "123": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "124": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "125": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "126": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "127": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "128": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "130": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "131": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "132": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "200": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "15",
+    "margeLateraleCombinee": "30"
+  },
+  "201": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "202": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "203": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "204": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "205": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "206": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "207": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "208": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "209": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "211": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "212": {
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "213": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "214": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "215": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "216": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "217": {
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "218": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "219": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "220": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "221": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "222": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "223": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ]
+  },
+  "224": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "226": {
+    "usages": [
+      {
+        "code": "MIX-b",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "10.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "227": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "228": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "229": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "230": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "232": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "10",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "234": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "235": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "236": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "237": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "238": {
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "15",
+    "margeLateraleCombinee": "30"
+  },
+  "239": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-f",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "10.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "240": {
+    "dominante": "P"
+  },
+  "241": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "3",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "242": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "243": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "244": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "10.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "245": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "246": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "247": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "248": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "300": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "301": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "302": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "303": {
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "304": {
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "305": {
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "306": {
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "307": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.6",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "308": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "309": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "310": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "311": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "312": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "313": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "314": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "315": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "316": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "317": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "318": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "319": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "320": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "321": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "322": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "8",
+    "margeArriere": "20",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "324": {
+    "margeAvant": "10",
+    "margeArriere": "10",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "325": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "326": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "327": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "3.5",
+    "margeArriere": "6",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "328": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "4.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "329": {
+    "margeAvant": "10",
+    "margeArriere": "10",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "330": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4.5",
+    "margeArriere": "4",
+    "margeLaterale": "1",
+    "margeLateraleCombinee": "4"
+  },
+  "331": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "332": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4.25",
+    "margeArriere": "4",
+    "margeLaterale": "1.5",
+    "margeLateraleCombinee": "4.5"
+  },
+  "333": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "334": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "2.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "335": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "336": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "337": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "338": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.6",
+    "margeArriere": "7.5",
+    "margeLaterale": "5",
+    "margeLateraleCombinee": "10"
+  },
+  "339": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "340": {
+    "margeAvant": "8",
+    "margeArriere": "23",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "341": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "342": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4.3",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "343": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "3",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "344": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "2.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "345": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "20",
+    "margeLaterale": "5",
+    "margeLateraleCombinee": "10"
+  },
+  "346": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "347": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "3",
+    "margeArriere": "4.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "348": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "2",
+    "margeArriere": "4.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "349": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "350": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "351": {
+    "usages": [
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "352": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "353": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "10",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "354": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "20",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "355": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "356": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "20",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "357": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "358": {
+    "margeAvant": "7.5",
+    "margeArriere": "20",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "359": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "360": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "361": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "362": {
+    "usages": [
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "3.7",
+    "margeLateraleCombinee": "7.4"
+  },
+  "363": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4.25",
+    "margeArriere": "4",
+    "margeLaterale": "1.5",
+    "margeLateraleCombinee": "4.5"
+  },
+  "364": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "365": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "366": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "367": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "368": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "369": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "370": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "371": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "372": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "373": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "374": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "375": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "376": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "377": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "378": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "379": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "380": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "10",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "381": {
+    "margeAvant": "10",
+    "margeArriere": "10",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "382": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "10",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "383": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "10",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "384": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "10",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "394": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "395": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6",
+    "dominante": "P"
+  },
+  "396": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "397": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "n/a",
+    "margeArriere": "n/a",
+    "margeLaterale": "n/a",
+    "margeLateraleCombinee": "n/a"
+  },
+  "400": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "401": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "402": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "403": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "404": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "405": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "406": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "407": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "408": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "409": {
+    "dominante": "REC",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "5",
+    "margeLateraleCombinee": "10"
+  },
+  "410": {
+    "dominante": "P",
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "411": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "5",
+    "margeLateraleCombinee": "10"
+  },
+  "412": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "413": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "414": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "415": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "416": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "417": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "418": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "419": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "420": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-f",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "9.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "421": {
+    "margeAvant": "9.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "422": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-f",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "9.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "423": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "424": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "425": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "426": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "427": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "428": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "429": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "430": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6",
+    "dominante": "C"
+  },
+  "431": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "432": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "433": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "434": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "435": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-b",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "436": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "437": {
+    "margeAvant": "10",
+    "margeArriere": "20",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "438": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "439": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "440": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "441": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "442": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "443": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "444": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "445": {
+    "usages": [
+      {
+        "code": "MIX-b",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "446": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "447": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "448": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "449": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "500": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "501": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "502": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "503": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "504": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "505": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "20",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "506": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "9",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "507": {
+    "margeAvant": "6",
+    "margeArriere": "9",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "508": {
+    "margeAvant": "10",
+    "margeArriere": "20",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "509": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "510": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "9",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "511": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "9",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "512": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "9",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "513": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "9",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "514": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "9",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "515": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "516": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "517": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "518": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "519": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "520": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "521": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "522": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "523": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "524": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "525": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "526": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "527": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "528": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "529": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "600": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "16"
+  },
+  "601": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "602": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "603": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "604": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "605": {
+    "usages": [
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "606": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "607": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "608": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "609": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "610": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "5",
+    "margeLateraleCombinee": "10"
+  },
+  "611": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "612": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "613": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "614": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "615": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "616": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "617": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "618": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "619": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "620": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "621": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "622": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "623": {
+    "dominante": "P",
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "624": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "625": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "626": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "627": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "628": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "629": {
+    "margeAvant": "15",
+    "margeArriere": "10",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "630": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "631": {
+    "dominante": "Ag",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "632": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "I-c",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "15",
+    "margeLaterale": "15",
+    "margeLateraleCombinee": "30"
+  },
+  "633": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "I-c",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "15",
+    "margeLaterale": "15",
+    "margeLateraleCombinee": "30"
+  },
+  "634": {
+    "margeAvant": "10",
+    "margeArriere": "20",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "635": {
+    "margeAvant": "10",
+    "margeArriere": "10",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "636": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "637": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "638": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "639": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "640": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "641": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "642": {
+    "dominante": "P",
+    "margeAvant": "20",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "643": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "644": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "645": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "646": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "647": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "648": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "649": {
+    "usages": [
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "650": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "651": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "652": {
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "653": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "654": {
+    "usages": [
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "655": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "657": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "658": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "659": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "660": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "661": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "662": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "663": {
+    "usages": [
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "664": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "665": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "6",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "666": {
+    "usages": [
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "667": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "668": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "669": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "670": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "671": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "672": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "673": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "674": {
+    "usages": [
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "675": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "676": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "677": {
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "15",
+    "margeLateraleCombinee": "30"
+  },
+  "678": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "679": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "680": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "681": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "682": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "3",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "683": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "684": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "685": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "686": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "6",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "687": {
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "12",
+    "dominante": "C"
+  },
+  "688": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "7.5",
+    "margeArriere": "10",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "689": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "690": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "691": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "692": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "693": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "694": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "695": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "696": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4.25",
+    "margeArriere": "4",
+    "margeLaterale": "1.5",
+    "margeLateraleCombinee": "4.5"
+  },
+  "697": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "5",
+    "margeArriere": "5",
+    "margeLaterale": "1",
+    "margeLateraleCombinee": "2.5"
+  },
+  "699": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "10"
+  },
+  "700": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "701": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "16"
+  },
+  "702": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "703": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "2",
+    "margeArriere": "2",
+    "margeLaterale": "1",
+    "margeLateraleCombinee": "4.5"
+  },
+  "704": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "705": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "706": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "707": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "708": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "709": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "710": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "711": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3.5",
+    "margeLateraleCombinee": "7"
+  },
+  "712": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "713": {
+    "usages": [
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "714": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "715": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "716": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "717": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "718": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "719": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "720": {
+    "usages": [
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "721": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "722": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "723": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-f",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "3"
+  },
+  "724": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "725": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "16"
+  },
+  "726": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "727": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "728": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "729": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "730": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "731": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "732": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "733": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "734": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "735": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "736": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "737": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "738": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "739": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "740": {
+    "usages": [
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-f",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "741": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "742": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "15",
+    "margeLateraleCombinee": "30"
+  },
+  "743": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "744": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "7"
+  },
+  "745": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "746": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "747": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "748": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "749": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "750": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "751": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "752": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "753": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "754": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "5",
+    "margeArriere": "2",
+    "margeLaterale": "1",
+    "margeLateraleCombinee": "5"
+  },
+  "755": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "5",
+    "margeArriere": "2",
+    "margeLaterale": "1",
+    "margeLateraleCombinee": "5"
+  },
+  "756": {
+    "usages": [
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "5",
+    "margeArriere": "2",
+    "margeLaterale": "1",
+    "margeLateraleCombinee": "5"
+  },
+  "757": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "758": {
+    "usages": [
+      {
+        "code": "MIX-b",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "759": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "760": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "761": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "762": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "763": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "764": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0.75",
+    "margeLateraleCombinee": "3.5"
+  },
+  "765": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "766": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3.5",
+    "margeLateraleCombinee": "7"
+  },
+  "767": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3.5",
+    "margeLateraleCombinee": "7"
+  },
+  "768": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "769": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "770": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "771": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "772": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "773": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "774": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "775": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "776": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "777": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "778": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "779": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "780": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "781": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "782": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "783": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "784": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "785": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "786": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "787": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "788": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "789": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "790": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "791": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "792": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "793": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "794": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "795": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "796": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "797": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "798": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "799": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "800": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "801": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "1.4",
+    "margeLateraleCombinee": "4.4"
+  },
+  "802": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "803": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "804": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "805": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "10",
+    "margeLaterale": "5",
+    "margeLateraleCombinee": "10"
+  },
+  "806": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "807": {
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "808": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "809": {
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "810": {
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "811": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "4.5",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "812": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "813": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "3",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "814": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "815": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "816": {
+    "usages": [
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "817": {
+    "usages": [
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "818": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "819": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "820": {
+    "usages": [
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "821": {
+    "usages": [
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "822": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "823": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-f",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-m",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "824": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "825": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "826": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "827": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "828": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "829": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "2",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "830": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "831": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "5",
+    "margeArriere": "6",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "832": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "833": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "834": {
+    "usages": [
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "835": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "836": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "837": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "838": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "839": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "840": {
+    "usages": [
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "841": {
+    "usages": [
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "6",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "842": {
+    "usages": [
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "6",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "843": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "844": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "845": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "846": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "847": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "848": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "849": {
+    "usages": [
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "850": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "851": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "852": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "853": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "854": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "855": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "856": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "857": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "858": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "859": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "4"
+  },
+  "860": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "861": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "0",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "862": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4.5",
+    "margeLateraleCombinee": "9"
+  },
+  "863": {
+    "usages": [
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "3",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "864": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "865": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "866": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "867": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "868": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "869": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "870": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "871": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "872": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "873": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "874": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "875": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "876": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "877": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "878": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "879": {
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "880": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "881": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "882": {
+    "usages": [
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-g",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-h",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "6",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "883": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "884": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-d",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "885": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "886": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "887": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "888": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "889": {
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "890": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "891": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "10"
+  },
+  "892": {
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "10"
+  },
+  "893": {
+    "usages": [
+      {
+        "code": "C-d",
+        "group": "COMMERCE ET"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "6",
+    "margeLaterale": "12",
+    "margeLateraleCombinee": "24"
+  },
+  "894": {
+    "usages": [
+      {
+        "code": "I-b",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "6",
+    "margeLaterale": "12",
+    "margeLateraleCombinee": "24"
+  },
+  "895": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "20",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "896": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "12",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "10"
+  },
+  "897": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "898": {
+    "usages": [
+      {
+        "code": "I-e",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "I-f",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "9.25",
+    "margeArriere": "5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "899": {
+    "usages": [
+      {
+        "code": "I-e",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "I-f",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "900": {
+    "usages": [
+      {
+        "code": "I-e",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "0",
+    "margeArriere": "0",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "901": {
+    "usages": [
+      {
+        "code": "I-e",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "I-f",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "902": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "903": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "904": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "905": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "906": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "907": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "908": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "909": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "910": {
+    "dominante": "P",
+    "margeAvant": "20",
+    "margeArriere": "20",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "911": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "912": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "913": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "914": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "915": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "916": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "917": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "918": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "919": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "920": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "921": {
+    "dominante": "P",
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "922": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "923": {
+    "dominante": "P",
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "924": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "925": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "926": {
+    "dominante": "P",
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "927": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "928": {
+    "dominante": "RN",
+    "usages": [
+      {
+        "code": "I-d",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "929": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "930": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "931": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "932": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "933": {
+    "dominante": "P",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "934": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "0"
+  },
+  "935": {
+    "margeAvant": "4",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "936": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "937": {
+    "dominante": "P",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "20",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "938": {
+    "dominante": "RN",
+    "margeAvant": "-",
+    "margeArriere": "-",
+    "margeLaterale": "-",
+    "margeLateraleCombinee": "-"
+  },
+  "939": {
+    "usages": [
+      {
+        "code": "I-e",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "I-f",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "940": {
+    "margeAvant": "25",
+    "margeArriere": "10",
+    "margeLaterale": "10",
+    "margeLateraleCombinee": "20"
+  },
+  "941": {
+    "dominante": "P"
+  },
+  "942": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "9",
+    "margeArriere": "15",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "943": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "944": {
+    "usages": [
+      {
+        "code": "C-e",
+        "group": "COMMERCE ET"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "945": {
+    "usages": [
+      {
+        "code": "I-e",
+        "group": "INDUSTRIE"
+      },
+      {
+        "code": "I-f",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "946": {
+    "usages": [
+      {
+        "code": "I-e",
+        "group": "INDUSTRIE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "7.5",
+    "margeLaterale": "6",
+    "margeLateraleCombinee": "12"
+  },
+  "947": {
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ]
+  },
+  "950": {
+    "usages": [
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "951": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "6"
+  },
+  "953": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "3"
+  },
+  "954": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "955": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "3"
+  },
+  "956": {
+    "usages": [
+      {
+        "code": "H-b",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "2",
+    "margeLateraleCombinee": "5"
+  },
+  "957": {
+    "usages": [
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      },
+      {
+        "code": "ET",
+        "group": "COMMERCE"
+      },
+      {
+        "code": "C-c",
+        "group": "COMMERCE"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE"
+      },
+      {
+        "code": "MIX-c",
+        "group": "MIXTE"
+      }
+    ],
+    "margeAvant": "15",
+    "margeArriere": "15",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "16"
+  },
+  "958": {
+    "usages": [
+      {
+        "code": "H-c",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-e",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-j",
+        "group": "HABITATION"
+      },
+      {
+        "code": "H-k",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "3",
+    "margeLateraleCombinee": "6"
+  },
+  "961": {
+    "usages": [
+      {
+        "code": "ET",
+        "group": "COMMERCE"
+      },
+      {
+        "code": "C-d",
+        "group": "COMMERCE"
+      },
+      {
+        "code": "C-f",
+        "group": "COMMERCE"
+      },
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ],
+    "margeAvant": "1510",
+    "margeArriere": "7.515",
+    "margeLaterale": "64",
+    "margeLateraleCombinee": "128",
+    "dominante": "REC"
+  },
+  "962": {
+    "usages": [
+      {
+        "code": "H-n",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "10",
+    "margeArriere": "15",
+    "margeLaterale": "4",
+    "margeLateraleCombinee": "8"
+  },
+  "963": {
+    "dominante": "REC",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ]
+  },
+  "964": {
+    "dominante": "REC",
+    "usages": [
+      {
+        "code": "REC-b",
+        "group": "RÉCRÉATION"
+      }
+    ]
+  },
+  "965": {
+    "margeAvant": "10",
+    "margeArriere": "7.5",
+    "margeLaterale": "8",
+    "margeLateraleCombinee": "20"
+  },
+  "966": {
+    "usages": [
+      {
+        "code": "H-i",
+        "group": "HABITATION"
+      }
+    ],
+    "margeAvant": "6",
+    "margeArriere": "7.5",
+    "margeLaterale": "0",
+    "margeLateraleCombinee": "3"
+  }
+}

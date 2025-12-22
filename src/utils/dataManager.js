@@ -1,5 +1,7 @@
 
-import * as XLSX from 'xlsx';
+
+// Removed static import
+// import * as XLSX from 'xlsx';
 
 export const exportFullDatabase = (inspections) => {
     const dataStr = JSON.stringify(inspections);
@@ -14,7 +16,10 @@ export const exportFullDatabase = (inspections) => {
     document.body.removeChild(a);
 };
 
-export const exportToExcel = (inspections) => {
+export const exportToExcel = async (inspections) => {
+    // Dynamic import to save ~300KB+ from initial bundle
+    const XLSX = await import('xlsx');
+
     const flattenedData = inspections.map(insp => ({
         ID: insp.id,
         Date: insp.date,

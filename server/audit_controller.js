@@ -2,7 +2,7 @@
 const pdf = require('pdf-parse');
 const proj4 = require('proj4');
 const { Client } = require('pg');
-const multer = require('multer');
+// const multer = require('multer');
 
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '.env') });

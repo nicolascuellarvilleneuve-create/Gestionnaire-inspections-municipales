@@ -101,8 +101,8 @@ const PlanAuditPanel = ({ onProjectGhost, onAuditComplete }) => {
             }
             setStatus('SUCCESS');
 
-        } catch (e) {
-            setError(e.message);
+        } catch {
+            alert("Erreur lors de l'analyse du plan.");
             setStatus('REVIEW');
         }
     };
@@ -149,14 +149,14 @@ const PlanAuditPanel = ({ onProjectGhost, onAuditComplete }) => {
                         )}
 
                         <button
-                            onClick={(e) => {
+                            onClick={() => {
                                 console.log("Analyze Clicked");
                                 handleAnalyze();
                             }}
                             disabled={!file || status === 'UPLOADING'}
                             className={`w-full py-2.5 rounded-lg font-bold text-sm flex items-center justify-center transition-all ${!file || status === 'UPLOADING'
-                                    ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                                    : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg'
+                                ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                                : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg'
                                 }`}
                         >
                             {status === 'UPLOADING' ? (

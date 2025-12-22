@@ -955,10 +955,10 @@ const InspectionGrid = ({ onSave, initialData }) => {
 
                                                         {selectedZoneNorms && (
                                                             <div className="mt-3 bg-blue-50 border border-blue-100 rounded-lg p-3 text-sm text-blue-800 grid grid-cols-2 gap-2">
-                                                                <div><span className="font-semibold">Avant:</span> {selectedZoneNorms.margeAvant}m</div>
-                                                                <div><span className="font-semibold">Arrière:</span> {selectedZoneNorms.margeArriere}m</div>
-                                                                <div><span className="font-semibold">Latérale:</span> {selectedZoneNorms.margeLaterale}m</div>
-                                                                <div><span className="font-semibold">Lat. Comb:</span> {selectedZoneNorms.margeLateraleCombinee}m</div>
+                                                                <div><span className="font-semibold">Avant:</span> {selectedZoneNorms.marge_avant}m</div>
+                                                                <div><span className="font-semibold">Arrière:</span> {selectedZoneNorms.marge_arriere}m</div>
+                                                                <div><span className="font-semibold">Latérale:</span> {selectedZoneNorms.marge_laterale}m</div>
+                                                                <div><span className="font-semibold">Lat. Comb:</span> {selectedZoneNorms.marge_laterale_combinee}m</div>
                                                             </div>
                                                         )}
                                                     </div>

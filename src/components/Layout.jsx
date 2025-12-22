@@ -12,7 +12,7 @@ const Layout = ({ children, activeTab, setActiveTab, user, onLogout }) => {
                             <FileText className="text-white" size={24} />
                         </div>
                         <div>
-                            <span className="text-lg font-bold tracking-tight block leading-none">GIM</span>
+                            <span className="text-lg font-bold tracking-tight block leading-none">Urbk</span>
                             <span className="text-xs text-slate-400 font-medium">Urbanisme</span>
                         </div>
                     </div>
