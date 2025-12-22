@@ -27,6 +27,10 @@
         "group": "HABITATION"
       },
       {
+        "code": "H-a",
+        "group": "HABITATION"
+      },
+      {
         "code": "REC-b",
         "group": "RÉCRÉATION"
       }

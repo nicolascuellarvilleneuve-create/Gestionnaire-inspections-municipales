@@ -1,6 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { REGLEMENTS, STORAGE_DEFINITIONS } from '../data/mockData';
+import { STORAGE_DEFINITIONS } from '../data/mockData';
+import zoningData from '../data/zoningData.json'; // DIRECT IMPORT
+import { USAGE_DEFINITIONS } from '../data/usageDefinitions';
+const REGLEMENTS = zoningData;
+
 import { FORM_SECTIONS } from '../data/formStructure';
 import { CNB_OCCUPANT_LOAD_TABLE } from '../data/fireSafetyData';
 import { PARKING_RULES } from '../data/parkingData';
@@ -36,6 +40,20 @@ const InspectionGrid = ({ onSave, initialData }) => {
     });
 
     const [formData, setFormData] = useState(initialFormState);
+    const [selectedGroup, setSelectedGroup] = useState('ALL'); // For Zone Filtering
+
+    const USAGE_GROUPS = [
+        { id: 'ALL', label: 'Tous' },
+        { id: 'HABITATION', label: 'Habitation' },
+        { id: 'COMMERCE', label: 'Commerce' },
+        { id: 'INDUSTRIE', label: 'Industrie' },
+        { id: 'PUBLIQUE', label: 'Public' },
+        { id: 'RÉCRÉATION', label: 'Récréation' },
+        { id: 'AGRICOLE', label: 'Agricole' },
+        { id: 'RESS. NAT.', label: 'Ress. Nat.' },
+        { id: 'CONSERVATION', label: 'Conservation' },
+        { id: 'MIXTE', label: 'Mixte' }
+    ];
 
     // Initial Data Pre-fill (From Map Selection OR Edit Mode)
     useEffect(() => {
@@ -941,24 +959,94 @@ const InspectionGrid = ({ onSave, initialData }) => {
                                                 return (
                                                     <div key={field.id} className={field.width === 'full' ? 'md:col-span-2' : ''}>
                                                         <label className="block text-sm font-semibold text-slate-700 mb-2">{field.label}</label>
+
+                                                        {/* GROUP TABS */}
+                                                        <div className="flex flex-wrap gap-2 mb-3">
+                                                            {USAGE_GROUPS.map(group => (
+                                                                <button
+                                                                    key={group.id}
+                                                                    type="button"
+                                                                    onClick={() => setSelectedGroup(group.id)}
+                                                                    className={`px-3 py-1 text-xs font-bold rounded-full border transition-all ${selectedGroup === group.id
+                                                                            ? 'bg-blue-600 text-white border-blue-600 shadow-md'
+                                                                            : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-100'
+                                                                        }`}
+                                                                >
+                                                                    {group.label}
+                                                                </button>
+                                                            ))}
+                                                        </div>
+
                                                         <select
                                                             name={field.id}
                                                             value={formData[field.id] || ''}
                                                             onChange={handleChange}
                                                             className="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none font-medium"
                                                         >
-                                                            <option value="">Sélectionner...</option>
-                                                            {REGLEMENTS.map(zone => (
-                                                                <option key={zone.zone} value={zone.zone}>{zone.zone}</option>
-                                                            ))}
+                                                            <option value="">Sélectionner une zone...</option>
+                                                            {[...REGLEMENTS]
+                                                                .filter(z => {
+                                                                    if (selectedGroup === 'ALL') return true;
+                                                                    // Check if ANY usage in the zone matches the group (Or if Dominante matches?)
+                                                                    // User requested "Tabs select the group".
+                                                                    // A zone can have multiple usages.
+                                                                    // But usually associated with Dominante?
+                                                                    // Let's filter by: Does this zone have AT LEAST ONE usage in this Group?
+                                                                    // OR check specific logic for Mixte?
+
+                                                                    // Logic: Zone has 'usages' array. Each usage has 'group'.
+                                                                    if (selectedGroup === 'MIXTE') {
+                                                                        // Check if zone has usages from multiple groups OR explicit 'Mixte' dominance?
+                                                                        // Actually zoningData usages have 'group' property like "HABITATION"
+                                                                        return z.usages?.some(u => u.group === 'MIXTE') || z.dominante?.startsWith('M') || z.dominante?.startsWith('X');
+                                                                    }
+                                                                    return z.usages?.some(u => u.group === selectedGroup);
+                                                                })
+                                                                .sort((a, b) => a.zone.localeCompare(b.zone, undefined, { numeric: true }))
+                                                                .map(zone => (
+                                                                    <option key={zone.zone} value={zone.zone}>
+                                                                        {zone.zone} {zone.dominante ? `- ${zone.dominante}` : ''}
+                                                                    </option>
+                                                                ))}
                                                         </select>
 
                                                         {selectedZoneNorms && (
-                                                            <div className="mt-3 bg-blue-50 border border-blue-100 rounded-lg p-3 text-sm text-blue-800 grid grid-cols-2 gap-2">
-                                                                <div><span className="font-semibold">Avant:</span> {selectedZoneNorms.marge_avant}m</div>
-                                                                <div><span className="font-semibold">Arrière:</span> {selectedZoneNorms.marge_arriere}m</div>
-                                                                <div><span className="font-semibold">Latérale:</span> {selectedZoneNorms.marge_laterale}m</div>
-                                                                <div><span className="font-semibold">Lat. Comb:</span> {selectedZoneNorms.marge_laterale_combinee}m</div>
+                                                            <div className="mt-4 space-y-4">
+                                                                {/* MARGINS BOX */}
+                                                                <div className="bg-blue-50 border border-blue-100 rounded-lg p-3 text-sm text-blue-800 grid grid-cols-2 gap-2">
+                                                                    <div><span className="font-semibold">Avant:</span> {selectedZoneNorms.marge_avant}m</div>
+                                                                    <div><span className="font-semibold">Arrière:</span> {selectedZoneNorms.marge_arriere}m</div>
+                                                                    <div><span className="font-semibold">Latérale:</span> {selectedZoneNorms.marge_laterale}m</div>
+                                                                    <div><span className="font-semibold">Lat. Comb:</span> {selectedZoneNorms.marge_laterale_combinee}m</div>
+                                                                </div>
+
+                                                                {/* USAGE DETAILS BOX */}
+                                                                <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
+                                                                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Usages Autorisés</h4>
+                                                                    <div className="space-y-3">
+                                                                        {/* Group usages by their Group Name */}
+                                                                        {Object.entries(
+                                                                            (selectedZoneNorms.usages || []).reduce((acc, u) => {
+                                                                                const g = u.group || 'AUTRE';
+                                                                                if (!acc[g]) acc[g] = [];
+                                                                                acc[g].push(u);
+                                                                                return acc;
+                                                                            }, {})
+                                                                        ).map(([groupName, usages]) => (
+                                                                            <div key={groupName}>
+                                                                                <div className="text-xs font-semibold text-blue-600 mb-1">{groupName}</div>
+                                                                                <ul className="text-sm text-slate-700 space-y-1">
+                                                                                    {usages.map((u, idx) => (
+                                                                                        <li key={idx} className="flex items-start">
+                                                                                            <span className="font-mono font-bold text-slate-900 min-w-[3rem]">{u.code}</span>
+                                                                                            <span className="text-slate-600">{USAGE_DEFINITIONS[u.code] || "Description manquante"}</span>
+                                                                                        </li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         )}
                                                     </div>

@@ -17,7 +17,7 @@ app.use(express.json()); // Understand JSON data
 // === KILLSWITCH / HEARTBEAT ===
 let lastHeartbeat = Date.now();
 // Check every 5 seconds
-const KILL_TIMEOUT = 10000; // 10 seconds without heartbeat = DEATH
+const KILL_TIMEOUT = 30000; // 30 seconds without heartbeat = DEATH
 
 setInterval(() => {
     const timeSinceLast = Date.now() - lastHeartbeat;
