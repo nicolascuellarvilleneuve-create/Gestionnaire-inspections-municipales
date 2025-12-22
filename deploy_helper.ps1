@@ -47,7 +47,8 @@ else {
     Write-Host "Erreur lors du déploiement." -ForegroundColor Red
 }
 
-Write-Host "Lancement de la version en ligne..." -ForegroundColor Cyan
-Start-Process "https://nicolascuellarvilleneuve-create.github.io/Gestionnaire-inspections-municipales/"
+Write-Host "Déploiement terminé." -ForegroundColor Green
+Write-Host "NOTE : La version en ligne ne peut pas se connecter au serveur local (Mixed Content)." -ForegroundColor Yellow
+Write-Host "Pour utiliser l'application, veuillez lancer : .\LANCER_APP.bat" -ForegroundColor Cyan
 
 Pause
